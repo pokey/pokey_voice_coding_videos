@@ -1,0 +1,128 @@
+stages:
+  react-component-and-fava-beans_reconcile:
+    cmd: voice-vid reconcile data/raw/react-component-and-fava-beans/index.toml >
+      data/interim/react-component-and-fava-beans/reconciled.jsonl
+    deps:
+    - data/raw/react-component-and-fava-beans/index.toml
+    - data/raw/react-component-and-fava-beans/recording-log
+    - data/raw/react-component-and-fava-beans/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/react-component-and-fava-beans/reconciled.jsonl
+  react-component-and-fava-beans_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
+    deps:
+    - data/interim/react-component-and-fava-beans/reconciled.jsonl
+    - data/raw/react-component-and-fava-beans/index.toml
+    - data/raw/react-component-and-fava-beans/recording-log
+    - data/raw/react-component-and-fava-beans/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
+  react-component-and-fava-beans_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/subtitles.srt
+    deps:
+    - data/interim/react-component-and-fava-beans/reconciled.jsonl
+    - data/raw/react-component-and-fava-beans/index.toml
+    - data/raw/react-component-and-fava-beans/recording-log
+    - data/raw/react-component-and-fava-beans/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/react-component-and-fava-beans/subtitles.srt
+  react-component-and-fava-beans_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/transcript.json
+    deps:
+    - data/interim/react-component-and-fava-beans/reconciled.jsonl
+    - data/raw/react-component-and-fava-beans/index.toml
+    - data/raw/react-component-and-fava-beans/recording-log
+    - data/raw/react-component-and-fava-beans/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/react-component-and-fava-beans/transcript.json
+  two-sum_reconcile:
+    cmd: voice-vid reconcile data/raw/two-sum/index.toml > data/interim/two-sum/reconciled.jsonl
+    deps:
+    - data/raw/two-sum/index.toml
+    - data/raw/two-sum/recording-log
+    - data/raw/two-sum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/two-sum/reconciled.jsonl
+  two-sum_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+      > data/processed/two-sum/subtitles.srt
+    deps:
+    - data/interim/two-sum/reconciled.jsonl
+    - data/raw/two-sum/index.toml
+    - data/raw/two-sum/recording-log
+    - data/raw/two-sum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum/subtitles.srt
+  two-sum_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+      > data/processed/two-sum/transcript.json
+    deps:
+    - data/interim/two-sum/reconciled.jsonl
+    - data/raw/two-sum/index.toml
+    - data/raw/two-sum/recording-log
+    - data/raw/two-sum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum/transcript.json
+  two-sum_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum/reconciled.jsonl
+      data/raw/two-sum/index.toml data/processed/two-sum/mark-highlights-timeline.xml
+    deps:
+    - data/interim/two-sum/reconciled.jsonl
+    - data/raw/two-sum/index.toml
+    - data/raw/two-sum/recording-log
+    - data/raw/two-sum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum/mark-highlights-timeline.xml
+  two-sum-explainer_reconcile:
+    cmd: voice-vid reconcile data/raw/two-sum-explainer/index.toml > data/interim/two-sum-explainer/reconciled.jsonl
+    deps:
+    - data/raw/two-sum-explainer/index.toml
+    - data/raw/two-sum-explainer/recording-log
+    - data/raw/two-sum-explainer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/two-sum-explainer/reconciled.jsonl
+  two-sum-explainer_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/subtitles.srt
+    deps:
+    - data/interim/two-sum-explainer/reconciled.jsonl
+    - data/raw/two-sum-explainer/index.toml
+    - data/raw/two-sum-explainer/recording-log
+    - data/raw/two-sum-explainer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum-explainer/subtitles.srt
+  two-sum-explainer_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/transcript.json
+    deps:
+    - data/interim/two-sum-explainer/reconciled.jsonl
+    - data/raw/two-sum-explainer/index.toml
+    - data/raw/two-sum-explainer/recording-log
+    - data/raw/two-sum-explainer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum-explainer/transcript.json
+  two-sum-explainer_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml data/processed/two-sum-explainer/mark-highlights-timeline.xml
+    deps:
+    - data/interim/two-sum-explainer/reconciled.jsonl
+    - data/raw/two-sum-explainer/index.toml
+    - data/raw/two-sum-explainer/recording-log
+    - data/raw/two-sum-explainer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/two-sum-explainer/mark-highlights-timeline.xml

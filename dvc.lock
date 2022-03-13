@@ -1,0 +1,279 @@
+schema: '2.0'
+stages:
+  react-component-and-fava-beans_reconcile:
+    cmd: voice-vid reconcile data/raw/react-component-and-fava-beans/index.toml >
+      data/interim/react-component-and-fava-beans/reconciled.jsonl
+    deps:
+    - path: data/raw/react-component-and-fava-beans/index.toml
+      md5: 9bc8b30ca71e2b4eadc84636a74c6746
+      size: 508
+    - path: data/raw/react-component-and-fava-beans/recording-log
+      md5: d29b8d1207abcb8f389582aa8e68cf9b.dir
+      size: 826585
+      nfiles: 84
+    - path: data/raw/react-component-and-fava-beans/timeline.xml
+      md5: 6c5480b96d0d6ef7253166b1fd49346e
+      size: 513001
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
+      md5: cf9f04c85abfb451e1d6df6631127a52
+      size: 49697
+  react-component-and-fava-beans_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
+      md5: cf9f04c85abfb451e1d6df6631127a52
+      size: 49697
+    - path: data/raw/react-component-and-fava-beans/index.toml
+      md5: 9bc8b30ca71e2b4eadc84636a74c6746
+      size: 508
+    - path: data/raw/react-component-and-fava-beans/recording-log
+      md5: d29b8d1207abcb8f389582aa8e68cf9b.dir
+      size: 826585
+      nfiles: 84
+    - path: data/raw/react-component-and-fava-beans/timeline.xml
+      md5: 6c5480b96d0d6ef7253166b1fd49346e
+      size: 513001
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
+      md5: 8051543baa063f142d119674e677262c
+      size: 361732
+  react-component-and-fava-beans_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/subtitles.srt
+    deps:
+    - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
+      md5: cf9f04c85abfb451e1d6df6631127a52
+      size: 49697
+    - path: data/raw/react-component-and-fava-beans/index.toml
+      md5: 9bc8b30ca71e2b4eadc84636a74c6746
+      size: 508
+    - path: data/raw/react-component-and-fava-beans/recording-log
+      md5: d29b8d1207abcb8f389582aa8e68cf9b.dir
+      size: 826585
+      nfiles: 84
+    - path: data/raw/react-component-and-fava-beans/timeline.xml
+      md5: 6c5480b96d0d6ef7253166b1fd49346e
+      size: 513001
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/react-component-and-fava-beans/subtitles.srt
+      md5: 13638766c96db69b91d4581195b94e4a
+      size: 9881
+  react-component-and-fava-beans_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+      data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/transcript.json
+    deps:
+    - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
+      md5: cf9f04c85abfb451e1d6df6631127a52
+      size: 49697
+    - path: data/raw/react-component-and-fava-beans/index.toml
+      md5: 9bc8b30ca71e2b4eadc84636a74c6746
+      size: 508
+    - path: data/raw/react-component-and-fava-beans/recording-log
+      md5: d29b8d1207abcb8f389582aa8e68cf9b.dir
+      size: 826585
+      nfiles: 84
+    - path: data/raw/react-component-and-fava-beans/timeline.xml
+      md5: 6c5480b96d0d6ef7253166b1fd49346e
+      size: 513001
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/react-component-and-fava-beans/transcript.json
+      md5: 7b9d123689c55cf8cfd4eef0e626cc8d
+      size: 125895
+  two-sum_reconcile:
+    cmd: voice-vid reconcile data/raw/two-sum/index.toml > data/interim/two-sum/reconciled.jsonl
+    deps:
+    - path: data/raw/two-sum/index.toml
+      md5: 50bea67173f2c9ce20c206a8d139ceb1
+      size: 293
+    - path: data/raw/two-sum/recording-log
+      md5: ea5ecf3a63604d34a888445d6d452752.dir
+      size: 4929843
+      nfiles: 38
+    - path: data/raw/two-sum/timeline.xml
+      md5: 582fcb4fc472026882b1a89b343df135
+      size: 110729
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/interim/two-sum/reconciled.jsonl
+      md5: 9d29dfd98bedac73beeb1af046ae97b8
+      size: 1599
+  two-sum_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+      > data/processed/two-sum/subtitles.srt
+    deps:
+    - path: data/interim/two-sum/reconciled.jsonl
+      md5: 9d29dfd98bedac73beeb1af046ae97b8
+      size: 1599
+    - path: data/raw/two-sum/index.toml
+      md5: 50bea67173f2c9ce20c206a8d139ceb1
+      size: 293
+    - path: data/raw/two-sum/recording-log
+      md5: ea5ecf3a63604d34a888445d6d452752.dir
+      size: 4929843
+      nfiles: 38
+    - path: data/raw/two-sum/timeline.xml
+      md5: 582fcb4fc472026882b1a89b343df135
+      size: 110729
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum/subtitles.srt
+      md5: 6b66dd92d726cc1b619345e8ffe065be
+      size: 567
+  two-sum_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+      > data/processed/two-sum/transcript.json
+    deps:
+    - path: data/interim/two-sum/reconciled.jsonl
+      md5: 9d29dfd98bedac73beeb1af046ae97b8
+      size: 1599
+    - path: data/raw/two-sum/index.toml
+      md5: 50bea67173f2c9ce20c206a8d139ceb1
+      size: 293
+    - path: data/raw/two-sum/recording-log
+      md5: ea5ecf3a63604d34a888445d6d452752.dir
+      size: 4929843
+      nfiles: 38
+    - path: data/raw/two-sum/timeline.xml
+      md5: 582fcb4fc472026882b1a89b343df135
+      size: 110729
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum/transcript.json
+      md5: 0b079ef018b044e107b53bce4d5880ff
+      size: 12242
+  two-sum_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum/reconciled.jsonl
+      data/raw/two-sum/index.toml data/processed/two-sum/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/two-sum/reconciled.jsonl
+      md5: 9d29dfd98bedac73beeb1af046ae97b8
+      size: 1599
+    - path: data/raw/two-sum/index.toml
+      md5: 50bea67173f2c9ce20c206a8d139ceb1
+      size: 293
+    - path: data/raw/two-sum/recording-log
+      md5: ea5ecf3a63604d34a888445d6d452752.dir
+      size: 4929843
+      nfiles: 38
+    - path: data/raw/two-sum/timeline.xml
+      md5: 582fcb4fc472026882b1a89b343df135
+      size: 110729
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum/mark-highlights-timeline.xml
+      md5: 24368fd7db4abee94ac080cafebb2517
+      size: 39710
+  two-sum-explainer_reconcile:
+    cmd: voice-vid reconcile data/raw/two-sum-explainer/index.toml > data/interim/two-sum-explainer/reconciled.jsonl
+    deps:
+    - path: data/raw/two-sum-explainer/index.toml
+      md5: b01eabb72a220e5a393e2c685e616c8e
+      size: 284
+    - path: data/raw/two-sum-explainer/recording-log
+      md5: 8b887cc57bd00359ec3dceb9f5078cb6.dir
+      size: 21189227
+      nfiles: 110
+    - path: data/raw/two-sum-explainer/timeline.xml
+      md5: 1ce58cc526e984d4f5192ce13ae86495
+      size: 56057
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/interim/two-sum-explainer/reconciled.jsonl
+      md5: fb007fda8fc8447b082755f1d65bde14
+      size: 9709
+  two-sum-explainer_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/subtitles.srt
+    deps:
+    - path: data/interim/two-sum-explainer/reconciled.jsonl
+      md5: fb007fda8fc8447b082755f1d65bde14
+      size: 9709
+    - path: data/raw/two-sum-explainer/index.toml
+      md5: b01eabb72a220e5a393e2c685e616c8e
+      size: 284
+    - path: data/raw/two-sum-explainer/recording-log
+      md5: 8b887cc57bd00359ec3dceb9f5078cb6.dir
+      size: 21189227
+      nfiles: 110
+    - path: data/raw/two-sum-explainer/timeline.xml
+      md5: 1ce58cc526e984d4f5192ce13ae86495
+      size: 56057
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum-explainer/subtitles.srt
+      md5: a8a11d0aab47111f30c5de0a1120bace
+      size: 1624
+  two-sum-explainer_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/transcript.json
+    deps:
+    - path: data/interim/two-sum-explainer/reconciled.jsonl
+      md5: fb007fda8fc8447b082755f1d65bde14
+      size: 9709
+    - path: data/raw/two-sum-explainer/index.toml
+      md5: b01eabb72a220e5a393e2c685e616c8e
+      size: 284
+    - path: data/raw/two-sum-explainer/recording-log
+      md5: 8b887cc57bd00359ec3dceb9f5078cb6.dir
+      size: 21189227
+      nfiles: 110
+    - path: data/raw/two-sum-explainer/timeline.xml
+      md5: 1ce58cc526e984d4f5192ce13ae86495
+      size: 56057
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum-explainer/transcript.json
+      md5: 9b5444dc68bd3f7dacc99ce85ef256b2
+      size: 17422
+  two-sum-explainer_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+      data/raw/two-sum-explainer/index.toml data/processed/two-sum-explainer/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/two-sum-explainer/reconciled.jsonl
+      md5: fb007fda8fc8447b082755f1d65bde14
+      size: 9709
+    - path: data/raw/two-sum-explainer/index.toml
+      md5: b01eabb72a220e5a393e2c685e616c8e
+      size: 284
+    - path: data/raw/two-sum-explainer/recording-log
+      md5: 8b887cc57bd00359ec3dceb9f5078cb6.dir
+      size: 21189227
+      nfiles: 110
+    - path: data/raw/two-sum-explainer/timeline.xml
+      md5: 1ce58cc526e984d4f5192ce13ae86495
+      size: 56057
+    - path: poetry.lock
+      md5: bf523e77fcb856582fdd2c6970acde27
+      size: 16704
+    outs:
+    - path: data/processed/two-sum-explainer/mark-highlights-timeline.xml
+      md5: 8b47259ad66a3182df7595e3955b4128
+      size: 82580
