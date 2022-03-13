@@ -15,18 +15,70 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+dev = [
+    "coverage[toml] (>=5.0.2)",
+    "hypothesis",
+    "pympler",
+    "pytest (>=4.3.0)",
+    "six",
+    "mypy",
+    "pytest-mypy-plugins",
+    "zope.interface",
+    "furo",
+    "sphinx",
+    "sphinx-notfound-page",
+    "pre-commit",
+    "cloudpickle",
+]
 docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "cloudpickle"]
+tests = [
+    "coverage[toml] (>=5.0.2)",
+    "hypothesis",
+    "pympler",
+    "pytest (>=4.3.0)",
+    "six",
+    "mypy",
+    "pytest-mypy-plugins",
+    "zope.interface",
+    "cloudpickle",
+]
+tests_no_zope = [
+    "coverage[toml] (>=5.0.2)",
+    "hypothesis",
+    "pympler",
+    "pytest (>=4.3.0)",
+    "six",
+    "mypy",
+    "pytest-mypy-plugins",
+    "cloudpickle",
+]
+
+[[package]]
+name = "click"
+version = "8.0.4"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+colorama = { version = "*", markers = "platform_system == \"Windows\"" }
 
 [[package]]
 name = "colorama"
 version = "0.4.4"
 description = "Cross-platform colored terminal text."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "giturlparse"
+version = "0.10.0"
+description = "A Git URL parsing module (supports parsing and rewriting)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "more-itertools"
@@ -35,6 +87,26 @@ description = "More routines for operating on iterables, beyond itertools"
 category = "dev"
 optional = false
 python-versions = ">=3.5"
+
+[[package]]
+name = "opentimelineio"
+version = "0.14.1"
+description = "Editorial interchange format and API"
+category = "main"
+optional = false
+python-versions = ">2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*, !=3.9.0"
+
+[package.dependencies]
+pyaaf2 = ">=1.4.0,<1.5.0"
+
+[package.extras]
+dev = [
+    "check-manifest",
+    "flake8 (>=3.5)",
+    "coverage (>=4.5)",
+    "urllib3 (>=1.24.3)",
+]
+view = ["PySide2 (>=5.11,<6.0)"]
 
 [[package]]
 name = "packaging"
@@ -67,6 +139,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "pyaaf2"
+version = "1.4.0"
+description = "A python module for reading and writing advanced authoring format files"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyparsing"
 version = "3.0.7"
 description = "Python parsing module"
@@ -78,6 +158,17 @@ python-versions = ">=3.6"
 diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
+name = "pyside2"
+version = "5.15.2.1"
+description = "Python bindings for the Qt cross-platform application and UI framework"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <3.11"
+
+[package.dependencies]
+shiboken2 = "5.15.2.1"
+
+[[package]]
 name = "pytest"
 version = "5.4.3"
 description = "pytest: simple powerful testing with Python"
@@ -86,9 +177,9 @@ optional = false
 python-versions = ">=3.5"
 
 [package.dependencies]
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
+atomicwrites = { version = ">=1.0", markers = "sys_platform == \"win32\"" }
 attrs = ">=17.4.0"
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
+colorama = { version = "*", markers = "sys_platform == \"win32\"" }
 more-itertools = ">=4.0.0"
 packaging = "*"
 pluggy = ">=0.12,<1.0"
@@ -97,7 +188,93 @@ wcwidth = "*"
 
 [package.extras]
 checkqa-mypy = ["mypy (==v0.761)"]
-testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
+testing = [
+    "argcomplete",
+    "hypothesis (>=3.56)",
+    "mock",
+    "nose",
+    "requests",
+    "xmlschema",
+]
+
+[[package]]
+name = "shellingham"
+version = "1.4.0"
+description = "Tool to Detect Surrounding Shell"
+category = "main"
+optional = false
+python-versions = "!=3.0,!=3.1,!=3.2,!=3.3,>=2.6"
+
+[[package]]
+name = "shiboken2"
+version = "5.15.2.1"
+description = "Python / C++ bindings helper module"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <3.11"
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "typer"
+version = "0.4.0"
+description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+click = ">=7.1.1,<9.0.0"
+colorama = { version = ">=0.4.3,<0.5.0", optional = true, markers = "extra == \"all\"" }
+shellingham = { version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"all\"" }
+
+[package.extras]
+all = ["colorama (>=0.4.3,<0.5.0)", "shellingham (>=1.3.0,<2.0.0)"]
+dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)"]
+doc = [
+    "mkdocs (>=1.1.2,<2.0.0)",
+    "mkdocs-material (>=5.4.0,<6.0.0)",
+    "markdown-include (>=0.5.1,<0.6.0)",
+]
+test = [
+    "shellingham (>=1.3.0,<2.0.0)",
+    "pytest (>=4.4.0,<5.4.0)",
+    "pytest-cov (>=2.10.0,<3.0.0)",
+    "coverage (>=5.2,<6.0)",
+    "pytest-xdist (>=1.32.0,<2.0.0)",
+    "pytest-sugar (>=0.9.4,<0.10.0)",
+    "mypy (==0.910)",
+    "black (>=19.10b0,<20.0b0)",
+    "isort (>=5.0.6,<6.0.0)",
+]
+
+[[package]]
+name = "voice-vid"
+version = "0.1.0"
+description = "Automatically generate transcripts and subtitles for voice coding videos."
+category = "main"
+optional = false
+python-versions = ">=3.10,<3.11"
+develop = false
+
+[package.dependencies]
+giturlparse = "^0.10.0"
+OpenTimelineIO = "^0.14.1"
+PySide2 = "^5.15.2"
+toml = "^0.10.2"
+typer = { version = "^0.4.0", extras = ["all"] }
+
+[package.source]
+type = "git"
+url = "git@github.com:pokey/voice_vid.git"
+reference = "main"
+resolved_reference = "079558a2246875fd651bdd7f5d7b76974dc9b3eb"
 
 [[package]]
 name = "wcwidth"
@@ -110,46 +287,111 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4d1de49710d78bd295469a572576efe3d5b96e6e8760458e870affe880e8d10e"
+content-hash = "18c8ee5091fc66002c1ce4281112e67645995f659e886d3bb89a4990dc954243"
 
 [metadata.files]
 atomicwrites = [
-    {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
-    {file = "atomicwrites-1.4.0.tar.gz", hash = "sha256:ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"},
+    { file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197" },
+    { file = "atomicwrites-1.4.0.tar.gz", hash = "sha256:ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a" },
 ]
 attrs = [
-    {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
-    {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
+    { file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4" },
+    { file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd" },
+]
+click = [
+    { file = "click-8.0.4-py3-none-any.whl", hash = "sha256:6a7a62563bbfabfda3a38f3023a1db4a35978c0abd76f6c9605ecd6554d6d9b1" },
+    { file = "click-8.0.4.tar.gz", hash = "sha256:8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb" },
 ]
 colorama = [
-    {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
-    {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
+    { file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2" },
+    { file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b" },
+]
+giturlparse = [
+    { file = "giturlparse-0.10.0-py2.py3-none-any.whl", hash = "sha256:04ba1a3a099c3093fa8d24a422913c6a9b2c2cd22bcffc939cf72e3e98f672d7" },
+    { file = "giturlparse-0.10.0.tar.gz", hash = "sha256:2595ab291d30717cda8474b874c9fd509f1b9802ad7f6968c36a45e4b13eb337" },
 ]
 more-itertools = [
-    {file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"},
-    {file = "more_itertools-8.12.0-py3-none-any.whl", hash = "sha256:43e6dd9942dffd72661a2c4ef383ad7da1e6a3e968a927ad7a6083ab410a688b"},
+    { file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064" },
+    { file = "more_itertools-8.12.0-py3-none-any.whl", hash = "sha256:43e6dd9942dffd72661a2c4ef383ad7da1e6a3e968a927ad7a6083ab410a688b" },
+]
+opentimelineio = [
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:d5466742d1de323e922965e64ca7099f6dd756774d5f8b404a11d6ec6e7c5fe0" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27m-manylinux2010_i686.whl", hash = "sha256:3f5187eb0cd8f607bfcc5c1d58ce878734975a0a6a91360a2605ad831198ed89" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27m-manylinux2010_x86_64.whl", hash = "sha256:a2b64bf817d3065f7302c748bcc1d5938971e157c42e67fcb4e5e3612358813b" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27m-win32.whl", hash = "sha256:4cde33ea83ba041332bae55474fc155219871396b82031dd54d3e857973805b6" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27m-win_amd64.whl", hash = "sha256:d5dc153867c688ad4f39cbac78eda069cfe4f17376d9444d202f8073efa6cbd4" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27mu-manylinux2010_i686.whl", hash = "sha256:e07390dd1e0f82e5a5880ef2d498cbcbf482b4e5bfb4b9026342578a2fad358d" },
+    { file = "OpenTimelineIO-0.14.1-cp27-cp27mu-manylinux2010_x86_64.whl", hash = "sha256:4c1c522df397536c7620d44e32302165a9ef9bbbf0de83a5a0621f0a75047cc9" },
+    { file = "OpenTimelineIO-0.14.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:e368a1d64366e3fdf1eadd10077a135833fdc893ff65f8dc43a91254cb7ee6fa" },
+    { file = "OpenTimelineIO-0.14.1-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:cf2cd94d11d0ae0fc78418cc0d17f2fe3bf85598b9b109f98b2301272a87bff5" },
+    { file = "OpenTimelineIO-0.14.1-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:7af41f43ef72fbf3c0ae2e47cabd7715eb348726c9e5e430ab36ce2357181cf4" },
+    { file = "OpenTimelineIO-0.14.1-cp37-cp37m-win32.whl", hash = "sha256:55dbb859d16535ba5dab8a66a78aef8db55f030d771b6e5b91e94241b6db65bd" },
+    { file = "OpenTimelineIO-0.14.1-cp37-cp37m-win_amd64.whl", hash = "sha256:08eaef8fbc423c25e94e189eb788c92c16916ae74d16ebcab34ba889e980c6ad" },
+    { file = "OpenTimelineIO-0.14.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:10b34a6997d6d6edb9b8a1c93718a1e90e8202d930559cdce2ad369e0473327f" },
+    { file = "OpenTimelineIO-0.14.1-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:c6b44986da8c7a64f8f549795279f0af05ec875a425d11600585dab0b3269ec2" },
+    { file = "OpenTimelineIO-0.14.1-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:45e1774d9f7215190a7c1e5b70dfc237f4a03b79b0539902d9ec8074707450f9" },
+    { file = "OpenTimelineIO-0.14.1-cp38-cp38-win32.whl", hash = "sha256:1ee0e72320309b8dedf0e2f40fc2b8d3dd2c854db0aba28a84a038d7177a1208" },
+    { file = "OpenTimelineIO-0.14.1-cp38-cp38-win_amd64.whl", hash = "sha256:bd58e9fdc765623e160ab3ec32e9199bcb3906a6f3c06cca7564fbb7c18d2d28" },
+    { file = "OpenTimelineIO-0.14.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:f8d6e15f793577de59cc01e49600898ab12dbdc260dbcba83936c00965f0090a" },
+    { file = "OpenTimelineIO-0.14.1-cp39-cp39-manylinux2010_i686.whl", hash = "sha256:50644c5e43076a3717b77645657545d0be19376ecb4c6f2e4103670052d726d4" },
+    { file = "OpenTimelineIO-0.14.1-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:a44f77fb5dbfd60d992ac2acc6782a7b0a26452db3a069425b8bd73b2f3bb336" },
+    { file = "OpenTimelineIO-0.14.1-cp39-cp39-win32.whl", hash = "sha256:63fb0d1258f490bcebf6325067db64a0f0dc405b8b905ee2bb625f04d04a8082" },
+    { file = "OpenTimelineIO-0.14.1-cp39-cp39-win_amd64.whl", hash = "sha256:8a303b2f3dfba542f588b227575f1967f7a9da854b34f620504e1ecb8d551f5f" },
+    { file = "OpenTimelineIO-0.14.1.tar.gz", hash = "sha256:0b9adc0fd303b978af120259d6b1d23e0623800615b4a3e2eb9f9fb2c70d5d13" },
 ]
 packaging = [
-    {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
-    {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
+    { file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522" },
+    { file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb" },
 ]
 pluggy = [
-    {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
-    {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
+    { file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d" },
+    { file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0" },
 ]
 py = [
-    {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
-    {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
+    { file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378" },
+    { file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719" },
+]
+pyaaf2 = [
+    { file = "pyaaf2-1.4.0.tar.gz", hash = "sha256:160d3c26c7cfef7176d0bdb0e55772156570435982c3abfa415e89639f76e71b" },
 ]
 pyparsing = [
-    {file = "pyparsing-3.0.7-py3-none-any.whl", hash = "sha256:a6c06a88f252e6c322f65faf8f418b16213b51bdfaece0524c1c1bc30c63c484"},
-    {file = "pyparsing-3.0.7.tar.gz", hash = "sha256:18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"},
+    { file = "pyparsing-3.0.7-py3-none-any.whl", hash = "sha256:a6c06a88f252e6c322f65faf8f418b16213b51bdfaece0524c1c1bc30c63c484" },
+    { file = "pyparsing-3.0.7.tar.gz", hash = "sha256:18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea" },
+]
+pyside2 = [
+    { file = "PySide2-5.15.2.1-5.15.2-cp27-cp27m-macosx_10_13_intel.whl", hash = "sha256:b5e1d92f26b0bbaefff67727ccbb2e1b577f2c0164b349b3d6e80febb4c5bde2" },
+    { file = "PySide2-5.15.2.1-5.15.2-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:235240b6ec8206d9fdf0232472c6ef3241783d480425e5b54796f06e39ed23da" },
+    { file = "PySide2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-abi3-macosx_10_13_intel.whl", hash = "sha256:a9e2e6bbcb5d2ebb421e46e72244a0f4fe0943b2288115f80a863aacc1de1f06" },
+    { file = "PySide2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-abi3-manylinux1_x86_64.whl", hash = "sha256:23886c6391ebd916e835fa1b5ae66938048504fd3a2934ae3189a96cd5ac0b46" },
+    { file = "PySide2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-none-win32.whl", hash = "sha256:439509e53cfe05abbf9a99422a2cbad086408b0f9bf5e6f642ff1b13b1f8b055" },
+    { file = "PySide2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-none-win_amd64.whl", hash = "sha256:af6b263fe63ba6dea7eaebae80aa7b291491fe66f4f0057c0aafe780cc83da9d" },
 ]
 pytest = [
-    {file = "pytest-5.4.3-py3-none-any.whl", hash = "sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1"},
-    {file = "pytest-5.4.3.tar.gz", hash = "sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8"},
+    { file = "pytest-5.4.3-py3-none-any.whl", hash = "sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1" },
+    { file = "pytest-5.4.3.tar.gz", hash = "sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8" },
 ]
+shellingham = [
+    { file = "shellingham-1.4.0-py2.py3-none-any.whl", hash = "sha256:536b67a0697f2e4af32ab176c00a50ac2899c5a05e0d8e2dadac8e58888283f9" },
+    { file = "shellingham-1.4.0.tar.gz", hash = "sha256:4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e" },
+]
+shiboken2 = [
+    { file = "shiboken2-5.15.2.1-5.15.2-cp27-cp27m-macosx_10_13_intel.whl", hash = "sha256:f890f5611ab8f48b88cfecb716da2ac55aef99e2923198cefcf781842888ea65" },
+    { file = "shiboken2-5.15.2.1-5.15.2-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:87079c07587859a525b9800d60b1be971338ce9b371d6ead81f15ee5a46d448b" },
+    { file = "shiboken2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-abi3-macosx_10_13_intel.whl", hash = "sha256:ffd3d0ec3d508e592d7ee3885d27fee1f279a49989f734eb130f46d9501273a9" },
+    { file = "shiboken2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-abi3-manylinux1_x86_64.whl", hash = "sha256:63debfcc531b6a2b4985aa9b71433d2ad3bac542acffc729cc0ecaa3854390c0" },
+    { file = "shiboken2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-none-win32.whl", hash = "sha256:eb0da44b6fa60c6bd317b8f219e500595e94e0322b33ec5b4e9f406bedaee555" },
+    { file = "shiboken2-5.15.2.1-5.15.2-cp35.cp36.cp37.cp38.cp39.cp310-none-win_amd64.whl", hash = "sha256:a0d0fdeb12b72c8af349b9642ccc67afd783dca449309f45e78cda50272fd6b7" },
+]
+toml = [
+    { file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b" },
+    { file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f" },
+]
+typer = [
+    { file = "typer-0.4.0-py3-none-any.whl", hash = "sha256:d81169725140423d072df464cad1ff25ee154ef381aaf5b8225352ea187ca338" },
+    { file = "typer-0.4.0.tar.gz", hash = "sha256:63c3aeab0549750ffe40da79a1b524f60e08a2cbc3126c520ebf2eeaf507f5dd" },
+]
+voice-vid = []
 wcwidth = [
-    {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
-    {file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"},
+    { file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784" },
+    { file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83" },
 ]
