@@ -15,8 +15,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
       md5: cf9f04c85abfb451e1d6df6631127a52
@@ -39,8 +39,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
       md5: 8051543baa063f142d119674e677262c
@@ -63,8 +63,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/react-component-and-fava-beans/subtitles.srt
       md5: 13638766c96db69b91d4581195b94e4a
@@ -87,12 +87,12 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/react-component-and-fava-beans/transcript.json
-      md5: f997626422180b90ca29d275a6f4611b
-      size: 125895
+      md5: ba75421ae0300df51ad0300f000d57e7
+      size: 140441
   two-sum_reconcile:
     cmd: voice-vid reconcile data/raw/two-sum/index.toml > data/interim/two-sum/reconciled.jsonl
     deps:
@@ -107,8 +107,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/interim/two-sum/reconciled.jsonl
       md5: 9d29dfd98bedac73beeb1af046ae97b8
@@ -131,8 +131,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum/subtitles.srt
       md5: 6b66dd92d726cc1b619345e8ffe065be
@@ -155,12 +155,12 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum/transcript.json
-      md5: 0b079ef018b044e107b53bce4d5880ff
-      size: 12242
+      md5: cbc5005257774af14401b643bf7d459e
+      size: 12700
   two-sum_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/two-sum/reconciled.jsonl
       data/raw/two-sum/index.toml data/processed/two-sum/mark-highlights-timeline.xml
@@ -179,8 +179,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum/mark-highlights-timeline.xml
       md5: 24368fd7db4abee94ac080cafebb2517
@@ -199,8 +199,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/interim/two-sum-explainer/reconciled.jsonl
       md5: fb007fda8fc8447b082755f1d65bde14
@@ -223,8 +223,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum-explainer/subtitles.srt
       md5: a8a11d0aab47111f30c5de0a1120bace
@@ -247,12 +247,12 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum-explainer/transcript.json
-      md5: 9b5444dc68bd3f7dacc99ce85ef256b2
-      size: 17422
+      md5: 762ffd2ac077fc6939c2824a9cf20123
+      size: 20235
   two-sum-explainer_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/two-sum-explainer/reconciled.jsonl
       data/raw/two-sum-explainer/index.toml data/processed/two-sum-explainer/mark-highlights-timeline.xml
@@ -271,9 +271,29 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: bf523e77fcb856582fdd2c6970acde27
-      size: 16704
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
     outs:
     - path: data/processed/two-sum-explainer/mark-highlights-timeline.xml
       md5: 8b47259ad66a3182df7595e3955b4128
       size: 82580
+  react-component-and-fava-beans_publish_transcript:
+    cmd: cp data/processed/react-component-and-fava-beans/transcript.json ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
+    deps:
+    - path: data/processed/react-component-and-fava-beans/transcript.json
+      md5: ba75421ae0300df51ad0300f000d57e7
+      size: 140441
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
+      md5: ba75421ae0300df51ad0300f000d57e7
+      size: 140441
+  two-sum_publish_transcript:
+    cmd: cp data/processed/two-sum/transcript.json ../pokeyrule.com/src/data/videos/two-sum.json
+    deps:
+    - path: data/processed/two-sum/transcript.json
+      md5: cbc5005257774af14401b643bf7d459e
+      size: 12700
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/two-sum.json
+      md5: cbc5005257774af14401b643bf7d459e
+      size: 12700

@@ -20,6 +20,8 @@ mark_highlights_timeline="$processed_dir/mark-highlights-timeline.xml"
 subtitles="$processed_dir/subtitles.srt"
 transcript="$processed_dir/transcript.json"
 
+external_transcript_output="../pokeyrule.com/src/data/videos/$video_name.json"
+
 cp 'scripts/index-template.toml' "$index"
 code --wait "$index"
 
@@ -62,3 +64,9 @@ dvc run -n "${video_name}_mark-highlights-track" \
     -d "$reconciled" \
     -o "$mark_highlights_timeline" \
     "voice-vid mark-highlights --reconciled $reconciled $index $mark_highlights_timeline"
+
+dvc run -n "${video_name}_publish_transcript" \
+    --external \
+    -d "$transcript" \
+    -o "$external_transcript_output" \
+    "cp $transcript $external_transcript_output"

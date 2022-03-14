@@ -126,3 +126,15 @@ stages:
     - poetry.lock
     outs:
     - data/processed/two-sum-explainer/mark-highlights-timeline.xml
+  react-component-and-fava-beans_publish_transcript:
+    cmd: cp data/processed/react-component-and-fava-beans/transcript.json ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
+    deps:
+    - data/processed/react-component-and-fava-beans/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
+  two-sum_publish_transcript:
+    cmd: cp data/processed/two-sum/transcript.json ../pokeyrule.com/src/data/videos/two-sum.json
+    deps:
+    - data/processed/two-sum/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/two-sum.json
