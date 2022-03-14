@@ -20,6 +20,9 @@ mark_highlights_timeline="$processed_dir/mark-highlights-timeline.xml"
 subtitles="$processed_dir/subtitles.srt"
 transcript="$processed_dir/transcript.json"
 
+cp 'scripts/index-template.toml' "$index"
+code --wait "$index"
+
 dvc add "$timeline"
 dvc add "$recording_log"
 
