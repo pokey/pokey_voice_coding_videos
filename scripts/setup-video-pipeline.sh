@@ -30,7 +30,7 @@ dvc add "$recording_log"
 
 git add "$index"
 
-dvc run -n "${video_name}_reconcile" \
+dvc run --no-exec -n "${video_name}_reconcile" \
     -d poetry.lock \
     -d "$index" \
     -d "$timeline" \
@@ -38,7 +38,7 @@ dvc run -n "${video_name}_reconcile" \
     -o "$reconciled" \
     "voice-vid reconcile $index > $reconciled"
 
-dvc run -n "${video_name}_subtitles" \
+dvc run --no-exec -n "${video_name}_subtitles" \
     -d poetry.lock \
     -d "$index" \
     -d "$timeline" \
@@ -47,7 +47,7 @@ dvc run -n "${video_name}_subtitles" \
     -o "$subtitles" \
     "voice-vid subtitles --reconciled $reconciled $index > $subtitles"
 
-dvc run -n "${video_name}_transcript" \
+dvc run --no-exec -n "${video_name}_transcript" \
     -d poetry.lock \
     -d "$index" \
     -d "$timeline" \
@@ -56,7 +56,7 @@ dvc run -n "${video_name}_transcript" \
     -o "$transcript" \
     "voice-vid transcript --reconciled $reconciled $index > $transcript"
 
-dvc run -n "${video_name}_mark-highlights-track" \
+dvc run --no-exec -n "${video_name}_mark-highlights-track" \
     -d poetry.lock \
     -d "$index" \
     -d "$timeline" \
@@ -65,7 +65,7 @@ dvc run -n "${video_name}_mark-highlights-track" \
     -o "$mark_highlights_timeline" \
     "voice-vid mark-highlights --reconciled $reconciled $index $mark_highlights_timeline"
 
-dvc run -n "${video_name}_publish_transcript" \
+dvc run --no-exec -n "${video_name}_publish_transcript" \
     --external \
     -d "$transcript" \
     -o "$external_transcript_output" \
