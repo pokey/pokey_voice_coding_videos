@@ -399,3 +399,14 @@ stages:
     - path: data/processed/markdown-scope-types/subtitles.srt
       md5: e951134f02f298f08b6b96892e328b29
       size: 1567
+  markdown-scope-types_publish_thumbnail:
+    cmd: convert data/raw/markdown-scope-types/thumbnail.png -define png:extent=2M
+      data/processed/markdown-scope-types/thumbnail.png
+    deps:
+    - path: data/raw/markdown-scope-types/thumbnail.png
+      md5: f713172575a6ff8542754170643f906d
+      size: 3661678
+    outs:
+    - path: data/processed/markdown-scope-types/thumbnail.png
+      md5: 24a012861694023dbb04b6cc5f4d77f2
+      size: 3159094
