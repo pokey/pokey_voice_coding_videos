@@ -400,13 +400,12 @@ stages:
       md5: e951134f02f298f08b6b96892e328b29
       size: 1567
   markdown-scope-types_publish_thumbnail:
-    cmd: convert data/raw/markdown-scope-types/thumbnail.png -define png:extent=1.95M
-      data/processed/markdown-scope-types/thumbnail.png
+    cmd: ./scripts/resize.sh data/raw/markdown-scope-types/thumbnail.png 1740 data/processed/markdown-scope-types/
     deps:
     - path: data/raw/markdown-scope-types/thumbnail.png
       md5: f713172575a6ff8542754170643f906d
       size: 3661678
     outs:
     - path: data/processed/markdown-scope-types/thumbnail.png
-      md5: a24310858d724e8ae71fb135f206c23a
-      size: 3159094
+      md5: c6cce71d0da3bd2c11af9870c8f76a6b
+      size: 1099507

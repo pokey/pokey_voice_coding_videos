@@ -187,8 +187,7 @@ stages:
     outs:
     - ../pokeyrule.com/src/data/videos/markdown-scope-types.json
   markdown-scope-types_publish_thumbnail:
-    cmd: convert data/raw/markdown-scope-types/thumbnail.png -define png:extent=1.95M
-      data/processed/markdown-scope-types/thumbnail.png
+    cmd: ./scripts/resize.sh data/raw/markdown-scope-types/thumbnail.png 1740 data/processed/markdown-scope-types/
     deps:
     - data/raw/markdown-scope-types/thumbnail.png
     outs:
