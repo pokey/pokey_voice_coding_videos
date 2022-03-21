@@ -138,3 +138,51 @@ stages:
     - data/processed/two-sum/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/two-sum.json
+  markdown-scope-types_reconcile:
+    cmd: voice-vid reconcile data/raw/markdown-scope-types/index.toml > data/interim/markdown-scope-types/reconciled.jsonl
+    deps:
+    - data/raw/markdown-scope-types/index.toml
+    - data/raw/markdown-scope-types/recording-log
+    - data/raw/markdown-scope-types/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/markdown-scope-types/reconciled.jsonl
+  markdown-scope-types_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/subtitles.srt
+    deps:
+    - data/interim/markdown-scope-types/reconciled.jsonl
+    - data/raw/markdown-scope-types/index.toml
+    - data/raw/markdown-scope-types/recording-log
+    - data/raw/markdown-scope-types/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/markdown-scope-types/subtitles.srt
+  markdown-scope-types_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/transcript.json
+    deps:
+    - data/interim/markdown-scope-types/reconciled.jsonl
+    - data/raw/markdown-scope-types/index.toml
+    - data/raw/markdown-scope-types/recording-log
+    - data/raw/markdown-scope-types/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/markdown-scope-types/transcript.json
+  markdown-scope-types_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml data/processed/markdown-scope-types/mark-highlights-timeline.xml
+    deps:
+    - data/interim/markdown-scope-types/reconciled.jsonl
+    - data/raw/markdown-scope-types/index.toml
+    - data/raw/markdown-scope-types/recording-log
+    - data/raw/markdown-scope-types/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/markdown-scope-types/mark-highlights-timeline.xml
+  markdown-scope-types_publish_transcript:
+    cmd: cp data/processed/markdown-scope-types/transcript.json ../pokeyrule.com/src/data/videos/markdown-scope-types.json
+    deps:
+    - data/processed/markdown-scope-types/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/markdown-scope-types.json

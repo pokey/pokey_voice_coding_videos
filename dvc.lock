@@ -297,3 +297,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/two-sum.json
       md5: cbc5005257774af14401b643bf7d459e
       size: 12700
+  markdown-scope-types_reconcile:
+    cmd: voice-vid reconcile data/raw/markdown-scope-types/index.toml > data/interim/markdown-scope-types/reconciled.jsonl
+    deps:
+    - path: data/raw/markdown-scope-types/index.toml
+      md5: 0308da97b580f57758964b4bc77b56a0
+      size: 252
+    - path: data/raw/markdown-scope-types/recording-log
+      md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
+      size: 450750
+      nfiles: 78
+    - path: data/raw/markdown-scope-types/timeline.xml
+      md5: 753019538a4418f32ccad6014b4c63bf
+      size: 83987
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/interim/markdown-scope-types/reconciled.jsonl
+      md5: 4b8199db3d27211a5536d3274d8ea00b
+      size: 8214
+  markdown-scope-types_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml data/processed/markdown-scope-types/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/markdown-scope-types/reconciled.jsonl
+      md5: 4b8199db3d27211a5536d3274d8ea00b
+      size: 8214
+    - path: data/raw/markdown-scope-types/index.toml
+      md5: 0308da97b580f57758964b4bc77b56a0
+      size: 252
+    - path: data/raw/markdown-scope-types/recording-log
+      md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
+      size: 450750
+      nfiles: 78
+    - path: data/raw/markdown-scope-types/timeline.xml
+      md5: 753019538a4418f32ccad6014b4c63bf
+      size: 83987
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/markdown-scope-types/mark-highlights-timeline.xml
+      md5: 3e2ce0cdcafceb18c2fb75e59b990ed7
+      size: 96918
+  markdown-scope-types_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/transcript.json
+    deps:
+    - path: data/interim/markdown-scope-types/reconciled.jsonl
+      md5: 4b8199db3d27211a5536d3274d8ea00b
+      size: 8214
+    - path: data/raw/markdown-scope-types/index.toml
+      md5: 0308da97b580f57758964b4bc77b56a0
+      size: 252
+    - path: data/raw/markdown-scope-types/recording-log
+      md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
+      size: 450750
+      nfiles: 78
+    - path: data/raw/markdown-scope-types/timeline.xml
+      md5: 753019538a4418f32ccad6014b4c63bf
+      size: 83987
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/markdown-scope-types/transcript.json
+      md5: e6839f94ac8ecfa59ebb6fabe38477f7
+      size: 17997
+  markdown-scope-types_publish_transcript:
+    cmd: cp data/processed/markdown-scope-types/transcript.json ../pokeyrule.com/src/data/videos/markdown-scope-types.json
+    deps:
+    - path: data/processed/markdown-scope-types/transcript.json
+      md5: e6839f94ac8ecfa59ebb6fabe38477f7
+      size: 17997
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/markdown-scope-types.json
+      md5: e6839f94ac8ecfa59ebb6fabe38477f7
+      size: 17997
+  markdown-scope-types_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+      data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/subtitles.srt
+    deps:
+    - path: data/interim/markdown-scope-types/reconciled.jsonl
+      md5: 4b8199db3d27211a5536d3274d8ea00b
+      size: 8214
+    - path: data/raw/markdown-scope-types/index.toml
+      md5: 0308da97b580f57758964b4bc77b56a0
+      size: 252
+    - path: data/raw/markdown-scope-types/recording-log
+      md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
+      size: 450750
+      nfiles: 78
+    - path: data/raw/markdown-scope-types/timeline.xml
+      md5: 753019538a4418f32ccad6014b4c63bf
+      size: 83987
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/markdown-scope-types/subtitles.srt
+      md5: e951134f02f298f08b6b96892e328b29
+      size: 1567
