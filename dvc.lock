@@ -301,8 +301,8 @@ stages:
     cmd: voice-vid reconcile data/raw/markdown-scope-types/index.toml > data/interim/markdown-scope-types/reconciled.jsonl
     deps:
     - path: data/raw/markdown-scope-types/index.toml
-      md5: 0308da97b580f57758964b4bc77b56a0
-      size: 252
+      md5: 74a084d2c08d98beab1e0568ae609ab4
+      size: 263
     - path: data/raw/markdown-scope-types/recording-log
       md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
       size: 450750
@@ -325,8 +325,8 @@ stages:
       md5: 4b8199db3d27211a5536d3274d8ea00b
       size: 8214
     - path: data/raw/markdown-scope-types/index.toml
-      md5: 0308da97b580f57758964b4bc77b56a0
-      size: 252
+      md5: 74a084d2c08d98beab1e0568ae609ab4
+      size: 263
     - path: data/raw/markdown-scope-types/recording-log
       md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
       size: 450750
@@ -349,8 +349,8 @@ stages:
       md5: 4b8199db3d27211a5536d3274d8ea00b
       size: 8214
     - path: data/raw/markdown-scope-types/index.toml
-      md5: 0308da97b580f57758964b4bc77b56a0
-      size: 252
+      md5: 74a084d2c08d98beab1e0568ae609ab4
+      size: 263
     - path: data/raw/markdown-scope-types/recording-log
       md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
       size: 450750
@@ -363,18 +363,18 @@ stages:
       size: 16331
     outs:
     - path: data/processed/markdown-scope-types/transcript.json
-      md5: e6839f94ac8ecfa59ebb6fabe38477f7
-      size: 17997
+      md5: dfe05fcc8f41d495101b8977696aa5e0
+      size: 18008
   markdown-scope-types_publish_transcript:
     cmd: cp data/processed/markdown-scope-types/transcript.json ../pokeyrule.com/src/data/videos/markdown-scope-types.json
     deps:
     - path: data/processed/markdown-scope-types/transcript.json
-      md5: e6839f94ac8ecfa59ebb6fabe38477f7
-      size: 17997
+      md5: dfe05fcc8f41d495101b8977696aa5e0
+      size: 18008
     outs:
     - path: ../pokeyrule.com/src/data/videos/markdown-scope-types.json
-      md5: e6839f94ac8ecfa59ebb6fabe38477f7
-      size: 17997
+      md5: dfe05fcc8f41d495101b8977696aa5e0
+      size: 18008
   markdown-scope-types_subtitles:
     cmd: voice-vid subtitles --reconciled data/interim/markdown-scope-types/reconciled.jsonl
       data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/subtitles.srt
@@ -383,8 +383,8 @@ stages:
       md5: 4b8199db3d27211a5536d3274d8ea00b
       size: 8214
     - path: data/raw/markdown-scope-types/index.toml
-      md5: 0308da97b580f57758964b4bc77b56a0
-      size: 252
+      md5: 74a084d2c08d98beab1e0568ae609ab4
+      size: 263
     - path: data/raw/markdown-scope-types/recording-log
       md5: ef27b7a6f5eee176cb6dda9e2ddeb746.dir
       size: 450750
