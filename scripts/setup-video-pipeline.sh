@@ -13,6 +13,7 @@ mkdir -p "$processed_dir"
 timeline="$raw_dir/timeline.xml"
 recording_log="$raw_dir/recording-log"
 index="$raw_dir/index.toml"
+clips="$raw_dir/clips"
 
 reconciled="$interim_dir/reconciled.jsonl"
 
@@ -27,6 +28,7 @@ code --wait "$index"
 
 dvc add "$timeline"
 dvc add "$recording_log"
+dvc add "$clips"
 
 git add "$index"
 
