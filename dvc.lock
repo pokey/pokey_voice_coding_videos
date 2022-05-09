@@ -409,3 +409,118 @@ stages:
     - path: data/processed/markdown-scope-types/thumbnail.png
       md5: c6cce71d0da3bd2c11af9870c8f76a6b
       size: 1099507
+  cursorless-internals-walkthrough-part-ii_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      > data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    deps:
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      md5: 1ed96272df5ccfae39045158fea0e61b
+      size: 283
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      md5: e453ac5ee09395fc6eda9f04e132a578.dir
+      size: 1727103
+      nfiles: 57
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      md5: 126238dbb340780042cadb33a60a1e5e
+      size: 176106
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      md5: 38827633c090470c716b8fef13735c34
+      size: 30284
+  cursorless-internals-walkthrough-part-ii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+    deps:
+    - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      md5: 38827633c090470c716b8fef13735c34
+      size: 30284
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      md5: 1ed96272df5ccfae39045158fea0e61b
+      size: 283
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      md5: e453ac5ee09395fc6eda9f04e132a578.dir
+      size: 1727103
+      nfiles: 57
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      md5: 126238dbb340780042cadb33a60a1e5e
+      size: 176106
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      md5: 6d65920b7c018ec21364a4cd81355262
+      size: 72485
+  cursorless-internals-walkthrough-part-ii_publish_transcript:
+    cmd: cp data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
+    deps:
+    - path: data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      md5: 6d65920b7c018ec21364a4cd81355262
+      size: 72485
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
+      md5: 6d65920b7c018ec21364a4cd81355262
+      size: 72485
+  cursorless-internals-walkthrough-part-ii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
+    deps:
+    - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      md5: 38827633c090470c716b8fef13735c34
+      size: 30284
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      md5: 1ed96272df5ccfae39045158fea0e61b
+      size: 283
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      md5: e453ac5ee09395fc6eda9f04e132a578.dir
+      size: 1727103
+      nfiles: 57
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      md5: 126238dbb340780042cadb33a60a1e5e
+      size: 176106
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
+      md5: 62e48d3cd2039b1e18cbb291e24e47e0
+      size: 5755
+  cursorless-internals-walkthrough-part-ii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      md5: 38827633c090470c716b8fef13735c34
+      size: 30284
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      md5: 1ed96272df5ccfae39045158fea0e61b
+      size: 283
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      md5: e453ac5ee09395fc6eda9f04e132a578.dir
+      size: 1727103
+      nfiles: 57
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      md5: 126238dbb340780042cadb33a60a1e5e
+      size: 176106
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+      md5: dc2a33cb9cbe253b41b70e1fa67cf5ca
+      size: 218777
+  cursorless-internals-walkthrough-part-ii_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      1740 data/processed/cursorless-internals-walkthrough-part-ii/
+    deps:
+    - path: data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      md5: f8dfd5b95e88512e7bec1310fb13b0d2
+      size: 3199195
+    outs:
+    - path: data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      md5: 97995213dba502adcc2f8434ab586c72
+      size: 938698

@@ -192,3 +192,60 @@ stages:
     - data/raw/markdown-scope-types/thumbnail.png
     outs:
     - data/processed/markdown-scope-types/thumbnail.png
+  cursorless-internals-walkthrough-part-ii_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      > data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    deps:
+    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+  cursorless-internals-walkthrough-part-ii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
+    deps:
+    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
+  cursorless-internals-walkthrough-part-ii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+    deps:
+    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+  cursorless-internals-walkthrough-part-ii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+    deps:
+    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+  cursorless-internals-walkthrough-part-ii_publish_transcript:
+    cmd: cp data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
+    deps:
+    - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
+  cursorless-internals-walkthrough-part-ii_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      1740 data/processed/cursorless-internals-walkthrough-part-ii/
+    deps:
+    - data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+    outs:
+    - data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
