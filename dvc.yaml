@@ -249,3 +249,58 @@ stages:
     - data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
     outs:
     - data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
+  sort-every-paint-tail-drum_reconcile:
+    cmd: voice-vid reconcile data/raw/sort-every-paint-tail-drum/index.toml > data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    deps:
+    - data/raw/sort-every-paint-tail-drum/index.toml
+    - data/raw/sort-every-paint-tail-drum/recording-log
+    - data/raw/sort-every-paint-tail-drum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+  sort-every-paint-tail-drum_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/subtitles.srt
+    deps:
+    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    - data/raw/sort-every-paint-tail-drum/index.toml
+    - data/raw/sort-every-paint-tail-drum/recording-log
+    - data/raw/sort-every-paint-tail-drum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/sort-every-paint-tail-drum/subtitles.srt
+  sort-every-paint-tail-drum_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/transcript.json
+    deps:
+    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    - data/raw/sort-every-paint-tail-drum/index.toml
+    - data/raw/sort-every-paint-tail-drum/recording-log
+    - data/raw/sort-every-paint-tail-drum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/sort-every-paint-tail-drum/transcript.json
+  sort-every-paint-tail-drum_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
+    deps:
+    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    - data/raw/sort-every-paint-tail-drum/index.toml
+    - data/raw/sort-every-paint-tail-drum/recording-log
+    - data/raw/sort-every-paint-tail-drum/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
+  sort-every-paint-tail-drum_publish_transcript:
+    cmd: cp data/processed/sort-every-paint-tail-drum/transcript.json ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
+    deps:
+    - data/processed/sort-every-paint-tail-drum/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
+  sort-every-paint-tail-drum_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/sort-every-paint-tail-drum/thumbnail.png 1740
+      data/processed/sort-every-paint-tail-drum/
+    deps:
+    - data/raw/sort-every-paint-tail-drum/thumbnail.png
+    outs:
+    - data/processed/sort-every-paint-tail-drum/thumbnail.png

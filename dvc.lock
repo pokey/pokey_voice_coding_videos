@@ -524,3 +524,116 @@ stages:
     - path: data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
       md5: 97995213dba502adcc2f8434ab586c72
       size: 938698
+  sort-every-paint-tail-drum_reconcile:
+    cmd: voice-vid reconcile data/raw/sort-every-paint-tail-drum/index.toml > data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    deps:
+    - path: data/raw/sort-every-paint-tail-drum/index.toml
+      md5: d878781f4939e3294a7c257f3b28f2a2
+      size: 269
+    - path: data/raw/sort-every-paint-tail-drum/recording-log
+      md5: c94424f326909f4e2402c91d06815e74.dir
+      size: 89571
+      nfiles: 33
+    - path: data/raw/sort-every-paint-tail-drum/timeline.xml
+      md5: 72d41a655167ceb83414df12898ba8fd
+      size: 173320
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      md5: bfb063f669fa5a9a17e005137915f063
+      size: 2087
+  sort-every-paint-tail-drum_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/transcript.json
+    deps:
+    - path: data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      md5: bfb063f669fa5a9a17e005137915f063
+      size: 2087
+    - path: data/raw/sort-every-paint-tail-drum/index.toml
+      md5: d878781f4939e3294a7c257f3b28f2a2
+      size: 269
+    - path: data/raw/sort-every-paint-tail-drum/recording-log
+      md5: c94424f326909f4e2402c91d06815e74.dir
+      size: 89571
+      nfiles: 33
+    - path: data/raw/sort-every-paint-tail-drum/timeline.xml
+      md5: 72d41a655167ceb83414df12898ba8fd
+      size: 173320
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/sort-every-paint-tail-drum/transcript.json
+      md5: b6610888e87476f5e916407013237800
+      size: 5015
+  sort-every-paint-tail-drum_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      md5: bfb063f669fa5a9a17e005137915f063
+      size: 2087
+    - path: data/raw/sort-every-paint-tail-drum/index.toml
+      md5: d878781f4939e3294a7c257f3b28f2a2
+      size: 269
+    - path: data/raw/sort-every-paint-tail-drum/recording-log
+      md5: c94424f326909f4e2402c91d06815e74.dir
+      size: 89571
+      nfiles: 33
+    - path: data/raw/sort-every-paint-tail-drum/timeline.xml
+      md5: 72d41a655167ceb83414df12898ba8fd
+      size: 173320
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
+      md5: eed35422c4ad363beafda2885507ae14
+      size: 46866
+  sort-every-paint-tail-drum_publish_transcript:
+    cmd: cp data/processed/sort-every-paint-tail-drum/transcript.json ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
+    deps:
+    - path: data/processed/sort-every-paint-tail-drum/transcript.json
+      md5: b6610888e87476f5e916407013237800
+      size: 5015
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
+      md5: b6610888e87476f5e916407013237800
+      size: 5015
+  sort-every-paint-tail-drum_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/subtitles.srt
+    deps:
+    - path: data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      md5: bfb063f669fa5a9a17e005137915f063
+      size: 2087
+    - path: data/raw/sort-every-paint-tail-drum/index.toml
+      md5: d878781f4939e3294a7c257f3b28f2a2
+      size: 269
+    - path: data/raw/sort-every-paint-tail-drum/recording-log
+      md5: c94424f326909f4e2402c91d06815e74.dir
+      size: 89571
+      nfiles: 33
+    - path: data/raw/sort-every-paint-tail-drum/timeline.xml
+      md5: 72d41a655167ceb83414df12898ba8fd
+      size: 173320
+    - path: poetry.lock
+      md5: 89d9e91632fb1009a672eea67188d8e6
+      size: 16331
+    outs:
+    - path: data/processed/sort-every-paint-tail-drum/subtitles.srt
+      md5: 76d1e152916d402c5f0991997bd7dbe9
+      size: 437
+  sort-every-paint-tail-drum_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/sort-every-paint-tail-drum/thumbnail.png 1740
+      data/processed/sort-every-paint-tail-drum/
+    deps:
+    - path: data/raw/sort-every-paint-tail-drum/thumbnail.png
+      md5: 88fe0d491b3229b240726b829ac5751f
+      size: 1464477
+    outs:
+    - path: data/processed/sort-every-paint-tail-drum/thumbnail.png
+      md5: a3feb78a7b29ed5b4459f817067f7280
+      size: 408181
