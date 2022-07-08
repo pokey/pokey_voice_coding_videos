@@ -15,8 +15,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/react-component-and-fava-beans/reconciled.jsonl
       md5: cf9f04c85abfb451e1d6df6631127a52
@@ -39,8 +39,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
       md5: 8051543baa063f142d119674e677262c
@@ -63,8 +63,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/react-component-and-fava-beans/subtitles.srt
       md5: 13638766c96db69b91d4581195b94e4a
@@ -87,8 +87,8 @@ stages:
       md5: 6c5480b96d0d6ef7253166b1fd49346e
       size: 513001
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/react-component-and-fava-beans/transcript.json
       md5: ba75421ae0300df51ad0300f000d57e7
@@ -107,8 +107,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/two-sum/reconciled.jsonl
       md5: 9d29dfd98bedac73beeb1af046ae97b8
@@ -131,8 +131,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum/subtitles.srt
       md5: 6b66dd92d726cc1b619345e8ffe065be
@@ -155,8 +155,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum/transcript.json
       md5: cbc5005257774af14401b643bf7d459e
@@ -179,8 +179,8 @@ stages:
       md5: 582fcb4fc472026882b1a89b343df135
       size: 110729
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum/mark-highlights-timeline.xml
       md5: 24368fd7db4abee94ac080cafebb2517
@@ -199,8 +199,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/two-sum-explainer/reconciled.jsonl
       md5: fb007fda8fc8447b082755f1d65bde14
@@ -223,8 +223,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum-explainer/subtitles.srt
       md5: a8a11d0aab47111f30c5de0a1120bace
@@ -247,8 +247,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum-explainer/transcript.json
       md5: 762ffd2ac077fc6939c2824a9cf20123
@@ -271,8 +271,8 @@ stages:
       md5: 1ce58cc526e984d4f5192ce13ae86495
       size: 56057
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/two-sum-explainer/mark-highlights-timeline.xml
       md5: 8b47259ad66a3182df7595e3955b4128
@@ -311,8 +311,8 @@ stages:
       md5: 753019538a4418f32ccad6014b4c63bf
       size: 83987
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/markdown-scope-types/reconciled.jsonl
       md5: 4b8199db3d27211a5536d3274d8ea00b
@@ -335,8 +335,8 @@ stages:
       md5: 753019538a4418f32ccad6014b4c63bf
       size: 83987
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/markdown-scope-types/mark-highlights-timeline.xml
       md5: 3e2ce0cdcafceb18c2fb75e59b990ed7
@@ -359,8 +359,8 @@ stages:
       md5: 753019538a4418f32ccad6014b4c63bf
       size: 83987
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/markdown-scope-types/transcript.json
       md5: dfe05fcc8f41d495101b8977696aa5e0
@@ -393,8 +393,8 @@ stages:
       md5: 753019538a4418f32ccad6014b4c63bf
       size: 83987
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/markdown-scope-types/subtitles.srt
       md5: e951134f02f298f08b6b96892e328b29
@@ -424,8 +424,8 @@ stages:
       md5: 126238dbb340780042cadb33a60a1e5e
       size: 176106
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
       md5: 38827633c090470c716b8fef13735c34
@@ -448,8 +448,8 @@ stages:
       md5: 126238dbb340780042cadb33a60a1e5e
       size: 176106
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
       md5: 6d65920b7c018ec21364a4cd81355262
@@ -483,8 +483,8 @@ stages:
       md5: 126238dbb340780042cadb33a60a1e5e
       size: 176106
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
       md5: 62e48d3cd2039b1e18cbb291e24e47e0
@@ -507,8 +507,8 @@ stages:
       md5: 126238dbb340780042cadb33a60a1e5e
       size: 176106
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
       md5: dc2a33cb9cbe253b41b70e1fa67cf5ca
@@ -538,8 +538,8 @@ stages:
       md5: 72d41a655167ceb83414df12898ba8fd
       size: 173320
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/interim/sort-every-paint-tail-drum/reconciled.jsonl
       md5: bfb063f669fa5a9a17e005137915f063
@@ -562,8 +562,8 @@ stages:
       md5: 72d41a655167ceb83414df12898ba8fd
       size: 173320
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/sort-every-paint-tail-drum/transcript.json
       md5: b6610888e87476f5e916407013237800
@@ -586,8 +586,8 @@ stages:
       md5: 72d41a655167ceb83414df12898ba8fd
       size: 173320
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
       md5: eed35422c4ad363beafda2885507ae14
@@ -620,8 +620,8 @@ stages:
       md5: 72d41a655167ceb83414df12898ba8fd
       size: 173320
     - path: poetry.lock
-      md5: 89d9e91632fb1009a672eea67188d8e6
-      size: 16331
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
     outs:
     - path: data/processed/sort-every-paint-tail-drum/subtitles.srt
       md5: 76d1e152916d402c5f0991997bd7dbe9
@@ -637,3 +637,115 @@ stages:
     - path: data/processed/sort-every-paint-tail-drum/thumbnail.png
       md5: a3feb78a7b29ed5b4459f817067f7280
       size: 408181
+  tutorial-part-i_reconcile:
+    cmd: voice-vid reconcile data/raw/tutorial-part-i/index.toml > data/interim/tutorial-part-i/reconciled.jsonl
+    deps:
+    - path: data/raw/tutorial-part-i/index.toml
+      md5: e119249f6c1690a0b43fce6e9f807467
+      size: 258
+    - path: data/raw/tutorial-part-i/recording-log
+      md5: 3c06512246129047b068e7ac0f6e1ab6.dir
+      size: 434240
+      nfiles: 135
+    - path: data/raw/tutorial-part-i/timeline.xml
+      md5: 8a46140b76a9a59044e8b876fd083da7
+      size: 219280
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/interim/tutorial-part-i/reconciled.jsonl
+      md5: aef24202ad5c275d327eeda7c691cd32
+      size: 4268
+  tutorial-part-i_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml data/processed/tutorial-part-i/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/tutorial-part-i/reconciled.jsonl
+      md5: aef24202ad5c275d327eeda7c691cd32
+      size: 4268
+    - path: data/raw/tutorial-part-i/index.toml
+      md5: e119249f6c1690a0b43fce6e9f807467
+      size: 258
+    - path: data/raw/tutorial-part-i/recording-log
+      md5: 3c06512246129047b068e7ac0f6e1ab6.dir
+      size: 434240
+      nfiles: 135
+    - path: data/raw/tutorial-part-i/timeline.xml
+      md5: 8a46140b76a9a59044e8b876fd083da7
+      size: 219280
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-i/mark-highlights-timeline.xml
+      md5: c351bca025a31a1c42fe649f5f279a5f
+      size: 68344
+  tutorial-part-i_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/transcript.json
+    deps:
+    - path: data/interim/tutorial-part-i/reconciled.jsonl
+      md5: aef24202ad5c275d327eeda7c691cd32
+      size: 4268
+    - path: data/raw/tutorial-part-i/index.toml
+      md5: e119249f6c1690a0b43fce6e9f807467
+      size: 258
+    - path: data/raw/tutorial-part-i/recording-log
+      md5: 3c06512246129047b068e7ac0f6e1ab6.dir
+      size: 434240
+      nfiles: 135
+    - path: data/raw/tutorial-part-i/timeline.xml
+      md5: 8a46140b76a9a59044e8b876fd083da7
+      size: 219280
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-i/transcript.json
+      md5: e677f304d8fa4d4b3e5cdb2292ef1b2f
+      size: 9580
+  tutorial-part-i_publish_transcript:
+    cmd: cp data/processed/tutorial-part-i/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-i.json
+    deps:
+    - path: data/processed/tutorial-part-i/transcript.json
+      md5: e677f304d8fa4d4b3e5cdb2292ef1b2f
+      size: 9580
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/tutorial-part-i.json
+      md5: e677f304d8fa4d4b3e5cdb2292ef1b2f
+      size: 9580
+  tutorial-part-i_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/subtitles.srt
+    deps:
+    - path: data/interim/tutorial-part-i/reconciled.jsonl
+      md5: aef24202ad5c275d327eeda7c691cd32
+      size: 4268
+    - path: data/raw/tutorial-part-i/index.toml
+      md5: e119249f6c1690a0b43fce6e9f807467
+      size: 258
+    - path: data/raw/tutorial-part-i/recording-log
+      md5: 3c06512246129047b068e7ac0f6e1ab6.dir
+      size: 434240
+      nfiles: 135
+    - path: data/raw/tutorial-part-i/timeline.xml
+      md5: 8a46140b76a9a59044e8b876fd083da7
+      size: 219280
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-i/subtitles.srt
+      md5: 75198583e98298fc60a7ad63344a142c
+      size: 755
+  tutorial-part-i_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/tutorial-part-i/thumbnail.png 1740 data/processed/tutorial-part-i/
+    deps:
+    - path: data/raw/tutorial-part-i/thumbnail.png
+      md5: a24318d005f6627bfd7b4aa040c82154
+      size: 976435
+    outs:
+    - path: data/processed/tutorial-part-i/thumbnail.png
+      md5: 308ee784e5cd6b8ab20a0ddb44e9f36f
+      size: 269554

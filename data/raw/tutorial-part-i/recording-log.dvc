@@ -1,0 +1,5 @@
+outs:
+- md5: 3c06512246129047b068e7ac0f6e1ab6.dir
+  size: 434240
+  nfiles: 135
+  path: recording-log

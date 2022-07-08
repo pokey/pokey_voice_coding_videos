@@ -304,3 +304,57 @@ stages:
     - data/raw/sort-every-paint-tail-drum/thumbnail.png
     outs:
     - data/processed/sort-every-paint-tail-drum/thumbnail.png
+  tutorial-part-i_reconcile:
+    cmd: voice-vid reconcile data/raw/tutorial-part-i/index.toml > data/interim/tutorial-part-i/reconciled.jsonl
+    deps:
+    - data/raw/tutorial-part-i/index.toml
+    - data/raw/tutorial-part-i/recording-log
+    - data/raw/tutorial-part-i/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/tutorial-part-i/reconciled.jsonl
+  tutorial-part-i_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/subtitles.srt
+    deps:
+    - data/interim/tutorial-part-i/reconciled.jsonl
+    - data/raw/tutorial-part-i/index.toml
+    - data/raw/tutorial-part-i/recording-log
+    - data/raw/tutorial-part-i/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-i/subtitles.srt
+  tutorial-part-i_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/transcript.json
+    deps:
+    - data/interim/tutorial-part-i/reconciled.jsonl
+    - data/raw/tutorial-part-i/index.toml
+    - data/raw/tutorial-part-i/recording-log
+    - data/raw/tutorial-part-i/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-i/transcript.json
+  tutorial-part-i_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+      data/raw/tutorial-part-i/index.toml data/processed/tutorial-part-i/mark-highlights-timeline.xml
+    deps:
+    - data/interim/tutorial-part-i/reconciled.jsonl
+    - data/raw/tutorial-part-i/index.toml
+    - data/raw/tutorial-part-i/recording-log
+    - data/raw/tutorial-part-i/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-i/mark-highlights-timeline.xml
+  tutorial-part-i_publish_transcript:
+    cmd: cp data/processed/tutorial-part-i/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-i.json
+    deps:
+    - data/processed/tutorial-part-i/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/tutorial-part-i.json
+  tutorial-part-i_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/tutorial-part-i/thumbnail.png 1740 data/processed/tutorial-part-i/
+    deps:
+    - data/raw/tutorial-part-i/thumbnail.png
+    outs:
+    - data/processed/tutorial-part-i/thumbnail.png
