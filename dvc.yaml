@@ -358,3 +358,51 @@ stages:
     - data/raw/tutorial-part-i/thumbnail.png
     outs:
     - data/processed/tutorial-part-i/thumbnail.png
+  tutorial-part-ii_reconcile:
+    cmd: voice-vid reconcile data/raw/tutorial-part-ii/index.toml > data/interim/tutorial-part-ii/reconciled.jsonl
+    deps:
+    - data/raw/tutorial-part-ii/index.toml
+    - data/raw/tutorial-part-ii/recording-log
+    - data/raw/tutorial-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/tutorial-part-ii/reconciled.jsonl
+  tutorial-part-ii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/subtitles.srt
+    deps:
+    - data/interim/tutorial-part-ii/reconciled.jsonl
+    - data/raw/tutorial-part-ii/index.toml
+    - data/raw/tutorial-part-ii/recording-log
+    - data/raw/tutorial-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-ii/subtitles.srt
+  tutorial-part-ii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/transcript.json
+    deps:
+    - data/interim/tutorial-part-ii/reconciled.jsonl
+    - data/raw/tutorial-part-ii/index.toml
+    - data/raw/tutorial-part-ii/recording-log
+    - data/raw/tutorial-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-ii/transcript.json
+  tutorial-part-ii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml data/processed/tutorial-part-ii/mark-highlights-timeline.xml
+    deps:
+    - data/interim/tutorial-part-ii/reconciled.jsonl
+    - data/raw/tutorial-part-ii/index.toml
+    - data/raw/tutorial-part-ii/recording-log
+    - data/raw/tutorial-part-ii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tutorial-part-ii/mark-highlights-timeline.xml
+  tutorial-part-ii_publish_transcript:
+    cmd: cp data/processed/tutorial-part-ii/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
+    deps:
+    - data/processed/tutorial-part-ii/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/tutorial-part-ii.json

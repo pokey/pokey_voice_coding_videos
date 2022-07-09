@@ -749,3 +749,105 @@ stages:
     - path: data/processed/tutorial-part-i/thumbnail.png
       md5: 308ee784e5cd6b8ab20a0ddb44e9f36f
       size: 269554
+  tutorial-part-ii_reconcile:
+    cmd: voice-vid reconcile data/raw/tutorial-part-ii/index.toml > data/interim/tutorial-part-ii/reconciled.jsonl
+    deps:
+    - path: data/raw/tutorial-part-ii/index.toml
+      md5: 3cd7702cc4fa575619fbc5b4a1a13648
+      size: 259
+    - path: data/raw/tutorial-part-ii/recording-log
+      md5: 83f7002e3c3b981ce1a617da11cf83fb.dir
+      size: 139317
+      nfiles: 37
+    - path: data/raw/tutorial-part-ii/timeline.xml
+      md5: e31e1c2ba14f187a30dc47c0ad833469
+      size: 188648
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/interim/tutorial-part-ii/reconciled.jsonl
+      md5: 06ce240490cb179430edfdefa99fabf9
+      size: 2392
+  tutorial-part-ii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/transcript.json
+    deps:
+    - path: data/interim/tutorial-part-ii/reconciled.jsonl
+      md5: 06ce240490cb179430edfdefa99fabf9
+      size: 2392
+    - path: data/raw/tutorial-part-ii/index.toml
+      md5: 3cd7702cc4fa575619fbc5b4a1a13648
+      size: 259
+    - path: data/raw/tutorial-part-ii/recording-log
+      md5: 83f7002e3c3b981ce1a617da11cf83fb.dir
+      size: 139317
+      nfiles: 37
+    - path: data/raw/tutorial-part-ii/timeline.xml
+      md5: e31e1c2ba14f187a30dc47c0ad833469
+      size: 188648
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-ii/transcript.json
+      md5: 623c7eb54e6b7e94d82523beb90781a3
+      size: 5467
+  tutorial-part-ii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml data/processed/tutorial-part-ii/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/tutorial-part-ii/reconciled.jsonl
+      md5: 06ce240490cb179430edfdefa99fabf9
+      size: 2392
+    - path: data/raw/tutorial-part-ii/index.toml
+      md5: 3cd7702cc4fa575619fbc5b4a1a13648
+      size: 259
+    - path: data/raw/tutorial-part-ii/recording-log
+      md5: 83f7002e3c3b981ce1a617da11cf83fb.dir
+      size: 139317
+      nfiles: 37
+    - path: data/raw/tutorial-part-ii/timeline.xml
+      md5: e31e1c2ba14f187a30dc47c0ad833469
+      size: 188648
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-ii/mark-highlights-timeline.xml
+      md5: 2ee16d954a531eb9a3fb7324d29231a6
+      size: 46865
+  tutorial-part-ii_publish_transcript:
+    cmd: cp data/processed/tutorial-part-ii/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
+    deps:
+    - path: data/processed/tutorial-part-ii/transcript.json
+      md5: 623c7eb54e6b7e94d82523beb90781a3
+      size: 5467
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
+      md5: 623c7eb54e6b7e94d82523beb90781a3
+      size: 5467
+  tutorial-part-ii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+      data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/subtitles.srt
+    deps:
+    - path: data/interim/tutorial-part-ii/reconciled.jsonl
+      md5: 06ce240490cb179430edfdefa99fabf9
+      size: 2392
+    - path: data/raw/tutorial-part-ii/index.toml
+      md5: 3cd7702cc4fa575619fbc5b4a1a13648
+      size: 259
+    - path: data/raw/tutorial-part-ii/recording-log
+      md5: 83f7002e3c3b981ce1a617da11cf83fb.dir
+      size: 139317
+      nfiles: 37
+    - path: data/raw/tutorial-part-ii/timeline.xml
+      md5: e31e1c2ba14f187a30dc47c0ad833469
+      size: 188648
+    - path: poetry.lock
+      md5: 636dd7f84691036a615ee0c8a13c4a2b
+      size: 11700
+    outs:
+    - path: data/processed/tutorial-part-ii/subtitles.srt
+      md5: d66e837304f81579b549a87e540fe30d
+      size: 461
