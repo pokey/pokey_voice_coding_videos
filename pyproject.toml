@@ -6,7 +6,7 @@ authors = ["Pokey Rule <755842+pokey@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-voice-vid = { git = "git@github.com:pokey/voice_vid.git", branch = "f4dc01e709ffdec429c9c7ef9f7ff97a1108ad03", python = ">=3.10,<3.11" }
+voice-vid = { git = "git@github.com:pokey/voice_vid.git", branch = "main", python = ">=3.10,<3.11" }
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
