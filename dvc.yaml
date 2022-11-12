@@ -1,408 +1,488 @@
 stages:
   react-component-and-fava-beans_reconcile:
-    cmd: voice-vid reconcile data/raw/react-component-and-fava-beans/index.toml >
+    cmd:
+      voice-vid reconcile data/raw/react-component-and-fava-beans/index.toml >
       data/interim/react-component-and-fava-beans/reconciled.jsonl
     deps:
-    - data/raw/react-component-and-fava-beans/index.toml
-    - data/raw/react-component-and-fava-beans/recording-log
-    - data/raw/react-component-and-fava-beans/timeline.xml
-    - poetry.lock
+      - data/raw/react-component-and-fava-beans/index.toml
+      - data/raw/react-component-and-fava-beans/recording-log
+      - data/raw/react-component-and-fava-beans/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/react-component-and-fava-beans/reconciled.jsonl
+      - data/interim/react-component-and-fava-beans/reconciled.jsonl
   react-component-and-fava-beans_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
       data/raw/react-component-and-fava-beans/index.toml data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
     deps:
-    - data/interim/react-component-and-fava-beans/reconciled.jsonl
-    - data/raw/react-component-and-fava-beans/index.toml
-    - data/raw/react-component-and-fava-beans/recording-log
-    - data/raw/react-component-and-fava-beans/timeline.xml
-    - poetry.lock
+      - data/interim/react-component-and-fava-beans/reconciled.jsonl
+      - data/raw/react-component-and-fava-beans/index.toml
+      - data/raw/react-component-and-fava-beans/recording-log
+      - data/raw/react-component-and-fava-beans/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
+      - data/processed/react-component-and-fava-beans/mark-highlights-timeline.xml
   react-component-and-fava-beans_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
       data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/subtitles.srt
     deps:
-    - data/interim/react-component-and-fava-beans/reconciled.jsonl
-    - data/raw/react-component-and-fava-beans/index.toml
-    - data/raw/react-component-and-fava-beans/recording-log
-    - data/raw/react-component-and-fava-beans/timeline.xml
-    - poetry.lock
+      - data/interim/react-component-and-fava-beans/reconciled.jsonl
+      - data/raw/react-component-and-fava-beans/index.toml
+      - data/raw/react-component-and-fava-beans/recording-log
+      - data/raw/react-component-and-fava-beans/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/react-component-and-fava-beans/subtitles.srt
+      - data/processed/react-component-and-fava-beans/subtitles.srt
   react-component-and-fava-beans_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/react-component-and-fava-beans/reconciled.jsonl
       data/raw/react-component-and-fava-beans/index.toml > data/processed/react-component-and-fava-beans/transcript.json
     deps:
-    - data/interim/react-component-and-fava-beans/reconciled.jsonl
-    - data/raw/react-component-and-fava-beans/index.toml
-    - data/raw/react-component-and-fava-beans/recording-log
-    - data/raw/react-component-and-fava-beans/timeline.xml
-    - poetry.lock
+      - data/interim/react-component-and-fava-beans/reconciled.jsonl
+      - data/raw/react-component-and-fava-beans/index.toml
+      - data/raw/react-component-and-fava-beans/recording-log
+      - data/raw/react-component-and-fava-beans/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/react-component-and-fava-beans/transcript.json
+      - data/processed/react-component-and-fava-beans/transcript.json
   two-sum_reconcile:
     cmd: voice-vid reconcile data/raw/two-sum/index.toml > data/interim/two-sum/reconciled.jsonl
     deps:
-    - data/raw/two-sum/index.toml
-    - data/raw/two-sum/recording-log
-    - data/raw/two-sum/timeline.xml
-    - poetry.lock
+      - data/raw/two-sum/index.toml
+      - data/raw/two-sum/recording-log
+      - data/raw/two-sum/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/two-sum/reconciled.jsonl
+      - data/interim/two-sum/reconciled.jsonl
   two-sum_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+    cmd:
+      voice-vid subtitles --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
       > data/processed/two-sum/subtitles.srt
     deps:
-    - data/interim/two-sum/reconciled.jsonl
-    - data/raw/two-sum/index.toml
-    - data/raw/two-sum/recording-log
-    - data/raw/two-sum/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum/reconciled.jsonl
+      - data/raw/two-sum/index.toml
+      - data/raw/two-sum/recording-log
+      - data/raw/two-sum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum/subtitles.srt
+      - data/processed/two-sum/subtitles.srt
   two-sum_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
+    cmd:
+      voice-vid transcript --reconciled data/interim/two-sum/reconciled.jsonl data/raw/two-sum/index.toml
       > data/processed/two-sum/transcript.json
     deps:
-    - data/interim/two-sum/reconciled.jsonl
-    - data/raw/two-sum/index.toml
-    - data/raw/two-sum/recording-log
-    - data/raw/two-sum/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum/reconciled.jsonl
+      - data/raw/two-sum/index.toml
+      - data/raw/two-sum/recording-log
+      - data/raw/two-sum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum/transcript.json
+      - data/processed/two-sum/transcript.json
   two-sum_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/two-sum/reconciled.jsonl
       data/raw/two-sum/index.toml data/processed/two-sum/mark-highlights-timeline.xml
     deps:
-    - data/interim/two-sum/reconciled.jsonl
-    - data/raw/two-sum/index.toml
-    - data/raw/two-sum/recording-log
-    - data/raw/two-sum/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum/reconciled.jsonl
+      - data/raw/two-sum/index.toml
+      - data/raw/two-sum/recording-log
+      - data/raw/two-sum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum/mark-highlights-timeline.xml
+      - data/processed/two-sum/mark-highlights-timeline.xml
   two-sum-explainer_reconcile:
     cmd: voice-vid reconcile data/raw/two-sum-explainer/index.toml > data/interim/two-sum-explainer/reconciled.jsonl
     deps:
-    - data/raw/two-sum-explainer/index.toml
-    - data/raw/two-sum-explainer/recording-log
-    - data/raw/two-sum-explainer/timeline.xml
-    - poetry.lock
+      - data/raw/two-sum-explainer/index.toml
+      - data/raw/two-sum-explainer/recording-log
+      - data/raw/two-sum-explainer/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/two-sum-explainer/reconciled.jsonl
+      - data/interim/two-sum-explainer/reconciled.jsonl
   two-sum-explainer_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/two-sum-explainer/reconciled.jsonl
       data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/subtitles.srt
     deps:
-    - data/interim/two-sum-explainer/reconciled.jsonl
-    - data/raw/two-sum-explainer/index.toml
-    - data/raw/two-sum-explainer/recording-log
-    - data/raw/two-sum-explainer/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum-explainer/reconciled.jsonl
+      - data/raw/two-sum-explainer/index.toml
+      - data/raw/two-sum-explainer/recording-log
+      - data/raw/two-sum-explainer/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum-explainer/subtitles.srt
+      - data/processed/two-sum-explainer/subtitles.srt
   two-sum-explainer_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/two-sum-explainer/reconciled.jsonl
       data/raw/two-sum-explainer/index.toml > data/processed/two-sum-explainer/transcript.json
     deps:
-    - data/interim/two-sum-explainer/reconciled.jsonl
-    - data/raw/two-sum-explainer/index.toml
-    - data/raw/two-sum-explainer/recording-log
-    - data/raw/two-sum-explainer/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum-explainer/reconciled.jsonl
+      - data/raw/two-sum-explainer/index.toml
+      - data/raw/two-sum-explainer/recording-log
+      - data/raw/two-sum-explainer/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum-explainer/transcript.json
+      - data/processed/two-sum-explainer/transcript.json
   two-sum-explainer_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/two-sum-explainer/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/two-sum-explainer/reconciled.jsonl
       data/raw/two-sum-explainer/index.toml data/processed/two-sum-explainer/mark-highlights-timeline.xml
     deps:
-    - data/interim/two-sum-explainer/reconciled.jsonl
-    - data/raw/two-sum-explainer/index.toml
-    - data/raw/two-sum-explainer/recording-log
-    - data/raw/two-sum-explainer/timeline.xml
-    - poetry.lock
+      - data/interim/two-sum-explainer/reconciled.jsonl
+      - data/raw/two-sum-explainer/index.toml
+      - data/raw/two-sum-explainer/recording-log
+      - data/raw/two-sum-explainer/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/two-sum-explainer/mark-highlights-timeline.xml
+      - data/processed/two-sum-explainer/mark-highlights-timeline.xml
   react-component-and-fava-beans_publish_transcript:
     cmd: cp data/processed/react-component-and-fava-beans/transcript.json ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
     deps:
-    - data/processed/react-component-and-fava-beans/transcript.json
+      - data/processed/react-component-and-fava-beans/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
+      - ../pokeyrule.com/src/data/videos/react-component-and-fava-beans.json
   two-sum_publish_transcript:
     cmd: cp data/processed/two-sum/transcript.json ../pokeyrule.com/src/data/videos/two-sum.json
     deps:
-    - data/processed/two-sum/transcript.json
+      - data/processed/two-sum/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/two-sum.json
+      - ../pokeyrule.com/src/data/videos/two-sum.json
   markdown-scope-types_reconcile:
     cmd: voice-vid reconcile data/raw/markdown-scope-types/index.toml > data/interim/markdown-scope-types/reconciled.jsonl
     deps:
-    - data/raw/markdown-scope-types/index.toml
-    - data/raw/markdown-scope-types/recording-log
-    - data/raw/markdown-scope-types/timeline.xml
-    - poetry.lock
+      - data/raw/markdown-scope-types/index.toml
+      - data/raw/markdown-scope-types/recording-log
+      - data/raw/markdown-scope-types/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/markdown-scope-types/reconciled.jsonl
+      - data/interim/markdown-scope-types/reconciled.jsonl
   markdown-scope-types_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/markdown-scope-types/reconciled.jsonl
       data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/subtitles.srt
     deps:
-    - data/interim/markdown-scope-types/reconciled.jsonl
-    - data/raw/markdown-scope-types/index.toml
-    - data/raw/markdown-scope-types/recording-log
-    - data/raw/markdown-scope-types/timeline.xml
-    - poetry.lock
+      - data/interim/markdown-scope-types/reconciled.jsonl
+      - data/raw/markdown-scope-types/index.toml
+      - data/raw/markdown-scope-types/recording-log
+      - data/raw/markdown-scope-types/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/markdown-scope-types/subtitles.srt
+      - data/processed/markdown-scope-types/subtitles.srt
   markdown-scope-types_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/markdown-scope-types/reconciled.jsonl
       data/raw/markdown-scope-types/index.toml > data/processed/markdown-scope-types/transcript.json
     deps:
-    - data/interim/markdown-scope-types/reconciled.jsonl
-    - data/raw/markdown-scope-types/index.toml
-    - data/raw/markdown-scope-types/recording-log
-    - data/raw/markdown-scope-types/timeline.xml
-    - poetry.lock
+      - data/interim/markdown-scope-types/reconciled.jsonl
+      - data/raw/markdown-scope-types/index.toml
+      - data/raw/markdown-scope-types/recording-log
+      - data/raw/markdown-scope-types/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/markdown-scope-types/transcript.json
+      - data/processed/markdown-scope-types/transcript.json
   markdown-scope-types_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/markdown-scope-types/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/markdown-scope-types/reconciled.jsonl
       data/raw/markdown-scope-types/index.toml data/processed/markdown-scope-types/mark-highlights-timeline.xml
     deps:
-    - data/interim/markdown-scope-types/reconciled.jsonl
-    - data/raw/markdown-scope-types/index.toml
-    - data/raw/markdown-scope-types/recording-log
-    - data/raw/markdown-scope-types/timeline.xml
-    - poetry.lock
+      - data/interim/markdown-scope-types/reconciled.jsonl
+      - data/raw/markdown-scope-types/index.toml
+      - data/raw/markdown-scope-types/recording-log
+      - data/raw/markdown-scope-types/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/markdown-scope-types/mark-highlights-timeline.xml
+      - data/processed/markdown-scope-types/mark-highlights-timeline.xml
   markdown-scope-types_publish_transcript:
     cmd: cp data/processed/markdown-scope-types/transcript.json ../pokeyrule.com/src/data/videos/markdown-scope-types.json
     deps:
-    - data/processed/markdown-scope-types/transcript.json
+      - data/processed/markdown-scope-types/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/markdown-scope-types.json
+      - ../pokeyrule.com/src/data/videos/markdown-scope-types.json
   markdown-scope-types_publish_thumbnail:
     cmd: ./scripts/resize.sh data/raw/markdown-scope-types/thumbnail.png 1740 data/processed/markdown-scope-types/
     deps:
-    - data/raw/markdown-scope-types/thumbnail.png
+      - data/raw/markdown-scope-types/thumbnail.png
     outs:
-    - data/processed/markdown-scope-types/thumbnail.png
+      - data/processed/markdown-scope-types/thumbnail.png
   cursorless-internals-walkthrough-part-ii_reconcile:
-    cmd: voice-vid reconcile data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+    cmd:
+      voice-vid reconcile data/raw/cursorless-internals-walkthrough-part-ii/index.toml
       > data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
     deps:
-    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
-    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
-    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
-    - poetry.lock
+      - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
   cursorless-internals-walkthrough-part-ii_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
       data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
     deps:
-    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
-    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
-    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
-    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
+      - data/processed/cursorless-internals-walkthrough-part-ii/subtitles.srt
   cursorless-internals-walkthrough-part-ii_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
       data/raw/cursorless-internals-walkthrough-part-ii/index.toml > data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
     deps:
-    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
-    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
-    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
-    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
   cursorless-internals-walkthrough-part-ii_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
       data/raw/cursorless-internals-walkthrough-part-ii/index.toml data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
     deps:
-    - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
-    - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
-    - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
-    - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
+      - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
+      - data/raw/cursorless-internals-walkthrough-part-ii/recording-log
+      - data/raw/cursorless-internals-walkthrough-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+      - data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
   cursorless-internals-walkthrough-part-ii_publish_transcript:
-    cmd: cp data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+    cmd:
+      cp data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
       ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
     deps:
-    - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
+      - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
+      - ../pokeyrule.com/src/data/videos/cursorless-internals-walkthrough-part-ii.json
   cursorless-internals-walkthrough-part-ii_thumbnail:
-    cmd: ./scripts/resize.sh data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+    cmd:
+      ./scripts/resize.sh data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
       1740 data/processed/cursorless-internals-walkthrough-part-ii/
     deps:
-    - data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      - data/raw/cursorless-internals-walkthrough-part-ii/thumbnail.png
     outs:
-    - data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
+      - data/processed/cursorless-internals-walkthrough-part-ii/thumbnail.png
   sort-every-paint-tail-drum_reconcile:
     cmd: voice-vid reconcile data/raw/sort-every-paint-tail-drum/index.toml > data/interim/sort-every-paint-tail-drum/reconciled.jsonl
     deps:
-    - data/raw/sort-every-paint-tail-drum/index.toml
-    - data/raw/sort-every-paint-tail-drum/recording-log
-    - data/raw/sort-every-paint-tail-drum/timeline.xml
-    - poetry.lock
+      - data/raw/sort-every-paint-tail-drum/index.toml
+      - data/raw/sort-every-paint-tail-drum/recording-log
+      - data/raw/sort-every-paint-tail-drum/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
   sort-every-paint-tail-drum_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
       data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/subtitles.srt
     deps:
-    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
-    - data/raw/sort-every-paint-tail-drum/index.toml
-    - data/raw/sort-every-paint-tail-drum/recording-log
-    - data/raw/sort-every-paint-tail-drum/timeline.xml
-    - poetry.lock
+      - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      - data/raw/sort-every-paint-tail-drum/index.toml
+      - data/raw/sort-every-paint-tail-drum/recording-log
+      - data/raw/sort-every-paint-tail-drum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/sort-every-paint-tail-drum/subtitles.srt
+      - data/processed/sort-every-paint-tail-drum/subtitles.srt
   sort-every-paint-tail-drum_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
       data/raw/sort-every-paint-tail-drum/index.toml > data/processed/sort-every-paint-tail-drum/transcript.json
     deps:
-    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
-    - data/raw/sort-every-paint-tail-drum/index.toml
-    - data/raw/sort-every-paint-tail-drum/recording-log
-    - data/raw/sort-every-paint-tail-drum/timeline.xml
-    - poetry.lock
+      - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      - data/raw/sort-every-paint-tail-drum/index.toml
+      - data/raw/sort-every-paint-tail-drum/recording-log
+      - data/raw/sort-every-paint-tail-drum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/sort-every-paint-tail-drum/transcript.json
+      - data/processed/sort-every-paint-tail-drum/transcript.json
   sort-every-paint-tail-drum_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/sort-every-paint-tail-drum/reconciled.jsonl
       data/raw/sort-every-paint-tail-drum/index.toml data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
     deps:
-    - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
-    - data/raw/sort-every-paint-tail-drum/index.toml
-    - data/raw/sort-every-paint-tail-drum/recording-log
-    - data/raw/sort-every-paint-tail-drum/timeline.xml
-    - poetry.lock
+      - data/interim/sort-every-paint-tail-drum/reconciled.jsonl
+      - data/raw/sort-every-paint-tail-drum/index.toml
+      - data/raw/sort-every-paint-tail-drum/recording-log
+      - data/raw/sort-every-paint-tail-drum/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
+      - data/processed/sort-every-paint-tail-drum/mark-highlights-timeline.xml
   sort-every-paint-tail-drum_publish_transcript:
     cmd: cp data/processed/sort-every-paint-tail-drum/transcript.json ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
     deps:
-    - data/processed/sort-every-paint-tail-drum/transcript.json
+      - data/processed/sort-every-paint-tail-drum/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
+      - ../pokeyrule.com/src/data/videos/sort-every-paint-tail-drum.json
   sort-every-paint-tail-drum_thumbnail:
-    cmd: ./scripts/resize.sh data/raw/sort-every-paint-tail-drum/thumbnail.png 1740
+    cmd:
+      ./scripts/resize.sh data/raw/sort-every-paint-tail-drum/thumbnail.png 1740
       data/processed/sort-every-paint-tail-drum/
     deps:
-    - data/raw/sort-every-paint-tail-drum/thumbnail.png
+      - data/raw/sort-every-paint-tail-drum/thumbnail.png
     outs:
-    - data/processed/sort-every-paint-tail-drum/thumbnail.png
+      - data/processed/sort-every-paint-tail-drum/thumbnail.png
   tutorial-part-i_reconcile:
     cmd: voice-vid reconcile data/raw/tutorial-part-i/index.toml > data/interim/tutorial-part-i/reconciled.jsonl
     deps:
-    - data/raw/tutorial-part-i/index.toml
-    - data/raw/tutorial-part-i/recording-log
-    - data/raw/tutorial-part-i/timeline.xml
-    - poetry.lock
+      - data/raw/tutorial-part-i/index.toml
+      - data/raw/tutorial-part-i/recording-log
+      - data/raw/tutorial-part-i/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/tutorial-part-i/reconciled.jsonl
+      - data/interim/tutorial-part-i/reconciled.jsonl
   tutorial-part-i_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/tutorial-part-i/reconciled.jsonl
       data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/subtitles.srt
     deps:
-    - data/interim/tutorial-part-i/reconciled.jsonl
-    - data/raw/tutorial-part-i/index.toml
-    - data/raw/tutorial-part-i/recording-log
-    - data/raw/tutorial-part-i/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-i/reconciled.jsonl
+      - data/raw/tutorial-part-i/index.toml
+      - data/raw/tutorial-part-i/recording-log
+      - data/raw/tutorial-part-i/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-i/subtitles.srt
+      - data/processed/tutorial-part-i/subtitles.srt
   tutorial-part-i_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/tutorial-part-i/reconciled.jsonl
       data/raw/tutorial-part-i/index.toml > data/processed/tutorial-part-i/transcript.json
     deps:
-    - data/interim/tutorial-part-i/reconciled.jsonl
-    - data/raw/tutorial-part-i/index.toml
-    - data/raw/tutorial-part-i/recording-log
-    - data/raw/tutorial-part-i/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-i/reconciled.jsonl
+      - data/raw/tutorial-part-i/index.toml
+      - data/raw/tutorial-part-i/recording-log
+      - data/raw/tutorial-part-i/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-i/transcript.json
+      - data/processed/tutorial-part-i/transcript.json
   tutorial-part-i_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-i/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/tutorial-part-i/reconciled.jsonl
       data/raw/tutorial-part-i/index.toml data/processed/tutorial-part-i/mark-highlights-timeline.xml
     deps:
-    - data/interim/tutorial-part-i/reconciled.jsonl
-    - data/raw/tutorial-part-i/index.toml
-    - data/raw/tutorial-part-i/recording-log
-    - data/raw/tutorial-part-i/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-i/reconciled.jsonl
+      - data/raw/tutorial-part-i/index.toml
+      - data/raw/tutorial-part-i/recording-log
+      - data/raw/tutorial-part-i/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-i/mark-highlights-timeline.xml
+      - data/processed/tutorial-part-i/mark-highlights-timeline.xml
   tutorial-part-i_publish_transcript:
     cmd: cp data/processed/tutorial-part-i/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-i.json
     deps:
-    - data/processed/tutorial-part-i/transcript.json
+      - data/processed/tutorial-part-i/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/tutorial-part-i.json
+      - ../pokeyrule.com/src/data/videos/tutorial-part-i.json
   tutorial-part-i_thumbnail:
     cmd: ./scripts/resize.sh data/raw/tutorial-part-i/thumbnail.png 1740 data/processed/tutorial-part-i/
     deps:
-    - data/raw/tutorial-part-i/thumbnail.png
+      - data/raw/tutorial-part-i/thumbnail.png
     outs:
-    - data/processed/tutorial-part-i/thumbnail.png
+      - data/processed/tutorial-part-i/thumbnail.png
   tutorial-part-ii_reconcile:
     cmd: voice-vid reconcile data/raw/tutorial-part-ii/index.toml > data/interim/tutorial-part-ii/reconciled.jsonl
     deps:
-    - data/raw/tutorial-part-ii/index.toml
-    - data/raw/tutorial-part-ii/recording-log
-    - data/raw/tutorial-part-ii/timeline.xml
-    - poetry.lock
+      - data/raw/tutorial-part-ii/index.toml
+      - data/raw/tutorial-part-ii/recording-log
+      - data/raw/tutorial-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/interim/tutorial-part-ii/reconciled.jsonl
+      - data/interim/tutorial-part-ii/reconciled.jsonl
   tutorial-part-ii_subtitles:
-    cmd: voice-vid subtitles --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid subtitles --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
       data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/subtitles.srt
     deps:
-    - data/interim/tutorial-part-ii/reconciled.jsonl
-    - data/raw/tutorial-part-ii/index.toml
-    - data/raw/tutorial-part-ii/recording-log
-    - data/raw/tutorial-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-ii/reconciled.jsonl
+      - data/raw/tutorial-part-ii/index.toml
+      - data/raw/tutorial-part-ii/recording-log
+      - data/raw/tutorial-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-ii/subtitles.srt
+      - data/processed/tutorial-part-ii/subtitles.srt
   tutorial-part-ii_transcript:
-    cmd: voice-vid transcript --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid transcript --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
       data/raw/tutorial-part-ii/index.toml > data/processed/tutorial-part-ii/transcript.json
     deps:
-    - data/interim/tutorial-part-ii/reconciled.jsonl
-    - data/raw/tutorial-part-ii/index.toml
-    - data/raw/tutorial-part-ii/recording-log
-    - data/raw/tutorial-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-ii/reconciled.jsonl
+      - data/raw/tutorial-part-ii/index.toml
+      - data/raw/tutorial-part-ii/recording-log
+      - data/raw/tutorial-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-ii/transcript.json
+      - data/processed/tutorial-part-ii/transcript.json
   tutorial-part-ii_mark-highlights-track:
-    cmd: voice-vid mark-highlights --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/tutorial-part-ii/reconciled.jsonl
       data/raw/tutorial-part-ii/index.toml data/processed/tutorial-part-ii/mark-highlights-timeline.xml
     deps:
-    - data/interim/tutorial-part-ii/reconciled.jsonl
-    - data/raw/tutorial-part-ii/index.toml
-    - data/raw/tutorial-part-ii/recording-log
-    - data/raw/tutorial-part-ii/timeline.xml
-    - poetry.lock
+      - data/interim/tutorial-part-ii/reconciled.jsonl
+      - data/raw/tutorial-part-ii/index.toml
+      - data/raw/tutorial-part-ii/recording-log
+      - data/raw/tutorial-part-ii/timeline.xml
+      - poetry.lock
     outs:
-    - data/processed/tutorial-part-ii/mark-highlights-timeline.xml
+      - data/processed/tutorial-part-ii/mark-highlights-timeline.xml
   tutorial-part-ii_publish_transcript:
     cmd: cp data/processed/tutorial-part-ii/transcript.json ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
     deps:
-    - data/processed/tutorial-part-ii/transcript.json
+      - data/processed/tutorial-part-ii/transcript.json
     outs:
-    - ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
+      - ../pokeyrule.com/src/data/videos/tutorial-part-ii.json
+  cursorless-golf-round-i_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-golf-round-i/index.toml > data/interim/cursorless-golf-round-i/reconciled.jsonl
+    deps:
+      - data/raw/cursorless-golf-round-i/index.toml
+      - data/raw/cursorless-golf-round-i/recording-log
+      - data/raw/cursorless-golf-round-i/timeline.xml
+      - poetry.lock
+    outs:
+      - data/interim/cursorless-golf-round-i/reconciled.jsonl
+  cursorless-golf-round-i_subtitles:
+    cmd:
+      voice-vid subtitles --reconciled data/interim/cursorless-golf-round-i/reconciled.jsonl
+      data/raw/cursorless-golf-round-i/index.toml > data/processed/cursorless-golf-round-i/subtitles.srt
+    deps:
+      - data/interim/cursorless-golf-round-i/reconciled.jsonl
+      - data/raw/cursorless-golf-round-i/index.toml
+      - data/raw/cursorless-golf-round-i/recording-log
+      - data/raw/cursorless-golf-round-i/timeline.xml
+      - poetry.lock
+    outs:
+      - data/processed/cursorless-golf-round-i/subtitles.srt
+  cursorless-golf-round-i_transcript:
+    cmd:
+      voice-vid transcript --reconciled data/interim/cursorless-golf-round-i/reconciled.jsonl
+      data/raw/cursorless-golf-round-i/index.toml > data/processed/cursorless-golf-round-i/transcript.json
+    deps:
+      - data/interim/cursorless-golf-round-i/reconciled.jsonl
+      - data/raw/cursorless-golf-round-i/index.toml
+      - data/raw/cursorless-golf-round-i/recording-log
+      - data/raw/cursorless-golf-round-i/timeline.xml
+      - poetry.lock
+    outs:
+      - data/processed/cursorless-golf-round-i/transcript.json
+  cursorless-golf-round-i_mark-highlights-track:
+    cmd:
+      voice-vid mark-highlights --reconciled data/interim/cursorless-golf-round-i/reconciled.jsonl
+      data/raw/cursorless-golf-round-i/index.toml data/processed/cursorless-golf-round-i/mark-highlights-timeline.xml
+    deps:
+      - data/interim/cursorless-golf-round-i/reconciled.jsonl
+      - data/raw/cursorless-golf-round-i/index.toml
+      - data/raw/cursorless-golf-round-i/recording-log
+      - data/raw/cursorless-golf-round-i/timeline.xml
+      - poetry.lock
+    outs:
+      - data/processed/cursorless-golf-round-i/mark-highlights-timeline.xml
+  cursorless-golf-round-i_publish_transcript:
+    cmd: cp data/processed/cursorless-golf-round-i/transcript.json ../pokeyrule.com/src/data/videos/cursorless-golf-round-i.json
+    deps:
+      - data/processed/cursorless-golf-round-i/transcript.json
+    outs:
+      - ../pokeyrule.com/src/data/videos/cursorless-golf-round-i.json
