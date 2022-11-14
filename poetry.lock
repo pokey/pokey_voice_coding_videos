@@ -222,7 +222,7 @@ typer = {version = "^0.4.0", extras = ["all"]}
 type = "git"
 url = "git@github.com:pokey/voice_vid.git"
 reference = "main"
-resolved_reference = "725af0b9cdbf61ebc0c75c6b5a5e9213bec24cd8"
+resolved_reference = "ffb01de2227ccc580e1dbcb362d3d89858ec0202"
 
 [[package]]
 name = "wcwidth"
