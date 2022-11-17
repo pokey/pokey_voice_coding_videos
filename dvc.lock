@@ -953,3 +953,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/cursorless-golf-round-i.json
       md5: 895922287a3cdb7ca8297538579ba25a
       size: 7839
+  two-tokens_reconcile:
+    cmd: voice-vid reconcile data/raw/two-tokens/index.toml > data/interim/two-tokens/reconciled.jsonl
+    deps:
+    - path: data/raw/two-tokens/index.toml
+      md5: d4d61feecebb1ee740acb55124b9f8b2
+      size: 242
+    - path: data/raw/two-tokens/recording-log
+      md5: 66806fbf5fd7e4cb0a13f71bb9e25e21.dir
+      size: 154915
+      nfiles: 76
+    - path: data/raw/two-tokens/timeline.xml
+      md5: a2304e1fa8f08d46c7fe13379839e045
+      size: 295721
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/two-tokens/reconciled.jsonl
+      md5: 1dea7ced692e38545860452dc22dd6f7
+      size: 3143
+  two-tokens_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/two-tokens/reconciled.jsonl
+      data/raw/two-tokens/index.toml data/processed/two-tokens/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/two-tokens/reconciled.jsonl
+      md5: 1dea7ced692e38545860452dc22dd6f7
+      size: 3143
+    - path: data/raw/two-tokens/index.toml
+      md5: d4d61feecebb1ee740acb55124b9f8b2
+      size: 242
+    - path: data/raw/two-tokens/recording-log
+      md5: 66806fbf5fd7e4cb0a13f71bb9e25e21.dir
+      size: 154915
+      nfiles: 76
+    - path: data/raw/two-tokens/timeline.xml
+      md5: a2304e1fa8f08d46c7fe13379839e045
+      size: 295721
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/two-tokens/mark-highlights-timeline.xml
+      md5: 8a161d6d44d92edb1f50810448e960c8
+      size: 46875
+  two-tokens_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/two-tokens/reconciled.jsonl
+      data/raw/two-tokens/index.toml > data/processed/two-tokens/transcript.json
+    deps:
+    - path: data/interim/two-tokens/reconciled.jsonl
+      md5: 1dea7ced692e38545860452dc22dd6f7
+      size: 3143
+    - path: data/raw/two-tokens/index.toml
+      md5: d4d61feecebb1ee740acb55124b9f8b2
+      size: 242
+    - path: data/raw/two-tokens/recording-log
+      md5: 66806fbf5fd7e4cb0a13f71bb9e25e21.dir
+      size: 154915
+      nfiles: 76
+    - path: data/raw/two-tokens/timeline.xml
+      md5: a2304e1fa8f08d46c7fe13379839e045
+      size: 295721
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/two-tokens/transcript.json
+      md5: 56146b18184b8df152e8a92992ec1542
+      size: 7728
+  two-tokens_publish_transcript:
+    cmd: cp data/processed/two-tokens/transcript.json ../pokeyrule.com/src/data/videos/two-tokens.json
+    deps:
+    - path: data/processed/two-tokens/transcript.json
+      md5: 56146b18184b8df152e8a92992ec1542
+      size: 7728
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/two-tokens.json
+      md5: 56146b18184b8df152e8a92992ec1542
+      size: 7728
+  two-tokens_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/two-tokens/reconciled.jsonl
+      data/raw/two-tokens/index.toml > data/processed/two-tokens/subtitles.srt
+    deps:
+    - path: data/interim/two-tokens/reconciled.jsonl
+      md5: 1dea7ced692e38545860452dc22dd6f7
+      size: 3143
+    - path: data/raw/two-tokens/index.toml
+      md5: d4d61feecebb1ee740acb55124b9f8b2
+      size: 242
+    - path: data/raw/two-tokens/recording-log
+      md5: 66806fbf5fd7e4cb0a13f71bb9e25e21.dir
+      size: 154915
+      nfiles: 76
+    - path: data/raw/two-tokens/timeline.xml
+      md5: a2304e1fa8f08d46c7fe13379839e045
+      size: 295721
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/two-tokens/subtitles.srt
+      md5: 2d7f89f3493984079f6597b9b1afb6e6
+      size: 667
