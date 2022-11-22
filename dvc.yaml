@@ -502,3 +502,51 @@ stages:
     - data/processed/two-tokens/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/two-tokens.json
+  merge-day_reconcile:
+    cmd: voice-vid reconcile data/raw/merge-day/index.toml > data/interim/merge-day/reconciled.jsonl
+    deps:
+    - data/raw/merge-day/index.toml
+    - data/raw/merge-day/recording-log
+    - data/raw/merge-day/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/merge-day/reconciled.jsonl
+  merge-day_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml > data/processed/merge-day/subtitles.srt
+    deps:
+    - data/interim/merge-day/reconciled.jsonl
+    - data/raw/merge-day/index.toml
+    - data/raw/merge-day/recording-log
+    - data/raw/merge-day/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/merge-day/subtitles.srt
+  merge-day_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml > data/processed/merge-day/transcript.json
+    deps:
+    - data/interim/merge-day/reconciled.jsonl
+    - data/raw/merge-day/index.toml
+    - data/raw/merge-day/recording-log
+    - data/raw/merge-day/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/merge-day/transcript.json
+  merge-day_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml data/processed/merge-day/mark-highlights-timeline.xml
+    deps:
+    - data/interim/merge-day/reconciled.jsonl
+    - data/raw/merge-day/index.toml
+    - data/raw/merge-day/recording-log
+    - data/raw/merge-day/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/merge-day/mark-highlights-timeline.xml
+  merge-day_publish_transcript:
+    cmd: cp data/processed/merge-day/transcript.json ../pokeyrule.com/src/data/videos/merge-day.json
+    deps:
+    - data/processed/merge-day/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/merge-day.json

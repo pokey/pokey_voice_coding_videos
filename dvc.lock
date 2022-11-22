@@ -1055,3 +1055,105 @@ stages:
     - path: data/processed/two-tokens/subtitles.srt
       md5: 2d7f89f3493984079f6597b9b1afb6e6
       size: 667
+  merge-day_reconcile:
+    cmd: voice-vid reconcile data/raw/merge-day/index.toml > data/interim/merge-day/reconciled.jsonl
+    deps:
+    - path: data/raw/merge-day/index.toml
+      md5: d98f6562fb79d6e4e99dbb2a0c2d8ed5
+      size: 252
+    - path: data/raw/merge-day/recording-log
+      md5: aeb0490af12b50059cfc11a519beb40c.dir
+      size: 964496
+      nfiles: 137
+    - path: data/raw/merge-day/timeline.xml
+      md5: 53fc1134a0d780cfbfb51f9ef90922f9
+      size: 671887
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/merge-day/reconciled.jsonl
+      md5: 46f4d4ef11ac255bf3523bceff8e0759
+      size: 17658
+  merge-day_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml data/processed/merge-day/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/merge-day/reconciled.jsonl
+      md5: 46f4d4ef11ac255bf3523bceff8e0759
+      size: 17658
+    - path: data/raw/merge-day/index.toml
+      md5: d98f6562fb79d6e4e99dbb2a0c2d8ed5
+      size: 252
+    - path: data/raw/merge-day/recording-log
+      md5: aeb0490af12b50059cfc11a519beb40c.dir
+      size: 964496
+      nfiles: 137
+    - path: data/raw/merge-day/timeline.xml
+      md5: 53fc1134a0d780cfbfb51f9ef90922f9
+      size: 671887
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/merge-day/mark-highlights-timeline.xml
+      md5: 367a8e15cacfbf441764b6031a7606fc
+      size: 68420
+  merge-day_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml > data/processed/merge-day/transcript.json
+    deps:
+    - path: data/interim/merge-day/reconciled.jsonl
+      md5: 46f4d4ef11ac255bf3523bceff8e0759
+      size: 17658
+    - path: data/raw/merge-day/index.toml
+      md5: d98f6562fb79d6e4e99dbb2a0c2d8ed5
+      size: 252
+    - path: data/raw/merge-day/recording-log
+      md5: aeb0490af12b50059cfc11a519beb40c.dir
+      size: 964496
+      nfiles: 137
+    - path: data/raw/merge-day/timeline.xml
+      md5: 53fc1134a0d780cfbfb51f9ef90922f9
+      size: 671887
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/merge-day/transcript.json
+      md5: 02136ea5978b0182fe53c4d4588edd88
+      size: 39369
+  merge-day_publish_transcript:
+    cmd: cp data/processed/merge-day/transcript.json ../pokeyrule.com/src/data/videos/merge-day.json
+    deps:
+    - path: data/processed/merge-day/transcript.json
+      md5: 02136ea5978b0182fe53c4d4588edd88
+      size: 39369
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/merge-day.json
+      md5: 02136ea5978b0182fe53c4d4588edd88
+      size: 39369
+  merge-day_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/merge-day/reconciled.jsonl
+      data/raw/merge-day/index.toml > data/processed/merge-day/subtitles.srt
+    deps:
+    - path: data/interim/merge-day/reconciled.jsonl
+      md5: 46f4d4ef11ac255bf3523bceff8e0759
+      size: 17658
+    - path: data/raw/merge-day/index.toml
+      md5: d98f6562fb79d6e4e99dbb2a0c2d8ed5
+      size: 252
+    - path: data/raw/merge-day/recording-log
+      md5: aeb0490af12b50059cfc11a519beb40c.dir
+      size: 964496
+      nfiles: 137
+    - path: data/raw/merge-day/timeline.xml
+      md5: 53fc1134a0d780cfbfb51f9ef90922f9
+      size: 671887
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/merge-day/subtitles.srt
+      md5: 77902362d3841235d2d558ba50c30466
+      size: 3076
