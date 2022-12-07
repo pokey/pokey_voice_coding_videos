@@ -1161,8 +1161,8 @@ stages:
     cmd: voice-vid reconcile data/raw/advent-of-code-by-voice-7/index.toml > data/interim/advent-of-code-by-voice-7/reconciled.jsonl
     deps:
     - path: data/raw/advent-of-code-by-voice-7/index.toml
-      md5: 27befbcf3742ad3a3a5f523104594d28
-      size: 262
+      md5: 4ea59076088c827d07651c660a0827fe
+      size: 273
     - path: data/raw/advent-of-code-by-voice-7/recording-log
       md5: 97937b1832a14b50547e0a931395f979.dir
       size: 1850375
@@ -1185,8 +1185,8 @@ stages:
       md5: b4dddf230db2f62032da405062c1278d
       size: 96460
     - path: data/raw/advent-of-code-by-voice-7/index.toml
-      md5: 27befbcf3742ad3a3a5f523104594d28
-      size: 262
+      md5: 4ea59076088c827d07651c660a0827fe
+      size: 273
     - path: data/raw/advent-of-code-by-voice-7/recording-log
       md5: 97937b1832a14b50547e0a931395f979.dir
       size: 1850375
@@ -1209,8 +1209,8 @@ stages:
       md5: b4dddf230db2f62032da405062c1278d
       size: 96460
     - path: data/raw/advent-of-code-by-voice-7/index.toml
-      md5: 27befbcf3742ad3a3a5f523104594d28
-      size: 262
+      md5: 4ea59076088c827d07651c660a0827fe
+      size: 273
     - path: data/raw/advent-of-code-by-voice-7/recording-log
       md5: 97937b1832a14b50547e0a931395f979.dir
       size: 1850375
@@ -1223,18 +1223,18 @@ stages:
       size: 13153
     outs:
     - path: data/processed/advent-of-code-by-voice-7/transcript.json
-      md5: b59f3536a31180ad8d51a3562922e2aa
-      size: 301444
+      md5: 9486033d85e55d813b3ee4b5f28e9b9b
+      size: 301455
   advent-of-code-by-voice-7_publish_transcript:
     cmd: cp data/processed/advent-of-code-by-voice-7/transcript.json ../pokeyrule.com/src/data/videos/advent-of-code-by-voice-7.json
     deps:
     - path: data/processed/advent-of-code-by-voice-7/transcript.json
-      md5: b59f3536a31180ad8d51a3562922e2aa
-      size: 301444
+      md5: 9486033d85e55d813b3ee4b5f28e9b9b
+      size: 301455
     outs:
     - path: ../pokeyrule.com/src/data/videos/advent-of-code-by-voice-7.json
-      md5: b59f3536a31180ad8d51a3562922e2aa
-      size: 301444
+      md5: 9486033d85e55d813b3ee4b5f28e9b9b
+      size: 301455
   advent-of-code-by-voice-7_subtitles:
     cmd: voice-vid subtitles --reconciled data/interim/advent-of-code-by-voice-7/reconciled.jsonl
       data/raw/advent-of-code-by-voice-7/index.toml > data/processed/advent-of-code-by-voice-7/subtitles.srt
@@ -1243,8 +1243,8 @@ stages:
       md5: b4dddf230db2f62032da405062c1278d
       size: 96460
     - path: data/raw/advent-of-code-by-voice-7/index.toml
-      md5: 27befbcf3742ad3a3a5f523104594d28
-      size: 262
+      md5: 4ea59076088c827d07651c660a0827fe
+      size: 273
     - path: data/raw/advent-of-code-by-voice-7/recording-log
       md5: 97937b1832a14b50547e0a931395f979.dir
       size: 1850375
