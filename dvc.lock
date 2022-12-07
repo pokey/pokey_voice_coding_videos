@@ -1157,3 +1157,105 @@ stages:
     - path: data/processed/merge-day/subtitles.srt
       md5: 77902362d3841235d2d558ba50c30466
       size: 3076
+  advent-of-code-by-voice-7_reconcile:
+    cmd: voice-vid reconcile data/raw/advent-of-code-by-voice-7/index.toml > data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+    deps:
+    - path: data/raw/advent-of-code-by-voice-7/index.toml
+      md5: 27befbcf3742ad3a3a5f523104594d28
+      size: 262
+    - path: data/raw/advent-of-code-by-voice-7/recording-log
+      md5: 97937b1832a14b50547e0a931395f979.dir
+      size: 1850375
+      nfiles: 762
+    - path: data/raw/advent-of-code-by-voice-7/timeline.xml
+      md5: d4b8da7ad8890891017358b83a63cdf2
+      size: 698660
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      md5: b4dddf230db2f62032da405062c1278d
+      size: 96460
+  advent-of-code-by-voice-7_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      data/raw/advent-of-code-by-voice-7/index.toml data/processed/advent-of-code-by-voice-7/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      md5: b4dddf230db2f62032da405062c1278d
+      size: 96460
+    - path: data/raw/advent-of-code-by-voice-7/index.toml
+      md5: 27befbcf3742ad3a3a5f523104594d28
+      size: 262
+    - path: data/raw/advent-of-code-by-voice-7/recording-log
+      md5: 97937b1832a14b50547e0a931395f979.dir
+      size: 1850375
+      nfiles: 762
+    - path: data/raw/advent-of-code-by-voice-7/timeline.xml
+      md5: d4b8da7ad8890891017358b83a63cdf2
+      size: 698660
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/advent-of-code-by-voice-7/mark-highlights-timeline.xml
+      md5: ac4fd99bc6ef0a80bd57d58056cdc2f1
+      size: 1028094
+  advent-of-code-by-voice-7_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      data/raw/advent-of-code-by-voice-7/index.toml > data/processed/advent-of-code-by-voice-7/transcript.json
+    deps:
+    - path: data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      md5: b4dddf230db2f62032da405062c1278d
+      size: 96460
+    - path: data/raw/advent-of-code-by-voice-7/index.toml
+      md5: 27befbcf3742ad3a3a5f523104594d28
+      size: 262
+    - path: data/raw/advent-of-code-by-voice-7/recording-log
+      md5: 97937b1832a14b50547e0a931395f979.dir
+      size: 1850375
+      nfiles: 762
+    - path: data/raw/advent-of-code-by-voice-7/timeline.xml
+      md5: d4b8da7ad8890891017358b83a63cdf2
+      size: 698660
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/advent-of-code-by-voice-7/transcript.json
+      md5: b59f3536a31180ad8d51a3562922e2aa
+      size: 301444
+  advent-of-code-by-voice-7_publish_transcript:
+    cmd: cp data/processed/advent-of-code-by-voice-7/transcript.json ../pokeyrule.com/src/data/videos/advent-of-code-by-voice-7.json
+    deps:
+    - path: data/processed/advent-of-code-by-voice-7/transcript.json
+      md5: b59f3536a31180ad8d51a3562922e2aa
+      size: 301444
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/advent-of-code-by-voice-7.json
+      md5: b59f3536a31180ad8d51a3562922e2aa
+      size: 301444
+  advent-of-code-by-voice-7_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      data/raw/advent-of-code-by-voice-7/index.toml > data/processed/advent-of-code-by-voice-7/subtitles.srt
+    deps:
+    - path: data/interim/advent-of-code-by-voice-7/reconciled.jsonl
+      md5: b4dddf230db2f62032da405062c1278d
+      size: 96460
+    - path: data/raw/advent-of-code-by-voice-7/index.toml
+      md5: 27befbcf3742ad3a3a5f523104594d28
+      size: 262
+    - path: data/raw/advent-of-code-by-voice-7/recording-log
+      md5: 97937b1832a14b50547e0a931395f979.dir
+      size: 1850375
+      nfiles: 762
+    - path: data/raw/advent-of-code-by-voice-7/timeline.xml
+      md5: d4b8da7ad8890891017358b83a63cdf2
+      size: 698660
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/advent-of-code-by-voice-7/subtitles.srt
+      md5: f424daae5b8b04a9bd2cddaa90be5d70
+      size: 20163
