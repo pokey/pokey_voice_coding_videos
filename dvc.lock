@@ -1263,8 +1263,8 @@ stages:
     cmd: voice-vid reconcile data/raw/cursorless-snippets/index.toml > data/interim/cursorless-snippets/reconciled.jsonl
     deps:
     - path: data/raw/cursorless-snippets/index.toml
-      md5: 8c1df7ef3a495931d04bd0bea92486e6
-      size: 251
+      md5: e2e14ccd92f21b90a0b1e7624fa83209
+      size: 262
     - path: data/raw/cursorless-snippets/recording-log
       md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
       size: 1234106
@@ -1287,8 +1287,8 @@ stages:
       md5: 8e265566399daca342716ce42df9a36c
       size: 18342
     - path: data/raw/cursorless-snippets/index.toml
-      md5: 8c1df7ef3a495931d04bd0bea92486e6
-      size: 251
+      md5: e2e14ccd92f21b90a0b1e7624fa83209
+      size: 262
     - path: data/raw/cursorless-snippets/recording-log
       md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
       size: 1234106
@@ -1301,18 +1301,18 @@ stages:
       size: 13153
     outs:
     - path: data/processed/cursorless-snippets/transcript.json
-      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
-      size: 47603
+      md5: 8660a3577036e0dd333787d2d3800c9a
+      size: 47614
   cursorless-snippets_publish_transcript:
     cmd: cp data/processed/cursorless-snippets/transcript.json ../pokeyrule.com/src/data/videos/cursorless-snippets.json
     deps:
     - path: data/processed/cursorless-snippets/transcript.json
-      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
-      size: 47603
+      md5: 8660a3577036e0dd333787d2d3800c9a
+      size: 47614
     outs:
     - path: ../pokeyrule.com/src/data/videos/cursorless-snippets.json
-      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
-      size: 47603
+      md5: 8660a3577036e0dd333787d2d3800c9a
+      size: 47614
   cursorless-snippets_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-snippets/reconciled.jsonl
       data/raw/cursorless-snippets/index.toml data/processed/cursorless-snippets/mark-highlights-timeline.xml
