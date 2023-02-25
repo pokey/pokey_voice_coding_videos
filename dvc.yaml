@@ -694,3 +694,9 @@ stages:
     - data/processed/cursorless-snippets-advanced/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/cursorless-snippets-advanced.json
+  cursorless-snippets_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/cursorless-snippets/thumbnail.png 1740 data/processed/cursorless-snippets/
+    deps:
+    - data/raw/cursorless-snippets/thumbnail.png
+    outs:
+    - data/processed/cursorless-snippets/thumbnail.png

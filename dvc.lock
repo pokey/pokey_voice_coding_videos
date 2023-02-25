@@ -1361,3 +1361,13 @@ stages:
     - path: data/processed/cursorless-snippets/subtitles.srt
       md5: 9a2f0924a72d9a80be6a19e438da95a8
       size: 3526
+  cursorless-snippets_thumbnail:
+    cmd: ./scripts/resize.sh data/raw/cursorless-snippets/thumbnail.png 1740 data/processed/cursorless-snippets/
+    deps:
+    - path: data/raw/cursorless-snippets/thumbnail.png
+      md5: 8d464c937ceff7c64d16cd8e9b5a2a48
+      size: 1859971
+    outs:
+    - path: data/processed/cursorless-snippets/thumbnail.png
+      md5: 86a1dce9ebe6d1e25a423da6d073d6ca
+      size: 478399
