@@ -1259,3 +1259,81 @@ stages:
     - path: data/processed/advent-of-code-by-voice-7/subtitles.srt
       md5: f424daae5b8b04a9bd2cddaa90be5d70
       size: 20163
+  cursorless-snippets_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-snippets/index.toml > data/interim/cursorless-snippets/reconciled.jsonl
+    deps:
+    - path: data/raw/cursorless-snippets/index.toml
+      md5: 8c1df7ef3a495931d04bd0bea92486e6
+      size: 251
+    - path: data/raw/cursorless-snippets/recording-log
+      md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
+      size: 1234106
+      nfiles: 383
+    - path: data/raw/cursorless-snippets/timeline.xml
+      md5: e9d1290976d6a63c31d03e67d23eca24
+      size: 1915515
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/cursorless-snippets/reconciled.jsonl
+      md5: 8e265566399daca342716ce42df9a36c
+      size: 18342
+  cursorless-snippets_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-snippets/reconciled.jsonl
+      data/raw/cursorless-snippets/index.toml > data/processed/cursorless-snippets/transcript.json
+    deps:
+    - path: data/interim/cursorless-snippets/reconciled.jsonl
+      md5: 8e265566399daca342716ce42df9a36c
+      size: 18342
+    - path: data/raw/cursorless-snippets/index.toml
+      md5: 8c1df7ef3a495931d04bd0bea92486e6
+      size: 251
+    - path: data/raw/cursorless-snippets/recording-log
+      md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
+      size: 1234106
+      nfiles: 383
+    - path: data/raw/cursorless-snippets/timeline.xml
+      md5: e9d1290976d6a63c31d03e67d23eca24
+      size: 1915515
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-snippets/transcript.json
+      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
+      size: 47603
+  cursorless-snippets_publish_transcript:
+    cmd: cp data/processed/cursorless-snippets/transcript.json ../pokeyrule.com/src/data/videos/cursorless-snippets.json
+    deps:
+    - path: data/processed/cursorless-snippets/transcript.json
+      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
+      size: 47603
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/cursorless-snippets.json
+      md5: 831d6e30647a82b40ed9eb3b7b6c71d6
+      size: 47603
+  cursorless-snippets_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-snippets/reconciled.jsonl
+      data/raw/cursorless-snippets/index.toml data/processed/cursorless-snippets/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/cursorless-snippets/reconciled.jsonl
+      md5: 8e265566399daca342716ce42df9a36c
+      size: 18342
+    - path: data/raw/cursorless-snippets/index.toml
+      md5: 8c1df7ef3a495931d04bd0bea92486e6
+      size: 251
+    - path: data/raw/cursorless-snippets/recording-log
+      md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
+      size: 1234106
+      nfiles: 383
+    - path: data/raw/cursorless-snippets/timeline.xml
+      md5: e9d1290976d6a63c31d03e67d23eca24
+      size: 1915515
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-snippets/mark-highlights-timeline.xml
+      md5: 0a679fcf9e1b06f0c59df264bde823b8
+      size: 75580
