@@ -1337,3 +1337,27 @@ stages:
     - path: data/processed/cursorless-snippets/mark-highlights-timeline.xml
       md5: 0a679fcf9e1b06f0c59df264bde823b8
       size: 75580
+  cursorless-snippets_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-snippets/reconciled.jsonl
+      data/raw/cursorless-snippets/index.toml > data/processed/cursorless-snippets/subtitles.srt
+    deps:
+    - path: data/interim/cursorless-snippets/reconciled.jsonl
+      md5: 8e265566399daca342716ce42df9a36c
+      size: 18342
+    - path: data/raw/cursorless-snippets/index.toml
+      md5: 8c1df7ef3a495931d04bd0bea92486e6
+      size: 251
+    - path: data/raw/cursorless-snippets/recording-log
+      md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
+      size: 1234106
+      nfiles: 383
+    - path: data/raw/cursorless-snippets/timeline.xml
+      md5: e9d1290976d6a63c31d03e67d23eca24
+      size: 1915515
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-snippets/subtitles.srt
+      md5: 9a2f0924a72d9a80be6a19e438da95a8
+      size: 3526
