@@ -1,2 +1,5 @@
 [core]
     autostage = true
+    remote = default
+['remote "default"']
+    url = s3://pokey-dvc/pokey_voice_coding_videos
