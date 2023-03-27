@@ -1371,3 +1371,105 @@ stages:
     - path: data/processed/cursorless-snippets/thumbnail.png
       md5: 86a1dce9ebe6d1e25a423da6d073d6ca
       size: 478399
+  cursorless-mathfly_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-mathfly/index.toml > data/interim/cursorless-mathfly/reconciled.jsonl
+    deps:
+    - path: data/raw/cursorless-mathfly/index.toml
+      md5: 51742c870aa6f03647282a23bf546902
+      size: 261
+    - path: data/raw/cursorless-mathfly/recording-log
+      md5: d2f1db0ad3969e0243487ac1016c6d85.dir
+      size: 762002
+      nfiles: 246
+    - path: data/raw/cursorless-mathfly/timeline.xml
+      md5: 2a566f2822b89ccdc4dce6bc04697dee
+      size: 507649
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/cursorless-mathfly/reconciled.jsonl
+      md5: 430ece534d1d43f10c1c8f51b61b7253
+      size: 10395
+  cursorless-mathfly_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml data/processed/cursorless-mathfly/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/cursorless-mathfly/reconciled.jsonl
+      md5: 430ece534d1d43f10c1c8f51b61b7253
+      size: 10395
+    - path: data/raw/cursorless-mathfly/index.toml
+      md5: 51742c870aa6f03647282a23bf546902
+      size: 261
+    - path: data/raw/cursorless-mathfly/recording-log
+      md5: d2f1db0ad3969e0243487ac1016c6d85.dir
+      size: 762002
+      nfiles: 246
+    - path: data/raw/cursorless-mathfly/timeline.xml
+      md5: 2a566f2822b89ccdc4dce6bc04697dee
+      size: 507649
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-mathfly/mark-highlights-timeline.xml
+      md5: 6a0e7974c728f35cb28ea08ce94ccbe2
+      size: 32644
+  cursorless-mathfly_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml > data/processed/cursorless-mathfly/subtitles.srt
+    deps:
+    - path: data/interim/cursorless-mathfly/reconciled.jsonl
+      md5: 430ece534d1d43f10c1c8f51b61b7253
+      size: 10395
+    - path: data/raw/cursorless-mathfly/index.toml
+      md5: 51742c870aa6f03647282a23bf546902
+      size: 261
+    - path: data/raw/cursorless-mathfly/recording-log
+      md5: d2f1db0ad3969e0243487ac1016c6d85.dir
+      size: 762002
+      nfiles: 246
+    - path: data/raw/cursorless-mathfly/timeline.xml
+      md5: 2a566f2822b89ccdc4dce6bc04697dee
+      size: 507649
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-mathfly/subtitles.srt
+      md5: 6c64ec685b0329bac8f3d6b7aa9c29cf
+      size: 2332
+  cursorless-mathfly_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml > data/processed/cursorless-mathfly/transcript.json
+    deps:
+    - path: data/interim/cursorless-mathfly/reconciled.jsonl
+      md5: 430ece534d1d43f10c1c8f51b61b7253
+      size: 10395
+    - path: data/raw/cursorless-mathfly/index.toml
+      md5: 51742c870aa6f03647282a23bf546902
+      size: 261
+    - path: data/raw/cursorless-mathfly/recording-log
+      md5: d2f1db0ad3969e0243487ac1016c6d85.dir
+      size: 762002
+      nfiles: 246
+    - path: data/raw/cursorless-mathfly/timeline.xml
+      md5: 2a566f2822b89ccdc4dce6bc04697dee
+      size: 507649
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-mathfly/transcript.json
+      md5: 68652b6a149cb74084f052ac85a373d1
+      size: 32155
+  cursorless-mathfly_publish_transcript:
+    cmd: cp data/processed/cursorless-mathfly/transcript.json ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
+    deps:
+    - path: data/processed/cursorless-mathfly/transcript.json
+      md5: 68652b6a149cb74084f052ac85a373d1
+      size: 32155
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
+      md5: 68652b6a149cb74084f052ac85a373d1
+      size: 32155

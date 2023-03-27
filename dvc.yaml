@@ -700,3 +700,51 @@ stages:
     - data/raw/cursorless-snippets/thumbnail.png
     outs:
     - data/processed/cursorless-snippets/thumbnail.png
+  cursorless-mathfly_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-mathfly/index.toml > data/interim/cursorless-mathfly/reconciled.jsonl
+    deps:
+    - data/raw/cursorless-mathfly/index.toml
+    - data/raw/cursorless-mathfly/recording-log
+    - data/raw/cursorless-mathfly/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/cursorless-mathfly/reconciled.jsonl
+  cursorless-mathfly_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml > data/processed/cursorless-mathfly/subtitles.srt
+    deps:
+    - data/interim/cursorless-mathfly/reconciled.jsonl
+    - data/raw/cursorless-mathfly/index.toml
+    - data/raw/cursorless-mathfly/recording-log
+    - data/raw/cursorless-mathfly/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-mathfly/subtitles.srt
+  cursorless-mathfly_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml > data/processed/cursorless-mathfly/transcript.json
+    deps:
+    - data/interim/cursorless-mathfly/reconciled.jsonl
+    - data/raw/cursorless-mathfly/index.toml
+    - data/raw/cursorless-mathfly/recording-log
+    - data/raw/cursorless-mathfly/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-mathfly/transcript.json
+  cursorless-mathfly_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-mathfly/reconciled.jsonl
+      data/raw/cursorless-mathfly/index.toml data/processed/cursorless-mathfly/mark-highlights-timeline.xml
+    deps:
+    - data/interim/cursorless-mathfly/reconciled.jsonl
+    - data/raw/cursorless-mathfly/index.toml
+    - data/raw/cursorless-mathfly/recording-log
+    - data/raw/cursorless-mathfly/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-mathfly/mark-highlights-timeline.xml
+  cursorless-mathfly_publish_transcript:
+    cmd: cp data/processed/cursorless-mathfly/transcript.json ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
+    deps:
+    - data/processed/cursorless-mathfly/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
