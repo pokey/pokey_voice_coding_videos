@@ -1321,8 +1321,8 @@ stages:
       md5: 8e265566399daca342716ce42df9a36c
       size: 18342
     - path: data/raw/cursorless-snippets/index.toml
-      md5: 8c1df7ef3a495931d04bd0bea92486e6
-      size: 251
+      md5: e2e14ccd92f21b90a0b1e7624fa83209
+      size: 262
     - path: data/raw/cursorless-snippets/recording-log
       md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
       size: 1234106
@@ -1473,3 +1473,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
       md5: 68652b6a149cb74084f052ac85a373d1
       size: 32155
+  typescript-monorepo_reconcile:
+    cmd: voice-vid reconcile data/raw/typescript-monorepo/index.toml > data/interim/typescript-monorepo/reconciled.jsonl
+    deps:
+    - path: data/raw/typescript-monorepo/index.toml
+      md5: c34f41a64ab05992c675e0b005c57aca
+      size: 251
+    - path: data/raw/typescript-monorepo/recording-log
+      md5: c3f24009cd3c367fcba129d66228e964.dir
+      size: 1654682
+      nfiles: 67
+    - path: data/raw/typescript-monorepo/timeline.xml
+      md5: c3c18b40b3d11a46087ac5109d22cf39
+      size: 210584
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/typescript-monorepo/reconciled.jsonl
+      md5: ac393fd95e9b66e245b330e8252144d2
+      size: 7491
+  typescript-monorepo_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml > data/processed/typescript-monorepo/subtitles.srt
+    deps:
+    - path: data/interim/typescript-monorepo/reconciled.jsonl
+      md5: ac393fd95e9b66e245b330e8252144d2
+      size: 7491
+    - path: data/raw/typescript-monorepo/index.toml
+      md5: c34f41a64ab05992c675e0b005c57aca
+      size: 251
+    - path: data/raw/typescript-monorepo/recording-log
+      md5: c3f24009cd3c367fcba129d66228e964.dir
+      size: 1654682
+      nfiles: 67
+    - path: data/raw/typescript-monorepo/timeline.xml
+      md5: c3c18b40b3d11a46087ac5109d22cf39
+      size: 210584
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/typescript-monorepo/subtitles.srt
+      md5: 245f1d2737ebfb3f52339836e59af0fe
+      size: 1268
+  typescript-monorepo_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml data/processed/typescript-monorepo/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/typescript-monorepo/reconciled.jsonl
+      md5: ac393fd95e9b66e245b330e8252144d2
+      size: 7491
+    - path: data/raw/typescript-monorepo/index.toml
+      md5: c34f41a64ab05992c675e0b005c57aca
+      size: 251
+    - path: data/raw/typescript-monorepo/recording-log
+      md5: c3f24009cd3c367fcba129d66228e964.dir
+      size: 1654682
+      nfiles: 67
+    - path: data/raw/typescript-monorepo/timeline.xml
+      md5: c3c18b40b3d11a46087ac5109d22cf39
+      size: 210584
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/typescript-monorepo/mark-highlights-timeline.xml
+      md5: eaaf21ac6975e311d3ee63d7427d28ba
+      size: 32642
+  typescript-monorepo_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml > data/processed/typescript-monorepo/transcript.json
+    deps:
+    - path: data/interim/typescript-monorepo/reconciled.jsonl
+      md5: ac393fd95e9b66e245b330e8252144d2
+      size: 7491
+    - path: data/raw/typescript-monorepo/index.toml
+      md5: c34f41a64ab05992c675e0b005c57aca
+      size: 251
+    - path: data/raw/typescript-monorepo/recording-log
+      md5: c3f24009cd3c367fcba129d66228e964.dir
+      size: 1654682
+      nfiles: 67
+    - path: data/raw/typescript-monorepo/timeline.xml
+      md5: c3c18b40b3d11a46087ac5109d22cf39
+      size: 210584
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/typescript-monorepo/transcript.json
+      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
+      size: 15711
+  typescript-monorepo_publish_transcript:
+    cmd: cp data/processed/typescript-monorepo/transcript.json ../pokeyrule.com/src/data/videos/typescript-monorepo.json
+    deps:
+    - path: data/processed/typescript-monorepo/transcript.json
+      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
+      size: 15711
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/typescript-monorepo.json
+      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
+      size: 15711

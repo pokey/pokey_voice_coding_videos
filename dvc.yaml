@@ -748,3 +748,51 @@ stages:
     - data/processed/cursorless-mathfly/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/cursorless-mathfly.json
+  typescript-monorepo_reconcile:
+    cmd: voice-vid reconcile data/raw/typescript-monorepo/index.toml > data/interim/typescript-monorepo/reconciled.jsonl
+    deps:
+    - data/raw/typescript-monorepo/index.toml
+    - data/raw/typescript-monorepo/recording-log
+    - data/raw/typescript-monorepo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/typescript-monorepo/reconciled.jsonl
+  typescript-monorepo_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml > data/processed/typescript-monorepo/subtitles.srt
+    deps:
+    - data/interim/typescript-monorepo/reconciled.jsonl
+    - data/raw/typescript-monorepo/index.toml
+    - data/raw/typescript-monorepo/recording-log
+    - data/raw/typescript-monorepo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/typescript-monorepo/subtitles.srt
+  typescript-monorepo_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml > data/processed/typescript-monorepo/transcript.json
+    deps:
+    - data/interim/typescript-monorepo/reconciled.jsonl
+    - data/raw/typescript-monorepo/index.toml
+    - data/raw/typescript-monorepo/recording-log
+    - data/raw/typescript-monorepo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/typescript-monorepo/transcript.json
+  typescript-monorepo_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/typescript-monorepo/reconciled.jsonl
+      data/raw/typescript-monorepo/index.toml data/processed/typescript-monorepo/mark-highlights-timeline.xml
+    deps:
+    - data/interim/typescript-monorepo/reconciled.jsonl
+    - data/raw/typescript-monorepo/index.toml
+    - data/raw/typescript-monorepo/recording-log
+    - data/raw/typescript-monorepo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/typescript-monorepo/mark-highlights-timeline.xml
+  typescript-monorepo_publish_transcript:
+    cmd: cp data/processed/typescript-monorepo/transcript.json ../pokeyrule.com/src/data/videos/typescript-monorepo.json
+    deps:
+    - data/processed/typescript-monorepo/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/typescript-monorepo.json
