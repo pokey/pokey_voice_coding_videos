@@ -1477,8 +1477,8 @@ stages:
     cmd: voice-vid reconcile data/raw/typescript-monorepo/index.toml > data/interim/typescript-monorepo/reconciled.jsonl
     deps:
     - path: data/raw/typescript-monorepo/index.toml
-      md5: c34f41a64ab05992c675e0b005c57aca
-      size: 251
+      md5: 124b05951d65cb092429f86356617594
+      size: 262
     - path: data/raw/typescript-monorepo/recording-log
       md5: c3f24009cd3c367fcba129d66228e964.dir
       size: 1654682
@@ -1501,8 +1501,8 @@ stages:
       md5: ac393fd95e9b66e245b330e8252144d2
       size: 7491
     - path: data/raw/typescript-monorepo/index.toml
-      md5: c34f41a64ab05992c675e0b005c57aca
-      size: 251
+      md5: 124b05951d65cb092429f86356617594
+      size: 262
     - path: data/raw/typescript-monorepo/recording-log
       md5: c3f24009cd3c367fcba129d66228e964.dir
       size: 1654682
@@ -1525,8 +1525,8 @@ stages:
       md5: ac393fd95e9b66e245b330e8252144d2
       size: 7491
     - path: data/raw/typescript-monorepo/index.toml
-      md5: c34f41a64ab05992c675e0b005c57aca
-      size: 251
+      md5: 124b05951d65cb092429f86356617594
+      size: 262
     - path: data/raw/typescript-monorepo/recording-log
       md5: c3f24009cd3c367fcba129d66228e964.dir
       size: 1654682
@@ -1549,8 +1549,8 @@ stages:
       md5: ac393fd95e9b66e245b330e8252144d2
       size: 7491
     - path: data/raw/typescript-monorepo/index.toml
-      md5: c34f41a64ab05992c675e0b005c57aca
-      size: 251
+      md5: 124b05951d65cb092429f86356617594
+      size: 262
     - path: data/raw/typescript-monorepo/recording-log
       md5: c3f24009cd3c367fcba129d66228e964.dir
       size: 1654682
@@ -1563,15 +1563,15 @@ stages:
       size: 13153
     outs:
     - path: data/processed/typescript-monorepo/transcript.json
-      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
-      size: 15711
+      md5: 3c01b1a00c49cd4870edd7997d2eeac3
+      size: 15722
   typescript-monorepo_publish_transcript:
     cmd: cp data/processed/typescript-monorepo/transcript.json ../pokeyrule.com/src/data/videos/typescript-monorepo.json
     deps:
     - path: data/processed/typescript-monorepo/transcript.json
-      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
-      size: 15711
+      md5: 3c01b1a00c49cd4870edd7997d2eeac3
+      size: 15722
     outs:
     - path: ../pokeyrule.com/src/data/videos/typescript-monorepo.json
-      md5: 17ae27cc25c092c7091ff19fd2c1e9cf
-      size: 15711
+      md5: 3c01b1a00c49cd4870edd7997d2eeac3
+      size: 15722
