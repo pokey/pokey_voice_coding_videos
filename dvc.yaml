@@ -748,3 +748,51 @@ stages:
     - data/processed/typescript-monorepo/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/typescript-monorepo.json
+  query-allow-multiple_reconcile:
+    cmd: voice-vid reconcile data/raw/query-allow-multiple/index.toml > data/interim/query-allow-multiple/reconciled.jsonl
+    deps:
+    - data/raw/query-allow-multiple/index.toml
+    - data/raw/query-allow-multiple/recording-log
+    - data/raw/query-allow-multiple/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/query-allow-multiple/reconciled.jsonl
+  query-allow-multiple_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml > data/processed/query-allow-multiple/subtitles.srt
+    deps:
+    - data/interim/query-allow-multiple/reconciled.jsonl
+    - data/raw/query-allow-multiple/index.toml
+    - data/raw/query-allow-multiple/recording-log
+    - data/raw/query-allow-multiple/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/query-allow-multiple/subtitles.srt
+  query-allow-multiple_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml > data/processed/query-allow-multiple/transcript.json
+    deps:
+    - data/interim/query-allow-multiple/reconciled.jsonl
+    - data/raw/query-allow-multiple/index.toml
+    - data/raw/query-allow-multiple/recording-log
+    - data/raw/query-allow-multiple/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/query-allow-multiple/transcript.json
+  query-allow-multiple_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml data/processed/query-allow-multiple/mark-highlights-timeline.xml
+    deps:
+    - data/interim/query-allow-multiple/reconciled.jsonl
+    - data/raw/query-allow-multiple/index.toml
+    - data/raw/query-allow-multiple/recording-log
+    - data/raw/query-allow-multiple/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/query-allow-multiple/mark-highlights-timeline.xml
+  query-allow-multiple_publish_transcript:
+    cmd: cp data/processed/query-allow-multiple/transcript.json ../pokeyrule.com/src/data/videos/query-allow-multiple.json
+    deps:
+    - data/processed/query-allow-multiple/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/query-allow-multiple.json

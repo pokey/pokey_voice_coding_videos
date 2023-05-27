@@ -1345,8 +1345,8 @@ stages:
       md5: 8e265566399daca342716ce42df9a36c
       size: 18342
     - path: data/raw/cursorless-snippets/index.toml
-      md5: 8c1df7ef3a495931d04bd0bea92486e6
-      size: 251
+      md5: e2e14ccd92f21b90a0b1e7624fa83209
+      size: 262
     - path: data/raw/cursorless-snippets/recording-log
       md5: a6c42f0b448608c3ac5f150bc9b85aa0.dir
       size: 1234106
@@ -1575,3 +1575,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/typescript-monorepo.json
       md5: 3c01b1a00c49cd4870edd7997d2eeac3
       size: 15722
+  query-allow-multiple_reconcile:
+    cmd: voice-vid reconcile data/raw/query-allow-multiple/index.toml > data/interim/query-allow-multiple/reconciled.jsonl
+    deps:
+    - path: data/raw/query-allow-multiple/index.toml
+      md5: 2ed12273932fb4b11ab652307e92f7e8
+      size: 265
+    - path: data/raw/query-allow-multiple/recording-log
+      md5: fb30a84c24139a07fae00aadb1e781ba.dir
+      size: 3540403
+      nfiles: 652
+    - path: data/raw/query-allow-multiple/timeline.xml
+      md5: 7a58d452ac450879ec9fce8ee158cd58
+      size: 28204
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/query-allow-multiple/reconciled.jsonl
+      md5: b59dfa80c3ad47d209da8cdb5b94de79
+      size: 70683
+  query-allow-multiple_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml > data/processed/query-allow-multiple/subtitles.srt
+    deps:
+    - path: data/interim/query-allow-multiple/reconciled.jsonl
+      md5: b59dfa80c3ad47d209da8cdb5b94de79
+      size: 70683
+    - path: data/raw/query-allow-multiple/index.toml
+      md5: 2ed12273932fb4b11ab652307e92f7e8
+      size: 265
+    - path: data/raw/query-allow-multiple/recording-log
+      md5: fb30a84c24139a07fae00aadb1e781ba.dir
+      size: 3540403
+      nfiles: 652
+    - path: data/raw/query-allow-multiple/timeline.xml
+      md5: 7a58d452ac450879ec9fce8ee158cd58
+      size: 28204
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/query-allow-multiple/subtitles.srt
+      md5: f6afa3058cd5e85ab44b8a0b04299237
+      size: 14283
+  query-allow-multiple_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml data/processed/query-allow-multiple/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/query-allow-multiple/reconciled.jsonl
+      md5: b59dfa80c3ad47d209da8cdb5b94de79
+      size: 70683
+    - path: data/raw/query-allow-multiple/index.toml
+      md5: 2ed12273932fb4b11ab652307e92f7e8
+      size: 265
+    - path: data/raw/query-allow-multiple/recording-log
+      md5: fb30a84c24139a07fae00aadb1e781ba.dir
+      size: 3540403
+      nfiles: 652
+    - path: data/raw/query-allow-multiple/timeline.xml
+      md5: 7a58d452ac450879ec9fce8ee158cd58
+      size: 28204
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/query-allow-multiple/mark-highlights-timeline.xml
+      md5: 861a9f410484be647358f4fb6f645e41
+      size: 476545
+  query-allow-multiple_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/query-allow-multiple/reconciled.jsonl
+      data/raw/query-allow-multiple/index.toml > data/processed/query-allow-multiple/transcript.json
+    deps:
+    - path: data/interim/query-allow-multiple/reconciled.jsonl
+      md5: b59dfa80c3ad47d209da8cdb5b94de79
+      size: 70683
+    - path: data/raw/query-allow-multiple/index.toml
+      md5: 2ed12273932fb4b11ab652307e92f7e8
+      size: 265
+    - path: data/raw/query-allow-multiple/recording-log
+      md5: fb30a84c24139a07fae00aadb1e781ba.dir
+      size: 3540403
+      nfiles: 652
+    - path: data/raw/query-allow-multiple/timeline.xml
+      md5: 7a58d452ac450879ec9fce8ee158cd58
+      size: 28204
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/query-allow-multiple/transcript.json
+      md5: 76c9354cc09ffc504e9c3ae80aaf14c8
+      size: 186057
+  query-allow-multiple_publish_transcript:
+    cmd: cp data/processed/query-allow-multiple/transcript.json ../pokeyrule.com/src/data/videos/query-allow-multiple.json
+    deps:
+    - path: data/processed/query-allow-multiple/transcript.json
+      md5: 76c9354cc09ffc504e9c3ae80aaf14c8
+      size: 186057
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/query-allow-multiple.json
+      md5: 76c9354cc09ffc504e9c3ae80aaf14c8
+      size: 186057
