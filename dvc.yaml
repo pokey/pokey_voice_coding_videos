@@ -796,3 +796,51 @@ stages:
     - data/processed/query-allow-multiple/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/query-allow-multiple.json
+  human-after-all-demo_reconcile:
+    cmd: voice-vid reconcile data/raw/human-after-all-demo/index.toml > data/interim/human-after-all-demo/reconciled.jsonl
+    deps:
+    - data/raw/human-after-all-demo/index.toml
+    - data/raw/human-after-all-demo/recording-log
+    - data/raw/human-after-all-demo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/human-after-all-demo/reconciled.jsonl
+  human-after-all-demo_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml > data/processed/human-after-all-demo/subtitles.srt
+    deps:
+    - data/interim/human-after-all-demo/reconciled.jsonl
+    - data/raw/human-after-all-demo/index.toml
+    - data/raw/human-after-all-demo/recording-log
+    - data/raw/human-after-all-demo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/human-after-all-demo/subtitles.srt
+  human-after-all-demo_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml > data/processed/human-after-all-demo/transcript.json
+    deps:
+    - data/interim/human-after-all-demo/reconciled.jsonl
+    - data/raw/human-after-all-demo/index.toml
+    - data/raw/human-after-all-demo/recording-log
+    - data/raw/human-after-all-demo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/human-after-all-demo/transcript.json
+  human-after-all-demo_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml data/processed/human-after-all-demo/mark-highlights-timeline.xml
+    deps:
+    - data/interim/human-after-all-demo/reconciled.jsonl
+    - data/raw/human-after-all-demo/index.toml
+    - data/raw/human-after-all-demo/recording-log
+    - data/raw/human-after-all-demo/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/human-after-all-demo/mark-highlights-timeline.xml
+  human-after-all-demo_publish_transcript:
+    cmd: cp data/processed/human-after-all-demo/transcript.json ../pokeyrule.com/src/data/videos/human-after-all-demo.json
+    deps:
+    - data/processed/human-after-all-demo/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/human-after-all-demo.json

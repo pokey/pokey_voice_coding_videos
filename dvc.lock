@@ -1677,3 +1677,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/query-allow-multiple.json
       md5: 76c9354cc09ffc504e9c3ae80aaf14c8
       size: 186057
+  human-after-all-demo_reconcile:
+    cmd: voice-vid reconcile data/raw/human-after-all-demo/index.toml > data/interim/human-after-all-demo/reconciled.jsonl
+    deps:
+    - path: data/raw/human-after-all-demo/index.toml
+      md5: 361d2432cd103fb0bce74d83910d0728
+      size: 252
+    - path: data/raw/human-after-all-demo/recording-log
+      md5: 2a78ffbb30f1afc549fe72eb944b4539.dir
+      size: 461505
+      nfiles: 84
+    - path: data/raw/human-after-all-demo/timeline.xml
+      md5: ae89a58b5f71a0bc934d14ce8cad6702
+      size: 101307
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/human-after-all-demo/reconciled.jsonl
+      md5: 1ed545024abdfcbf390a29b2a03806c7
+      size: 7457
+  human-after-all-demo_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml > data/processed/human-after-all-demo/transcript.json
+    deps:
+    - path: data/interim/human-after-all-demo/reconciled.jsonl
+      md5: 1ed545024abdfcbf390a29b2a03806c7
+      size: 7457
+    - path: data/raw/human-after-all-demo/index.toml
+      md5: 361d2432cd103fb0bce74d83910d0728
+      size: 252
+    - path: data/raw/human-after-all-demo/recording-log
+      md5: 2a78ffbb30f1afc549fe72eb944b4539.dir
+      size: 461505
+      nfiles: 84
+    - path: data/raw/human-after-all-demo/timeline.xml
+      md5: ae89a58b5f71a0bc934d14ce8cad6702
+      size: 101307
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/human-after-all-demo/transcript.json
+      md5: 14cd4ef73cbab9889c886969791834e7
+      size: 31148
+  human-after-all-demo_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml data/processed/human-after-all-demo/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/human-after-all-demo/reconciled.jsonl
+      md5: 1ed545024abdfcbf390a29b2a03806c7
+      size: 7457
+    - path: data/raw/human-after-all-demo/index.toml
+      md5: 361d2432cd103fb0bce74d83910d0728
+      size: 252
+    - path: data/raw/human-after-all-demo/recording-log
+      md5: 2a78ffbb30f1afc549fe72eb944b4539.dir
+      size: 461505
+      nfiles: 84
+    - path: data/raw/human-after-all-demo/timeline.xml
+      md5: ae89a58b5f71a0bc934d14ce8cad6702
+      size: 101307
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/human-after-all-demo/mark-highlights-timeline.xml
+      md5: 2cb22e5192db67a9210feef6ffd8c23e
+      size: 123368
+  human-after-all-demo_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/human-after-all-demo/reconciled.jsonl
+      data/raw/human-after-all-demo/index.toml > data/processed/human-after-all-demo/subtitles.srt
+    deps:
+    - path: data/interim/human-after-all-demo/reconciled.jsonl
+      md5: 1ed545024abdfcbf390a29b2a03806c7
+      size: 7457
+    - path: data/raw/human-after-all-demo/index.toml
+      md5: 361d2432cd103fb0bce74d83910d0728
+      size: 252
+    - path: data/raw/human-after-all-demo/recording-log
+      md5: 2a78ffbb30f1afc549fe72eb944b4539.dir
+      size: 461505
+      nfiles: 84
+    - path: data/raw/human-after-all-demo/timeline.xml
+      md5: ae89a58b5f71a0bc934d14ce8cad6702
+      size: 101307
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/human-after-all-demo/subtitles.srt
+      md5: 6d5c63d936e7a9a1c810527d41502eaa
+      size: 1859
+  human-after-all-demo_publish_transcript:
+    cmd: cp data/processed/human-after-all-demo/transcript.json ../pokeyrule.com/src/data/videos/human-after-all-demo.json
+    deps:
+    - path: data/processed/human-after-all-demo/transcript.json
+      md5: 14cd4ef73cbab9889c886969791834e7
+      size: 31148
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/human-after-all-demo.json
+      md5: 14cd4ef73cbab9889c886969791834e7
+      size: 31148
