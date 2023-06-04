@@ -1769,13 +1769,3 @@ stages:
     - path: data/processed/human-after-all-demo/subtitles.srt
       md5: 6d5c63d936e7a9a1c810527d41502eaa
       size: 1859
-  human-after-all-demo_publish_transcript:
-    cmd: cp data/processed/human-after-all-demo/transcript.json ../pokeyrule.com/src/data/videos/human-after-all-demo.json
-    deps:
-    - path: data/processed/human-after-all-demo/transcript.json
-      md5: 14cd4ef73cbab9889c886969791834e7
-      size: 31148
-    outs:
-    - path: ../pokeyrule.com/src/data/videos/human-after-all-demo.json
-      md5: 14cd4ef73cbab9889c886969791834e7
-      size: 31148

@@ -838,9 +838,3 @@ stages:
     - poetry.lock
     outs:
     - data/processed/human-after-all-demo/mark-highlights-timeline.xml
-  human-after-all-demo_publish_transcript:
-    cmd: cp data/processed/human-after-all-demo/transcript.json ../pokeyrule.com/src/data/videos/human-after-all-demo.json
-    deps:
-    - data/processed/human-after-all-demo/transcript.json
-    outs:
-    - ../pokeyrule.com/src/data/videos/human-after-all-demo.json
