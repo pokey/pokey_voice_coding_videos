@@ -1871,3 +1871,107 @@ stages:
     - path: data/processed/instance/subtitles.srt
       md5: 5752fdf12b913ea1a34787cdf09aea31
       size: 1544
+  move-line-every-instance-square-plex-after-file_reconcile:
+    cmd: voice-vid reconcile data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      > data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+    deps:
+    - path: data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      md5: ec27070981b0b87d3521de0f4ea69929
+      size: 290
+    - path: data/raw/move-line-every-instance-square-plex-after-file/recording-log
+      md5: fa7e0027906af522585628c54c64d91c.dir
+      size: 109475
+      nfiles: 30
+    - path: data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+      md5: 9a0b683fa3cc7483f5454cc577a7036b
+      size: 26079
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      md5: 9394ae393e55bf1b5ff7d001f527c47b
+      size: 2917
+  move-line-every-instance-square-plex-after-file_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml > data/processed/move-line-every-instance-square-plex-after-file/subtitles.srt
+    deps:
+    - path: data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      md5: 9394ae393e55bf1b5ff7d001f527c47b
+      size: 2917
+    - path: data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      md5: ec27070981b0b87d3521de0f4ea69929
+      size: 290
+    - path: data/raw/move-line-every-instance-square-plex-after-file/recording-log
+      md5: fa7e0027906af522585628c54c64d91c.dir
+      size: 109475
+      nfiles: 30
+    - path: data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+      md5: 9a0b683fa3cc7483f5454cc577a7036b
+      size: 26079
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/move-line-every-instance-square-plex-after-file/subtitles.srt
+      md5: b110e0e0fd963281123dd7c2c0b1eb24
+      size: 664
+  move-line-every-instance-square-plex-after-file_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      md5: 9394ae393e55bf1b5ff7d001f527c47b
+      size: 2917
+    - path: data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      md5: ec27070981b0b87d3521de0f4ea69929
+      size: 290
+    - path: data/raw/move-line-every-instance-square-plex-after-file/recording-log
+      md5: fa7e0027906af522585628c54c64d91c.dir
+      size: 109475
+      nfiles: 30
+    - path: data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+      md5: 9a0b683fa3cc7483f5454cc577a7036b
+      size: 26079
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+      md5: 03534c01e03ef873bf77f53d19111f27
+      size: 54069
+  move-line-every-instance-square-plex-after-file_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml > data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+    deps:
+    - path: data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      md5: 9394ae393e55bf1b5ff7d001f527c47b
+      size: 2917
+    - path: data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      md5: ec27070981b0b87d3521de0f4ea69929
+      size: 290
+    - path: data/raw/move-line-every-instance-square-plex-after-file/recording-log
+      md5: fa7e0027906af522585628c54c64d91c.dir
+      size: 109475
+      nfiles: 30
+    - path: data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+      md5: 9a0b683fa3cc7483f5454cc577a7036b
+      size: 26079
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+      md5: b40b34190c1c87ca61e8e979529202f7
+      size: 6763
+  move-line-every-instance-square-plex-after-file_publish_transcript:
+    cmd: cp data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+      ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
+    deps:
+    - path: data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+      md5: b40b34190c1c87ca61e8e979529202f7
+      size: 6763
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
+      md5: b40b34190c1c87ca61e8e979529202f7
+      size: 6763

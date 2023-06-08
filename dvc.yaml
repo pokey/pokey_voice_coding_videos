@@ -886,3 +886,53 @@ stages:
     - data/processed/instance/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/instance.json
+  move-line-every-instance-square-plex-after-file_reconcile:
+    cmd: voice-vid reconcile data/raw/move-line-every-instance-square-plex-after-file/index.toml
+      > data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+    deps:
+    - data/raw/move-line-every-instance-square-plex-after-file/index.toml
+    - data/raw/move-line-every-instance-square-plex-after-file/recording-log
+    - data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+  move-line-every-instance-square-plex-after-file_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml > data/processed/move-line-every-instance-square-plex-after-file/subtitles.srt
+    deps:
+    - data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+    - data/raw/move-line-every-instance-square-plex-after-file/index.toml
+    - data/raw/move-line-every-instance-square-plex-after-file/recording-log
+    - data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/move-line-every-instance-square-plex-after-file/subtitles.srt
+  move-line-every-instance-square-plex-after-file_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml > data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+    deps:
+    - data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+    - data/raw/move-line-every-instance-square-plex-after-file/index.toml
+    - data/raw/move-line-every-instance-square-plex-after-file/recording-log
+    - data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+  move-line-every-instance-square-plex-after-file_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+    deps:
+    - data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
+    - data/raw/move-line-every-instance-square-plex-after-file/index.toml
+    - data/raw/move-line-every-instance-square-plex-after-file/recording-log
+    - data/raw/move-line-every-instance-square-plex-after-file/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+  move-line-every-instance-square-plex-after-file_publish_transcript:
+    cmd: cp data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+      ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
+    deps:
+    - data/processed/move-line-every-instance-square-plex-after-file/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
