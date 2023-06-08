@@ -1769,3 +1769,105 @@ stages:
     - path: data/processed/human-after-all-demo/subtitles.srt
       md5: 6d5c63d936e7a9a1c810527d41502eaa
       size: 1859
+  instance_reconcile:
+    cmd: voice-vid reconcile data/raw/instance/index.toml > data/interim/instance/reconciled.jsonl
+    deps:
+    - path: data/raw/instance/index.toml
+      md5: 442527222789f6909ff66399fd3f761a
+      size: 251
+    - path: data/raw/instance/recording-log
+      md5: 167cb46900720cd1b51ee9141681a62c.dir
+      size: 275443
+      nfiles: 118
+    - path: data/raw/instance/timeline.xml
+      md5: 2c14d05869ef820f72a4073ef54cfbfe
+      size: 115267
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/instance/reconciled.jsonl
+      md5: 7077fb9faf96f4ca1463d71fdacec61d
+      size: 7699
+  instance_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/instance/reconciled.jsonl
+      data/raw/instance/index.toml > data/processed/instance/transcript.json
+    deps:
+    - path: data/interim/instance/reconciled.jsonl
+      md5: 7077fb9faf96f4ca1463d71fdacec61d
+      size: 7699
+    - path: data/raw/instance/index.toml
+      md5: 442527222789f6909ff66399fd3f761a
+      size: 251
+    - path: data/raw/instance/recording-log
+      md5: 167cb46900720cd1b51ee9141681a62c.dir
+      size: 275443
+      nfiles: 118
+    - path: data/raw/instance/timeline.xml
+      md5: 2c14d05869ef820f72a4073ef54cfbfe
+      size: 115267
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/instance/transcript.json
+      md5: bd211dd80f73db48ed08f8ca815be85f
+      size: 18352
+  instance_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/instance/reconciled.jsonl
+      data/raw/instance/index.toml data/processed/instance/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/instance/reconciled.jsonl
+      md5: 7077fb9faf96f4ca1463d71fdacec61d
+      size: 7699
+    - path: data/raw/instance/index.toml
+      md5: 442527222789f6909ff66399fd3f761a
+      size: 251
+    - path: data/raw/instance/recording-log
+      md5: 167cb46900720cd1b51ee9141681a62c.dir
+      size: 275443
+      nfiles: 118
+    - path: data/raw/instance/timeline.xml
+      md5: 2c14d05869ef820f72a4073ef54cfbfe
+      size: 115267
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/instance/mark-highlights-timeline.xml
+      md5: 7323f475d48a7253fe9f97c738c44aef
+      size: 111270
+  instance_publish_transcript:
+    cmd: cp data/processed/instance/transcript.json ../pokeyrule.com/src/data/videos/instance.json
+    deps:
+    - path: data/processed/instance/transcript.json
+      md5: bd211dd80f73db48ed08f8ca815be85f
+      size: 18352
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/instance.json
+      md5: bd211dd80f73db48ed08f8ca815be85f
+      size: 18352
+  instance_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/instance/reconciled.jsonl data/raw/instance/index.toml
+      > data/processed/instance/subtitles.srt
+    deps:
+    - path: data/interim/instance/reconciled.jsonl
+      md5: 7077fb9faf96f4ca1463d71fdacec61d
+      size: 7699
+    - path: data/raw/instance/index.toml
+      md5: 442527222789f6909ff66399fd3f761a
+      size: 251
+    - path: data/raw/instance/recording-log
+      md5: 167cb46900720cd1b51ee9141681a62c.dir
+      size: 275443
+      nfiles: 118
+    - path: data/raw/instance/timeline.xml
+      md5: 2c14d05869ef820f72a4073ef54cfbfe
+      size: 115267
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/instance/subtitles.srt
+      md5: 5752fdf12b913ea1a34787cdf09aea31
+      size: 1544

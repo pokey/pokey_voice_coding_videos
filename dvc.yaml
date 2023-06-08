@@ -838,3 +838,51 @@ stages:
     - poetry.lock
     outs:
     - data/processed/human-after-all-demo/mark-highlights-timeline.xml
+  instance_reconcile:
+    cmd: voice-vid reconcile data/raw/instance/index.toml > data/interim/instance/reconciled.jsonl
+    deps:
+    - data/raw/instance/index.toml
+    - data/raw/instance/recording-log
+    - data/raw/instance/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/instance/reconciled.jsonl
+  instance_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/instance/reconciled.jsonl data/raw/instance/index.toml
+      > data/processed/instance/subtitles.srt
+    deps:
+    - data/interim/instance/reconciled.jsonl
+    - data/raw/instance/index.toml
+    - data/raw/instance/recording-log
+    - data/raw/instance/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/instance/subtitles.srt
+  instance_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/instance/reconciled.jsonl
+      data/raw/instance/index.toml > data/processed/instance/transcript.json
+    deps:
+    - data/interim/instance/reconciled.jsonl
+    - data/raw/instance/index.toml
+    - data/raw/instance/recording-log
+    - data/raw/instance/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/instance/transcript.json
+  instance_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/instance/reconciled.jsonl
+      data/raw/instance/index.toml data/processed/instance/mark-highlights-timeline.xml
+    deps:
+    - data/interim/instance/reconciled.jsonl
+    - data/raw/instance/index.toml
+    - data/raw/instance/recording-log
+    - data/raw/instance/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/instance/mark-highlights-timeline.xml
+  instance_publish_transcript:
+    cmd: cp data/processed/instance/transcript.json ../pokeyrule.com/src/data/videos/instance.json
+    deps:
+    - data/processed/instance/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/instance.json
