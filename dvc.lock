@@ -491,7 +491,8 @@ stages:
       size: 5755
   cursorless-internals-walkthrough-part-ii_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
-      data/raw/cursorless-internals-walkthrough-part-ii/index.toml data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml 
+      data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
     deps:
     - path: data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
       md5: 6d9b4159b379a0297079557ad6860ac2
@@ -510,7 +511,8 @@ stages:
       md5: 4e1e3a9c08eaf5a03e498884e964a937
       size: 13153
     outs:
-    - path: data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+    - path: 
+        data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
       md5: c8a34bc3f8ae9af4d5f654d3ef33005f
       size: 218777
   cursorless-internals-walkthrough-part-ii_thumbnail:
@@ -1918,7 +1920,8 @@ stages:
       size: 664
   move-line-every-instance-square-plex-after-file_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
-      data/raw/move-line-every-instance-square-plex-after-file/index.toml data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml 
+      data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
     deps:
     - path: data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
       md5: 9394ae393e55bf1b5ff7d001f527c47b
@@ -1937,7 +1940,8 @@ stages:
       md5: 4e1e3a9c08eaf5a03e498884e964a937
       size: 13153
     outs:
-    - path: data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+    - path: 
+        data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
       md5: 03534c01e03ef873bf77f53d19111f27
       size: 54069
   move-line-every-instance-square-plex-after-file_transcript:
@@ -1972,6 +1976,109 @@ stages:
       md5: b40b34190c1c87ca61e8e979529202f7
       size: 6763
     outs:
-    - path: ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
+    - path: 
+        ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
       md5: b40b34190c1c87ca61e8e979529202f7
       size: 6763
+  hacking-the-scope-visualizer_reconcile:
+    cmd: voice-vid reconcile data/raw/hacking-the-scope-visualizer/index.toml > data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+    deps:
+    - path: data/raw/hacking-the-scope-visualizer/index.toml
+      md5: f4480cb26fb0383f5a73774ad127c4d4
+      size: 260
+    - path: data/raw/hacking-the-scope-visualizer/recording-log
+      md5: 124fa78b83238cf6bbe8c21f457999e3.dir
+      size: 6718276
+      nfiles: 981
+    - path: data/raw/hacking-the-scope-visualizer/timeline.xml
+      md5: f71f9d4213cb26196b4d753a62ae7797
+      size: 201194
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      md5: a97012c55bef41cf3cc44945237e18a3
+      size: 94602
+  hacking-the-scope-visualizer_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml > data/processed/hacking-the-scope-visualizer/transcript.json
+    deps:
+    - path: data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      md5: a97012c55bef41cf3cc44945237e18a3
+      size: 94602
+    - path: data/raw/hacking-the-scope-visualizer/index.toml
+      md5: f4480cb26fb0383f5a73774ad127c4d4
+      size: 260
+    - path: data/raw/hacking-the-scope-visualizer/recording-log
+      md5: 124fa78b83238cf6bbe8c21f457999e3.dir
+      size: 6718276
+      nfiles: 981
+    - path: data/raw/hacking-the-scope-visualizer/timeline.xml
+      md5: f71f9d4213cb26196b4d753a62ae7797
+      size: 201194
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/hacking-the-scope-visualizer/transcript.json
+      md5: 2e9f213352764469d8b38531fb65b781
+      size: 245492
+  hacking-the-scope-visualizer_publish_transcript:
+    cmd: cp data/processed/hacking-the-scope-visualizer/transcript.json ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
+    deps:
+    - path: data/processed/hacking-the-scope-visualizer/transcript.json
+      md5: 2e9f213352764469d8b38531fb65b781
+      size: 245492
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
+      md5: 2e9f213352764469d8b38531fb65b781
+      size: 245492
+  hacking-the-scope-visualizer_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml data/processed/hacking-the-scope-visualizer/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      md5: a97012c55bef41cf3cc44945237e18a3
+      size: 94602
+    - path: data/raw/hacking-the-scope-visualizer/index.toml
+      md5: f4480cb26fb0383f5a73774ad127c4d4
+      size: 260
+    - path: data/raw/hacking-the-scope-visualizer/recording-log
+      md5: 124fa78b83238cf6bbe8c21f457999e3.dir
+      size: 6718276
+      nfiles: 981
+    - path: data/raw/hacking-the-scope-visualizer/timeline.xml
+      md5: f71f9d4213cb26196b4d753a62ae7797
+      size: 201194
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/hacking-the-scope-visualizer/mark-highlights-timeline.xml
+      md5: 126be06f6ec5e41d95cca60bb209de5e
+      size: 727369
+  hacking-the-scope-visualizer_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml > data/processed/hacking-the-scope-visualizer/subtitles.srt
+    deps:
+    - path: data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      md5: a97012c55bef41cf3cc44945237e18a3
+      size: 94602
+    - path: data/raw/hacking-the-scope-visualizer/index.toml
+      md5: f4480cb26fb0383f5a73774ad127c4d4
+      size: 260
+    - path: data/raw/hacking-the-scope-visualizer/recording-log
+      md5: 124fa78b83238cf6bbe8c21f457999e3.dir
+      size: 6718276
+      nfiles: 981
+    - path: data/raw/hacking-the-scope-visualizer/timeline.xml
+      md5: f71f9d4213cb26196b4d753a62ae7797
+      size: 201194
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/hacking-the-scope-visualizer/subtitles.srt
+      md5: 243f38dc2b14f2e78bdd6b5e83dc7b68
+      size: 18340

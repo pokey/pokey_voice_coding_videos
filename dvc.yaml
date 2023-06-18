@@ -226,7 +226,8 @@ stages:
     - data/processed/cursorless-internals-walkthrough-part-ii/transcript.json
   cursorless-internals-walkthrough-part-ii_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
-      data/raw/cursorless-internals-walkthrough-part-ii/index.toml data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
+      data/raw/cursorless-internals-walkthrough-part-ii/index.toml 
+      data/processed/cursorless-internals-walkthrough-part-ii/mark-highlights-timeline.xml
     deps:
     - data/interim/cursorless-internals-walkthrough-part-ii/reconciled.jsonl
     - data/raw/cursorless-internals-walkthrough-part-ii/index.toml
@@ -920,7 +921,8 @@ stages:
     - data/processed/move-line-every-instance-square-plex-after-file/transcript.json
   move-line-every-instance-square-plex-after-file_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
-      data/raw/move-line-every-instance-square-plex-after-file/index.toml data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
+      data/raw/move-line-every-instance-square-plex-after-file/index.toml 
+      data/processed/move-line-every-instance-square-plex-after-file/mark-highlights-timeline.xml
     deps:
     - data/interim/move-line-every-instance-square-plex-after-file/reconciled.jsonl
     - data/raw/move-line-every-instance-square-plex-after-file/index.toml
@@ -936,3 +938,51 @@ stages:
     - data/processed/move-line-every-instance-square-plex-after-file/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/move-line-every-instance-square-plex-after-file.json
+  hacking-the-scope-visualizer_reconcile:
+    cmd: voice-vid reconcile data/raw/hacking-the-scope-visualizer/index.toml > data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+    deps:
+    - data/raw/hacking-the-scope-visualizer/index.toml
+    - data/raw/hacking-the-scope-visualizer/recording-log
+    - data/raw/hacking-the-scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+  hacking-the-scope-visualizer_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml > data/processed/hacking-the-scope-visualizer/subtitles.srt
+    deps:
+    - data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+    - data/raw/hacking-the-scope-visualizer/index.toml
+    - data/raw/hacking-the-scope-visualizer/recording-log
+    - data/raw/hacking-the-scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/hacking-the-scope-visualizer/subtitles.srt
+  hacking-the-scope-visualizer_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml > data/processed/hacking-the-scope-visualizer/transcript.json
+    deps:
+    - data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+    - data/raw/hacking-the-scope-visualizer/index.toml
+    - data/raw/hacking-the-scope-visualizer/recording-log
+    - data/raw/hacking-the-scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/hacking-the-scope-visualizer/transcript.json
+  hacking-the-scope-visualizer_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+      data/raw/hacking-the-scope-visualizer/index.toml data/processed/hacking-the-scope-visualizer/mark-highlights-timeline.xml
+    deps:
+    - data/interim/hacking-the-scope-visualizer/reconciled.jsonl
+    - data/raw/hacking-the-scope-visualizer/index.toml
+    - data/raw/hacking-the-scope-visualizer/recording-log
+    - data/raw/hacking-the-scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/hacking-the-scope-visualizer/mark-highlights-timeline.xml
+  hacking-the-scope-visualizer_publish_transcript:
+    cmd: cp data/processed/hacking-the-scope-visualizer/transcript.json ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
+    deps:
+    - data/processed/hacking-the-scope-visualizer/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
