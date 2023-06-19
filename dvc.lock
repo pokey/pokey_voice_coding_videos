@@ -1984,8 +1984,8 @@ stages:
     cmd: voice-vid reconcile data/raw/hacking-the-scope-visualizer/index.toml > data/interim/hacking-the-scope-visualizer/reconciled.jsonl
     deps:
     - path: data/raw/hacking-the-scope-visualizer/index.toml
-      md5: f4480cb26fb0383f5a73774ad127c4d4
-      size: 260
+      md5: cb402e010d3561a5690e2da9d9b5f89a
+      size: 271
     - path: data/raw/hacking-the-scope-visualizer/recording-log
       md5: 124fa78b83238cf6bbe8c21f457999e3.dir
       size: 6718276
@@ -2008,8 +2008,8 @@ stages:
       md5: a97012c55bef41cf3cc44945237e18a3
       size: 94602
     - path: data/raw/hacking-the-scope-visualizer/index.toml
-      md5: f4480cb26fb0383f5a73774ad127c4d4
-      size: 260
+      md5: cb402e010d3561a5690e2da9d9b5f89a
+      size: 271
     - path: data/raw/hacking-the-scope-visualizer/recording-log
       md5: 124fa78b83238cf6bbe8c21f457999e3.dir
       size: 6718276
@@ -2022,18 +2022,18 @@ stages:
       size: 13153
     outs:
     - path: data/processed/hacking-the-scope-visualizer/transcript.json
-      md5: 2e9f213352764469d8b38531fb65b781
-      size: 245492
+      md5: 1b750dc8bf73692646f7627ee9b4c679
+      size: 245503
   hacking-the-scope-visualizer_publish_transcript:
     cmd: cp data/processed/hacking-the-scope-visualizer/transcript.json ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
     deps:
     - path: data/processed/hacking-the-scope-visualizer/transcript.json
-      md5: 2e9f213352764469d8b38531fb65b781
-      size: 245492
+      md5: 1b750dc8bf73692646f7627ee9b4c679
+      size: 245503
     outs:
     - path: ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
-      md5: 2e9f213352764469d8b38531fb65b781
-      size: 245492
+      md5: 1b750dc8bf73692646f7627ee9b4c679
+      size: 245503
   hacking-the-scope-visualizer_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/hacking-the-scope-visualizer/reconciled.jsonl
       data/raw/hacking-the-scope-visualizer/index.toml data/processed/hacking-the-scope-visualizer/mark-highlights-timeline.xml
@@ -2042,8 +2042,8 @@ stages:
       md5: a97012c55bef41cf3cc44945237e18a3
       size: 94602
     - path: data/raw/hacking-the-scope-visualizer/index.toml
-      md5: f4480cb26fb0383f5a73774ad127c4d4
-      size: 260
+      md5: cb402e010d3561a5690e2da9d9b5f89a
+      size: 271
     - path: data/raw/hacking-the-scope-visualizer/recording-log
       md5: 124fa78b83238cf6bbe8c21f457999e3.dir
       size: 6718276
@@ -2066,8 +2066,8 @@ stages:
       md5: a97012c55bef41cf3cc44945237e18a3
       size: 94602
     - path: data/raw/hacking-the-scope-visualizer/index.toml
-      md5: f4480cb26fb0383f5a73774ad127c4d4
-      size: 260
+      md5: cb402e010d3561a5690e2da9d9b5f89a
+      size: 271
     - path: data/raw/hacking-the-scope-visualizer/recording-log
       md5: 124fa78b83238cf6bbe8c21f457999e3.dir
       size: 6718276
