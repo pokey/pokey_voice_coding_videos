@@ -2086,8 +2086,8 @@ stages:
     cmd: voice-vid reconcile data/raw/scope-visualizer/index.toml > data/interim/scope-visualizer/reconciled.jsonl
     deps:
     - path: data/raw/scope-visualizer/index.toml
-      md5: 015c2af07faf701c3c99305336d54b63
-      size: 248
+      md5: aad986453fc5f21f251621db5f106b81
+      size: 259
     - path: data/raw/scope-visualizer/recording-log
       md5: e0dae6c34b6d3013b6059e20f6e56fda.dir
       size: 216251
@@ -2110,8 +2110,8 @@ stages:
       md5: 75a5f331820fb91828651949cd1279d4
       size: 4766
     - path: data/raw/scope-visualizer/index.toml
-      md5: 015c2af07faf701c3c99305336d54b63
-      size: 248
+      md5: aad986453fc5f21f251621db5f106b81
+      size: 259
     - path: data/raw/scope-visualizer/recording-log
       md5: e0dae6c34b6d3013b6059e20f6e56fda.dir
       size: 216251
@@ -2134,8 +2134,8 @@ stages:
       md5: 75a5f331820fb91828651949cd1279d4
       size: 4766
     - path: data/raw/scope-visualizer/index.toml
-      md5: 015c2af07faf701c3c99305336d54b63
-      size: 248
+      md5: aad986453fc5f21f251621db5f106b81
+      size: 259
     - path: data/raw/scope-visualizer/recording-log
       md5: e0dae6c34b6d3013b6059e20f6e56fda.dir
       size: 216251
@@ -2158,8 +2158,8 @@ stages:
       md5: 75a5f331820fb91828651949cd1279d4
       size: 4766
     - path: data/raw/scope-visualizer/index.toml
-      md5: 015c2af07faf701c3c99305336d54b63
-      size: 248
+      md5: aad986453fc5f21f251621db5f106b81
+      size: 259
     - path: data/raw/scope-visualizer/recording-log
       md5: e0dae6c34b6d3013b6059e20f6e56fda.dir
       size: 216251
@@ -2172,15 +2172,15 @@ stages:
       size: 13153
     outs:
     - path: data/processed/scope-visualizer/transcript.json
-      md5: b7077f9eb968bc49c39a12246feae778
-      size: 11067
+      md5: 3660ea6e48af68397d4ace4c866ff5bb
+      size: 11078
   scope-visualizer_publish_transcript:
     cmd: cp data/processed/scope-visualizer/transcript.json ../pokeyrule.com/src/data/videos/scope-visualizer.json
     deps:
     - path: data/processed/scope-visualizer/transcript.json
-      md5: b7077f9eb968bc49c39a12246feae778
-      size: 11067
+      md5: 3660ea6e48af68397d4ace4c866ff5bb
+      size: 11078
     outs:
     - path: ../pokeyrule.com/src/data/videos/scope-visualizer.json
-      md5: b7077f9eb968bc49c39a12246feae778
-      size: 11067
+      md5: 3660ea6e48af68397d4ace4c866ff5bb
+      size: 11078
