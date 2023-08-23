@@ -986,3 +986,51 @@ stages:
     - data/processed/hacking-the-scope-visualizer/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/hacking-the-scope-visualizer.json
+  scope-visualizer_reconcile:
+    cmd: voice-vid reconcile data/raw/scope-visualizer/index.toml > data/interim/scope-visualizer/reconciled.jsonl
+    deps:
+    - data/raw/scope-visualizer/index.toml
+    - data/raw/scope-visualizer/recording-log
+    - data/raw/scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/scope-visualizer/reconciled.jsonl
+  scope-visualizer_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/scope-visualizer/reconciled.jsonl
+      data/raw/scope-visualizer/index.toml > data/processed/scope-visualizer/subtitles.srt
+    deps:
+    - data/interim/scope-visualizer/reconciled.jsonl
+    - data/raw/scope-visualizer/index.toml
+    - data/raw/scope-visualizer/recording-log
+    - data/raw/scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/scope-visualizer/subtitles.srt
+  scope-visualizer_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/scope-visualizer/reconciled.jsonl
+      data/raw/scope-visualizer/index.toml > data/processed/scope-visualizer/transcript.json
+    deps:
+    - data/interim/scope-visualizer/reconciled.jsonl
+    - data/raw/scope-visualizer/index.toml
+    - data/raw/scope-visualizer/recording-log
+    - data/raw/scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/scope-visualizer/transcript.json
+  scope-visualizer_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/scope-visualizer/reconciled.jsonl
+      data/raw/scope-visualizer/index.toml data/processed/scope-visualizer/mark-highlights-timeline.xml
+    deps:
+    - data/interim/scope-visualizer/reconciled.jsonl
+    - data/raw/scope-visualizer/index.toml
+    - data/raw/scope-visualizer/recording-log
+    - data/raw/scope-visualizer/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/scope-visualizer/mark-highlights-timeline.xml
+  scope-visualizer_publish_transcript:
+    cmd: cp data/processed/scope-visualizer/transcript.json ../pokeyrule.com/src/data/videos/scope-visualizer.json
+    deps:
+    - data/processed/scope-visualizer/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/scope-visualizer.json
