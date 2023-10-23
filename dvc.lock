@@ -2184,3 +2184,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/scope-visualizer.json
       md5: 3660ea6e48af68397d4ace4c866ff5bb
       size: 11078
+  tiktok-coding-session_reconcile:
+    cmd: voice-vid reconcile data/raw/tiktok-coding-session/index.toml > data/interim/tiktok-coding-session/reconciled.jsonl
+    deps:
+    - path: data/raw/tiktok-coding-session/index.toml
+      md5: 11f8de69e0a21eac3d85987b6b40b18f
+      size: 253
+    - path: data/raw/tiktok-coding-session/recording-log
+      md5: cccfdc90e1068e92b7d396db1b2741da.dir
+      size: 6655601
+      nfiles: 420
+    - path: data/raw/tiktok-coding-session/timeline.xml
+      md5: 261e67ca9c5e91669f05a573b500d3e9
+      size: 13196
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/tiktok-coding-session/reconciled.jsonl
+      md5: 6a12fbe9f0c458eeae838057db7d8305
+      size: 42775
+  tiktok-coding-session_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml > data/processed/tiktok-coding-session/transcript.json
+    deps:
+    - path: data/interim/tiktok-coding-session/reconciled.jsonl
+      md5: 6a12fbe9f0c458eeae838057db7d8305
+      size: 42775
+    - path: data/raw/tiktok-coding-session/index.toml
+      md5: 11f8de69e0a21eac3d85987b6b40b18f
+      size: 253
+    - path: data/raw/tiktok-coding-session/recording-log
+      md5: cccfdc90e1068e92b7d396db1b2741da.dir
+      size: 6655601
+      nfiles: 420
+    - path: data/raw/tiktok-coding-session/timeline.xml
+      md5: 261e67ca9c5e91669f05a573b500d3e9
+      size: 13196
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session/transcript.json
+      md5: 4f2177e3e69aa46d833f2daaaa8d88d4
+      size: 119807
+  tiktok-coding-session_publish_transcript:
+    cmd: cp data/processed/tiktok-coding-session/transcript.json ../pokeyrule.com/src/data/videos/tiktok-coding-session.json
+    deps:
+    - path: data/processed/tiktok-coding-session/transcript.json
+      md5: 4f2177e3e69aa46d833f2daaaa8d88d4
+      size: 119807
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/tiktok-coding-session.json
+      md5: 4f2177e3e69aa46d833f2daaaa8d88d4
+      size: 119807
+  tiktok-coding-session_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml > data/processed/tiktok-coding-session/subtitles.srt
+    deps:
+    - path: data/interim/tiktok-coding-session/reconciled.jsonl
+      md5: 6a12fbe9f0c458eeae838057db7d8305
+      size: 42775
+    - path: data/raw/tiktok-coding-session/index.toml
+      md5: 11f8de69e0a21eac3d85987b6b40b18f
+      size: 253
+    - path: data/raw/tiktok-coding-session/recording-log
+      md5: cccfdc90e1068e92b7d396db1b2741da.dir
+      size: 6655601
+      nfiles: 420
+    - path: data/raw/tiktok-coding-session/timeline.xml
+      md5: 261e67ca9c5e91669f05a573b500d3e9
+      size: 13196
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session/subtitles.srt
+      md5: ad082fbcac2d8f782460ff7892e22c24
+      size: 8930
+  tiktok-coding-session_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml data/processed/tiktok-coding-session/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/tiktok-coding-session/reconciled.jsonl
+      md5: 6a12fbe9f0c458eeae838057db7d8305
+      size: 42775
+    - path: data/raw/tiktok-coding-session/index.toml
+      md5: 11f8de69e0a21eac3d85987b6b40b18f
+      size: 253
+    - path: data/raw/tiktok-coding-session/recording-log
+      md5: cccfdc90e1068e92b7d396db1b2741da.dir
+      size: 6655601
+      nfiles: 420
+    - path: data/raw/tiktok-coding-session/timeline.xml
+      md5: 261e67ca9c5e91669f05a573b500d3e9
+      size: 13196
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session/mark-highlights-timeline.xml
+      md5: 53dbeb977a54aa17cb3c12c000162abd
+      size: 375993

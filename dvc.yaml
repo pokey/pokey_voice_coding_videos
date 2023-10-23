@@ -1034,3 +1034,51 @@ stages:
     - data/processed/scope-visualizer/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/scope-visualizer.json
+  tiktok-coding-session_reconcile:
+    cmd: voice-vid reconcile data/raw/tiktok-coding-session/index.toml > data/interim/tiktok-coding-session/reconciled.jsonl
+    deps:
+    - data/raw/tiktok-coding-session/index.toml
+    - data/raw/tiktok-coding-session/recording-log
+    - data/raw/tiktok-coding-session/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/tiktok-coding-session/reconciled.jsonl
+  tiktok-coding-session_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml > data/processed/tiktok-coding-session/subtitles.srt
+    deps:
+    - data/interim/tiktok-coding-session/reconciled.jsonl
+    - data/raw/tiktok-coding-session/index.toml
+    - data/raw/tiktok-coding-session/recording-log
+    - data/raw/tiktok-coding-session/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session/subtitles.srt
+  tiktok-coding-session_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml > data/processed/tiktok-coding-session/transcript.json
+    deps:
+    - data/interim/tiktok-coding-session/reconciled.jsonl
+    - data/raw/tiktok-coding-session/index.toml
+    - data/raw/tiktok-coding-session/recording-log
+    - data/raw/tiktok-coding-session/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session/transcript.json
+  tiktok-coding-session_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tiktok-coding-session/reconciled.jsonl
+      data/raw/tiktok-coding-session/index.toml data/processed/tiktok-coding-session/mark-highlights-timeline.xml
+    deps:
+    - data/interim/tiktok-coding-session/reconciled.jsonl
+    - data/raw/tiktok-coding-session/index.toml
+    - data/raw/tiktok-coding-session/recording-log
+    - data/raw/tiktok-coding-session/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session/mark-highlights-timeline.xml
+  tiktok-coding-session_publish_transcript:
+    cmd: cp data/processed/tiktok-coding-session/transcript.json ../pokeyrule.com/src/data/videos/tiktok-coding-session.json
+    deps:
+    - data/processed/tiktok-coding-session/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/tiktok-coding-session.json
