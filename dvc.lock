@@ -2491,3 +2491,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/cursorless-scope-sidebar-take-iii.json
       md5: 986f96c1e4ac76d544b4225847953799
       size: 572
+  keyboard-state-machine_reconcile:
+    cmd: voice-vid reconcile data/raw/keyboard-state-machine/index.toml > data/interim/keyboard-state-machine/reconciled.jsonl
+    deps:
+    - path: data/raw/keyboard-state-machine/index.toml
+      md5: 55bd7196f94a8d8778435d132d13faf9
+      size: 254
+    - path: data/raw/keyboard-state-machine/recording-log
+      md5: f16a609221f38bc844bf4d0495085499.dir
+      size: 6142986
+      nfiles: 865
+    - path: data/raw/keyboard-state-machine/timeline.xml
+      md5: e99b4dfb5d4231c1aa19799d8c83c8bd
+      size: 28156
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/keyboard-state-machine/reconciled.jsonl
+      md5: 4a0d2ebf28fca5f9119e17706182a67c
+      size: 88465
+  keyboard-state-machine_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml > data/processed/keyboard-state-machine/transcript.json
+    deps:
+    - path: data/interim/keyboard-state-machine/reconciled.jsonl
+      md5: 4a0d2ebf28fca5f9119e17706182a67c
+      size: 88465
+    - path: data/raw/keyboard-state-machine/index.toml
+      md5: 55bd7196f94a8d8778435d132d13faf9
+      size: 254
+    - path: data/raw/keyboard-state-machine/recording-log
+      md5: f16a609221f38bc844bf4d0495085499.dir
+      size: 6142986
+      nfiles: 865
+    - path: data/raw/keyboard-state-machine/timeline.xml
+      md5: e99b4dfb5d4231c1aa19799d8c83c8bd
+      size: 28156
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-state-machine/transcript.json
+      md5: 4516934cc7bb76b3973304e43938315f
+      size: 217362
+  keyboard-state-machine_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml > data/processed/keyboard-state-machine/subtitles.srt
+    deps:
+    - path: data/interim/keyboard-state-machine/reconciled.jsonl
+      md5: 4a0d2ebf28fca5f9119e17706182a67c
+      size: 88465
+    - path: data/raw/keyboard-state-machine/index.toml
+      md5: 55bd7196f94a8d8778435d132d13faf9
+      size: 254
+    - path: data/raw/keyboard-state-machine/recording-log
+      md5: f16a609221f38bc844bf4d0495085499.dir
+      size: 6142986
+      nfiles: 865
+    - path: data/raw/keyboard-state-machine/timeline.xml
+      md5: e99b4dfb5d4231c1aa19799d8c83c8bd
+      size: 28156
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-state-machine/subtitles.srt
+      md5: e63178f59741a553ec4503617858315c
+      size: 16939
+  keyboard-state-machine_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml data/processed/keyboard-state-machine/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/keyboard-state-machine/reconciled.jsonl
+      md5: 4a0d2ebf28fca5f9119e17706182a67c
+      size: 88465
+    - path: data/raw/keyboard-state-machine/index.toml
+      md5: 55bd7196f94a8d8778435d132d13faf9
+      size: 254
+    - path: data/raw/keyboard-state-machine/recording-log
+      md5: f16a609221f38bc844bf4d0495085499.dir
+      size: 6142986
+      nfiles: 865
+    - path: data/raw/keyboard-state-machine/timeline.xml
+      md5: e99b4dfb5d4231c1aa19799d8c83c8bd
+      size: 28156
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-state-machine/mark-highlights-timeline.xml
+      md5: ddc7a3a771d60ee9ef29b2f74264de7a
+      size: 533976
+  keyboard-state-machine_publish_transcript:
+    cmd: cp data/processed/keyboard-state-machine/transcript.json ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
+    deps:
+    - path: data/processed/keyboard-state-machine/transcript.json
+      md5: 4516934cc7bb76b3973304e43938315f
+      size: 217362
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
+      md5: 4516934cc7bb76b3973304e43938315f
+      size: 217362

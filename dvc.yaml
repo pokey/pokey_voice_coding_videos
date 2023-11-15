@@ -1179,3 +1179,51 @@ stages:
     - data/processed/tiktok-coding-session-take-iv/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/tiktok-coding-session-take-iv.json
+  keyboard-state-machine_reconcile:
+    cmd: voice-vid reconcile data/raw/keyboard-state-machine/index.toml > data/interim/keyboard-state-machine/reconciled.jsonl
+    deps:
+    - data/raw/keyboard-state-machine/index.toml
+    - data/raw/keyboard-state-machine/recording-log
+    - data/raw/keyboard-state-machine/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/keyboard-state-machine/reconciled.jsonl
+  keyboard-state-machine_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml > data/processed/keyboard-state-machine/subtitles.srt
+    deps:
+    - data/interim/keyboard-state-machine/reconciled.jsonl
+    - data/raw/keyboard-state-machine/index.toml
+    - data/raw/keyboard-state-machine/recording-log
+    - data/raw/keyboard-state-machine/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-state-machine/subtitles.srt
+  keyboard-state-machine_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml > data/processed/keyboard-state-machine/transcript.json
+    deps:
+    - data/interim/keyboard-state-machine/reconciled.jsonl
+    - data/raw/keyboard-state-machine/index.toml
+    - data/raw/keyboard-state-machine/recording-log
+    - data/raw/keyboard-state-machine/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-state-machine/transcript.json
+  keyboard-state-machine_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
+      data/raw/keyboard-state-machine/index.toml data/processed/keyboard-state-machine/mark-highlights-timeline.xml
+    deps:
+    - data/interim/keyboard-state-machine/reconciled.jsonl
+    - data/raw/keyboard-state-machine/index.toml
+    - data/raw/keyboard-state-machine/recording-log
+    - data/raw/keyboard-state-machine/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-state-machine/mark-highlights-timeline.xml
+  keyboard-state-machine_publish_transcript:
+    cmd: cp data/processed/keyboard-state-machine/transcript.json ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
+    deps:
+    - data/processed/keyboard-state-machine/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
