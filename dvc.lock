@@ -2286,3 +2286,208 @@ stages:
     - path: data/processed/tiktok-coding-session/mark-highlights-timeline.xml
       md5: 53dbeb977a54aa17cb3c12c000162abd
       size: 375993
+  tiktok-coding-session-take-iv_reconcile:
+    cmd: voice-vid reconcile data/raw/tiktok-coding-session-take-iv/index.toml > data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+    deps:
+    - path: data/raw/tiktok-coding-session-take-iv/index.toml
+      md5: 75b38d359e05a3157c9e96cd0bf0c171
+      size: 233
+    - path: data/raw/tiktok-coding-session-take-iv/recording-log
+      md5: 93e04ef350cab244af2d274a3b4fa233.dir
+      size: 281362
+      nfiles: 35
+    - path: data/raw/tiktok-coding-session-take-iv/timeline.xml
+      md5: 3108de3610d049e843d5aada47d083d1
+      size: 24501
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      md5: 36d5d9b00324378f303b6b6aac4ef37a
+      size: 3187
+  tiktok-coding-session-take-iv_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml > data/processed/tiktok-coding-session-take-iv/subtitles.srt
+    deps:
+    - path: data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      md5: 36d5d9b00324378f303b6b6aac4ef37a
+      size: 3187
+    - path: data/raw/tiktok-coding-session-take-iv/index.toml
+      md5: 75b38d359e05a3157c9e96cd0bf0c171
+      size: 233
+    - path: data/raw/tiktok-coding-session-take-iv/recording-log
+      md5: 93e04ef350cab244af2d274a3b4fa233.dir
+      size: 281362
+      nfiles: 35
+    - path: data/raw/tiktok-coding-session-take-iv/timeline.xml
+      md5: 3108de3610d049e843d5aada47d083d1
+      size: 24501
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session-take-iv/subtitles.srt
+      md5: 551ce26455676a391909a3752e03a607
+      size: 626
+  cursorless-scope-sidebar-take-iii_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      > data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+    deps:
+    - path: data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      md5: 7e21508c10c4fb79daea545ad571dc59
+      size: 267
+    - path: data/raw/cursorless-scope-sidebar-take-iii/recording-log
+      md5: 2d4ed79b5465c7b32f5f91ba474d4355.dir
+      size: 47017
+      nfiles: 4
+    - path: data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+      md5: 0bc504313fbde134f87988c76fc1bc08
+      size: 24559
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      md5: 5a7015d60bfcc30647399193a2d229b1
+      size: 243
+  cursorless-scope-sidebar-take-iii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml > data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+    deps:
+    - path: data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      md5: 5a7015d60bfcc30647399193a2d229b1
+      size: 243
+    - path: data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      md5: 7e21508c10c4fb79daea545ad571dc59
+      size: 267
+    - path: data/raw/cursorless-scope-sidebar-take-iii/recording-log
+      md5: 2d4ed79b5465c7b32f5f91ba474d4355.dir
+      size: 47017
+      nfiles: 4
+    - path: data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+      md5: 0bc504313fbde134f87988c76fc1bc08
+      size: 24559
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+      md5: 986f96c1e4ac76d544b4225847953799
+      size: 572
+  cursorless-scope-sidebar-take-iii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml data/processed/cursorless-scope-sidebar-take-iii/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      md5: 5a7015d60bfcc30647399193a2d229b1
+      size: 243
+    - path: data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      md5: 7e21508c10c4fb79daea545ad571dc59
+      size: 267
+    - path: data/raw/cursorless-scope-sidebar-take-iii/recording-log
+      md5: 2d4ed79b5465c7b32f5f91ba474d4355.dir
+      size: 47017
+      nfiles: 4
+    - path: data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+      md5: 0bc504313fbde134f87988c76fc1bc08
+      size: 24559
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-scope-sidebar-take-iii/mark-highlights-timeline.xml
+      md5: 44bb24cb3b86c714ad64fdbc67b6cbc8
+      size: 2207
+  tiktok-coding-session-take-iv_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml > data/processed/tiktok-coding-session-take-iv/transcript.json
+    deps:
+    - path: data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      md5: 36d5d9b00324378f303b6b6aac4ef37a
+      size: 3187
+    - path: data/raw/tiktok-coding-session-take-iv/index.toml
+      md5: 75b38d359e05a3157c9e96cd0bf0c171
+      size: 233
+    - path: data/raw/tiktok-coding-session-take-iv/recording-log
+      md5: 93e04ef350cab244af2d274a3b4fa233.dir
+      size: 281362
+      nfiles: 35
+    - path: data/raw/tiktok-coding-session-take-iv/timeline.xml
+      md5: 3108de3610d049e843d5aada47d083d1
+      size: 24501
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session-take-iv/transcript.json
+      md5: 1a98a7762351e6ef8ec759464f9cdc91
+      size: 8374
+  tiktok-coding-session-take-iv_publish_transcript:
+    cmd: cp data/processed/tiktok-coding-session-take-iv/transcript.json ../pokeyrule.com/src/data/videos/tiktok-coding-session-take-iv.json
+    deps:
+    - path: data/processed/tiktok-coding-session-take-iv/transcript.json
+      md5: 1a98a7762351e6ef8ec759464f9cdc91
+      size: 8374
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/tiktok-coding-session-take-iv.json
+      md5: 1a98a7762351e6ef8ec759464f9cdc91
+      size: 8374
+  tiktok-coding-session-take-iv_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml data/processed/tiktok-coding-session-take-iv/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      md5: 36d5d9b00324378f303b6b6aac4ef37a
+      size: 3187
+    - path: data/raw/tiktok-coding-session-take-iv/index.toml
+      md5: 75b38d359e05a3157c9e96cd0bf0c171
+      size: 233
+    - path: data/raw/tiktok-coding-session-take-iv/recording-log
+      md5: 93e04ef350cab244af2d274a3b4fa233.dir
+      size: 281362
+      nfiles: 35
+    - path: data/raw/tiktok-coding-session-take-iv/timeline.xml
+      md5: 3108de3610d049e843d5aada47d083d1
+      size: 24501
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/tiktok-coding-session-take-iv/mark-highlights-timeline.xml
+      md5: 71e99c3dc8ed91e99885f784ba9c1a22
+      size: 25374
+  cursorless-scope-sidebar-take-iii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml > data/processed/cursorless-scope-sidebar-take-iii/subtitles.srt
+    deps:
+    - path: data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      md5: 5a7015d60bfcc30647399193a2d229b1
+      size: 243
+    - path: data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      md5: 7e21508c10c4fb79daea545ad571dc59
+      size: 267
+    - path: data/raw/cursorless-scope-sidebar-take-iii/recording-log
+      md5: 2d4ed79b5465c7b32f5f91ba474d4355.dir
+      size: 47017
+      nfiles: 4
+    - path: data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+      md5: 0bc504313fbde134f87988c76fc1bc08
+      size: 24559
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/cursorless-scope-sidebar-take-iii/subtitles.srt
+      md5: e66bc754d1c10ce4ca30652cbd4e0210
+      size: 44
+  cursorless-scope-sidebar-take-iii_publish_transcript:
+    cmd: cp data/processed/cursorless-scope-sidebar-take-iii/transcript.json ../pokeyrule.com/src/data/videos/cursorless-scope-sidebar-take-iii.json
+    deps:
+    - path: data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+      md5: 986f96c1e4ac76d544b4225847953799
+      size: 572
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/cursorless-scope-sidebar-take-iii.json
+      md5: 986f96c1e4ac76d544b4225847953799
+      size: 572

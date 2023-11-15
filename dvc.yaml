@@ -1082,3 +1082,100 @@ stages:
     - data/processed/tiktok-coding-session/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/tiktok-coding-session.json
+  cursorless-scope-sidebar-take-iii_reconcile:
+    cmd: voice-vid reconcile data/raw/cursorless-scope-sidebar-take-iii/index.toml
+      > data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+    deps:
+    - data/raw/cursorless-scope-sidebar-take-iii/index.toml
+    - data/raw/cursorless-scope-sidebar-take-iii/recording-log
+    - data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+  cursorless-scope-sidebar-take-iii_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml > data/processed/cursorless-scope-sidebar-take-iii/subtitles.srt
+    deps:
+    - data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+    - data/raw/cursorless-scope-sidebar-take-iii/index.toml
+    - data/raw/cursorless-scope-sidebar-take-iii/recording-log
+    - data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-scope-sidebar-take-iii/subtitles.srt
+  cursorless-scope-sidebar-take-iii_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml > data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+    deps:
+    - data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+    - data/raw/cursorless-scope-sidebar-take-iii/index.toml
+    - data/raw/cursorless-scope-sidebar-take-iii/recording-log
+    - data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+  cursorless-scope-sidebar-take-iii_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+      data/raw/cursorless-scope-sidebar-take-iii/index.toml data/processed/cursorless-scope-sidebar-take-iii/mark-highlights-timeline.xml
+    deps:
+    - data/interim/cursorless-scope-sidebar-take-iii/reconciled.jsonl
+    - data/raw/cursorless-scope-sidebar-take-iii/index.toml
+    - data/raw/cursorless-scope-sidebar-take-iii/recording-log
+    - data/raw/cursorless-scope-sidebar-take-iii/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/cursorless-scope-sidebar-take-iii/mark-highlights-timeline.xml
+  cursorless-scope-sidebar-take-iii_publish_transcript:
+    cmd: cp data/processed/cursorless-scope-sidebar-take-iii/transcript.json ../pokeyrule.com/src/data/videos/cursorless-scope-sidebar-take-iii.json
+    deps:
+    - data/processed/cursorless-scope-sidebar-take-iii/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/cursorless-scope-sidebar-take-iii.json
+  tiktok-coding-session-take-iv_reconcile:
+    cmd: voice-vid reconcile data/raw/tiktok-coding-session-take-iv/index.toml > data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+    deps:
+    - data/raw/tiktok-coding-session-take-iv/index.toml
+    - data/raw/tiktok-coding-session-take-iv/recording-log
+    - data/raw/tiktok-coding-session-take-iv/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+  tiktok-coding-session-take-iv_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml > data/processed/tiktok-coding-session-take-iv/subtitles.srt
+    deps:
+    - data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+    - data/raw/tiktok-coding-session-take-iv/index.toml
+    - data/raw/tiktok-coding-session-take-iv/recording-log
+    - data/raw/tiktok-coding-session-take-iv/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session-take-iv/subtitles.srt
+  tiktok-coding-session-take-iv_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml > data/processed/tiktok-coding-session-take-iv/transcript.json
+    deps:
+    - data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+    - data/raw/tiktok-coding-session-take-iv/index.toml
+    - data/raw/tiktok-coding-session-take-iv/recording-log
+    - data/raw/tiktok-coding-session-take-iv/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session-take-iv/transcript.json
+  tiktok-coding-session-take-iv_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+      data/raw/tiktok-coding-session-take-iv/index.toml data/processed/tiktok-coding-session-take-iv/mark-highlights-timeline.xml
+    deps:
+    - data/interim/tiktok-coding-session-take-iv/reconciled.jsonl
+    - data/raw/tiktok-coding-session-take-iv/index.toml
+    - data/raw/tiktok-coding-session-take-iv/recording-log
+    - data/raw/tiktok-coding-session-take-iv/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/tiktok-coding-session-take-iv/mark-highlights-timeline.xml
+  tiktok-coding-session-take-iv_publish_transcript:
+    cmd: cp data/processed/tiktok-coding-session-take-iv/transcript.json ../pokeyrule.com/src/data/videos/tiktok-coding-session-take-iv.json
+    deps:
+    - data/processed/tiktok-coding-session-take-iv/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/tiktok-coding-session-take-iv.json
