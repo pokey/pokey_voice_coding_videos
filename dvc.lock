@@ -2495,8 +2495,8 @@ stages:
     cmd: voice-vid reconcile data/raw/keyboard-state-machine/index.toml > data/interim/keyboard-state-machine/reconciled.jsonl
     deps:
     - path: data/raw/keyboard-state-machine/index.toml
-      md5: 55bd7196f94a8d8778435d132d13faf9
-      size: 254
+      md5: 59487945ec8e8edd89064b2c1070c574
+      size: 265
     - path: data/raw/keyboard-state-machine/recording-log
       md5: f16a609221f38bc844bf4d0495085499.dir
       size: 6142986
@@ -2519,8 +2519,8 @@ stages:
       md5: 4a0d2ebf28fca5f9119e17706182a67c
       size: 88465
     - path: data/raw/keyboard-state-machine/index.toml
-      md5: 55bd7196f94a8d8778435d132d13faf9
-      size: 254
+      md5: 59487945ec8e8edd89064b2c1070c574
+      size: 265
     - path: data/raw/keyboard-state-machine/recording-log
       md5: f16a609221f38bc844bf4d0495085499.dir
       size: 6142986
@@ -2533,8 +2533,8 @@ stages:
       size: 13153
     outs:
     - path: data/processed/keyboard-state-machine/transcript.json
-      md5: 4516934cc7bb76b3973304e43938315f
-      size: 217362
+      md5: af4eb109d3adeee2d581cec1eaae262f
+      size: 217373
   keyboard-state-machine_subtitles:
     cmd: voice-vid subtitles --reconciled data/interim/keyboard-state-machine/reconciled.jsonl
       data/raw/keyboard-state-machine/index.toml > data/processed/keyboard-state-machine/subtitles.srt
@@ -2543,8 +2543,8 @@ stages:
       md5: 4a0d2ebf28fca5f9119e17706182a67c
       size: 88465
     - path: data/raw/keyboard-state-machine/index.toml
-      md5: 55bd7196f94a8d8778435d132d13faf9
-      size: 254
+      md5: 59487945ec8e8edd89064b2c1070c574
+      size: 265
     - path: data/raw/keyboard-state-machine/recording-log
       md5: f16a609221f38bc844bf4d0495085499.dir
       size: 6142986
@@ -2567,8 +2567,8 @@ stages:
       md5: 4a0d2ebf28fca5f9119e17706182a67c
       size: 88465
     - path: data/raw/keyboard-state-machine/index.toml
-      md5: 55bd7196f94a8d8778435d132d13faf9
-      size: 254
+      md5: 59487945ec8e8edd89064b2c1070c574
+      size: 265
     - path: data/raw/keyboard-state-machine/recording-log
       md5: f16a609221f38bc844bf4d0495085499.dir
       size: 6142986
@@ -2587,9 +2587,9 @@ stages:
     cmd: cp data/processed/keyboard-state-machine/transcript.json ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
     deps:
     - path: data/processed/keyboard-state-machine/transcript.json
-      md5: 4516934cc7bb76b3973304e43938315f
-      size: 217362
+      md5: af4eb109d3adeee2d581cec1eaae262f
+      size: 217373
     outs:
     - path: ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
-      md5: 4516934cc7bb76b3973304e43938315f
-      size: 217362
+      md5: af4eb109d3adeee2d581cec1eaae262f
+      size: 217373
