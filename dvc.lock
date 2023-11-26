@@ -2597,8 +2597,8 @@ stages:
     cmd: voice-vid reconcile data/raw/keyboard-parser/index.toml > data/interim/keyboard-parser/reconciled.jsonl
     deps:
     - path: data/raw/keyboard-parser/index.toml
-      md5: b40ba74f60ad03b3accafd1a6cb78c72
-      size: 247
+      md5: f88ff7e493dcdbdb48593def853016f5
+      size: 258
     - path: data/raw/keyboard-parser/recording-log
       md5: 0052d678126d9f741db159258d1cf26d.dir
       size: 9775398
@@ -2621,8 +2621,8 @@ stages:
       md5: bf9de992e3cebbc999bb25ab84d4d8ce
       size: 128600
     - path: data/raw/keyboard-parser/index.toml
-      md5: b40ba74f60ad03b3accafd1a6cb78c72
-      size: 247
+      md5: f88ff7e493dcdbdb48593def853016f5
+      size: 258
     - path: data/raw/keyboard-parser/recording-log
       md5: 0052d678126d9f741db159258d1cf26d.dir
       size: 9775398
@@ -2635,18 +2635,18 @@ stages:
       size: 13153
     outs:
     - path: data/processed/keyboard-parser/transcript.json
-      md5: 448a6b14c0ed6ea883b1e5c39795f563
-      size: 304613
+      md5: 8c9fa84ba02ebefd656587c2d6ec3c9c
+      size: 304624
   keyboard-parser_publish_transcript:
     cmd: cp data/processed/keyboard-parser/transcript.json ../pokeyrule.com/src/data/videos/keyboard-parser.json
     deps:
     - path: data/processed/keyboard-parser/transcript.json
-      md5: 448a6b14c0ed6ea883b1e5c39795f563
-      size: 304613
+      md5: 8c9fa84ba02ebefd656587c2d6ec3c9c
+      size: 304624
     outs:
     - path: ../pokeyrule.com/src/data/videos/keyboard-parser.json
-      md5: 448a6b14c0ed6ea883b1e5c39795f563
-      size: 304613
+      md5: 8c9fa84ba02ebefd656587c2d6ec3c9c
+      size: 304624
   keyboard-parser_mark-highlights-track:
     cmd: voice-vid mark-highlights --reconciled data/interim/keyboard-parser/reconciled.jsonl
       data/raw/keyboard-parser/index.toml data/processed/keyboard-parser/mark-highlights-timeline.xml
@@ -2655,8 +2655,8 @@ stages:
       md5: bf9de992e3cebbc999bb25ab84d4d8ce
       size: 128600
     - path: data/raw/keyboard-parser/index.toml
-      md5: b40ba74f60ad03b3accafd1a6cb78c72
-      size: 247
+      md5: f88ff7e493dcdbdb48593def853016f5
+      size: 258
     - path: data/raw/keyboard-parser/recording-log
       md5: 0052d678126d9f741db159258d1cf26d.dir
       size: 9775398
@@ -2679,8 +2679,8 @@ stages:
       md5: bf9de992e3cebbc999bb25ab84d4d8ce
       size: 128600
     - path: data/raw/keyboard-parser/index.toml
-      md5: b40ba74f60ad03b3accafd1a6cb78c72
-      size: 247
+      md5: f88ff7e493dcdbdb48593def853016f5
+      size: 258
     - path: data/raw/keyboard-parser/recording-log
       md5: 0052d678126d9f741db159258d1cf26d.dir
       size: 9775398
