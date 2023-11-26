@@ -2593,3 +2593,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
       md5: af4eb109d3adeee2d581cec1eaae262f
       size: 217373
+  keyboard-parser_reconcile:
+    cmd: voice-vid reconcile data/raw/keyboard-parser/index.toml > data/interim/keyboard-parser/reconciled.jsonl
+    deps:
+    - path: data/raw/keyboard-parser/index.toml
+      md5: b40ba74f60ad03b3accafd1a6cb78c72
+      size: 247
+    - path: data/raw/keyboard-parser/recording-log
+      md5: 0052d678126d9f741db159258d1cf26d.dir
+      size: 9775398
+      nfiles: 1283
+    - path: data/raw/keyboard-parser/timeline.xml
+      md5: 35f8280de3eeb9a971b8d57f979db775
+      size: 26944
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/keyboard-parser/reconciled.jsonl
+      md5: bf9de992e3cebbc999bb25ab84d4d8ce
+      size: 128600
+  keyboard-parser_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml > data/processed/keyboard-parser/transcript.json
+    deps:
+    - path: data/interim/keyboard-parser/reconciled.jsonl
+      md5: bf9de992e3cebbc999bb25ab84d4d8ce
+      size: 128600
+    - path: data/raw/keyboard-parser/index.toml
+      md5: b40ba74f60ad03b3accafd1a6cb78c72
+      size: 247
+    - path: data/raw/keyboard-parser/recording-log
+      md5: 0052d678126d9f741db159258d1cf26d.dir
+      size: 9775398
+      nfiles: 1283
+    - path: data/raw/keyboard-parser/timeline.xml
+      md5: 35f8280de3eeb9a971b8d57f979db775
+      size: 26944
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-parser/transcript.json
+      md5: 448a6b14c0ed6ea883b1e5c39795f563
+      size: 304613
+  keyboard-parser_publish_transcript:
+    cmd: cp data/processed/keyboard-parser/transcript.json ../pokeyrule.com/src/data/videos/keyboard-parser.json
+    deps:
+    - path: data/processed/keyboard-parser/transcript.json
+      md5: 448a6b14c0ed6ea883b1e5c39795f563
+      size: 304613
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/keyboard-parser.json
+      md5: 448a6b14c0ed6ea883b1e5c39795f563
+      size: 304613
+  keyboard-parser_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml data/processed/keyboard-parser/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/keyboard-parser/reconciled.jsonl
+      md5: bf9de992e3cebbc999bb25ab84d4d8ce
+      size: 128600
+    - path: data/raw/keyboard-parser/index.toml
+      md5: b40ba74f60ad03b3accafd1a6cb78c72
+      size: 247
+    - path: data/raw/keyboard-parser/recording-log
+      md5: 0052d678126d9f741db159258d1cf26d.dir
+      size: 9775398
+      nfiles: 1283
+    - path: data/raw/keyboard-parser/timeline.xml
+      md5: 35f8280de3eeb9a971b8d57f979db775
+      size: 26944
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-parser/mark-highlights-timeline.xml
+      md5: d58063e3217a4529adcc391af8a9032d
+      size: 942307
+  keyboard-parser_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml > data/processed/keyboard-parser/subtitles.srt
+    deps:
+    - path: data/interim/keyboard-parser/reconciled.jsonl
+      md5: bf9de992e3cebbc999bb25ab84d4d8ce
+      size: 128600
+    - path: data/raw/keyboard-parser/index.toml
+      md5: b40ba74f60ad03b3accafd1a6cb78c72
+      size: 247
+    - path: data/raw/keyboard-parser/recording-log
+      md5: 0052d678126d9f741db159258d1cf26d.dir
+      size: 9775398
+      nfiles: 1283
+    - path: data/raw/keyboard-parser/timeline.xml
+      md5: 35f8280de3eeb9a971b8d57f979db775
+      size: 26944
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/keyboard-parser/subtitles.srt
+      md5: 6c035f73ce003fc0f4d51ec62b4074d0
+      size: 24250

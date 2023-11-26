@@ -1227,3 +1227,51 @@ stages:
     - data/processed/keyboard-state-machine/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/keyboard-state-machine.json
+  keyboard-parser_reconcile:
+    cmd: voice-vid reconcile data/raw/keyboard-parser/index.toml > data/interim/keyboard-parser/reconciled.jsonl
+    deps:
+    - data/raw/keyboard-parser/index.toml
+    - data/raw/keyboard-parser/recording-log
+    - data/raw/keyboard-parser/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/keyboard-parser/reconciled.jsonl
+  keyboard-parser_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml > data/processed/keyboard-parser/subtitles.srt
+    deps:
+    - data/interim/keyboard-parser/reconciled.jsonl
+    - data/raw/keyboard-parser/index.toml
+    - data/raw/keyboard-parser/recording-log
+    - data/raw/keyboard-parser/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-parser/subtitles.srt
+  keyboard-parser_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml > data/processed/keyboard-parser/transcript.json
+    deps:
+    - data/interim/keyboard-parser/reconciled.jsonl
+    - data/raw/keyboard-parser/index.toml
+    - data/raw/keyboard-parser/recording-log
+    - data/raw/keyboard-parser/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-parser/transcript.json
+  keyboard-parser_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/keyboard-parser/reconciled.jsonl
+      data/raw/keyboard-parser/index.toml data/processed/keyboard-parser/mark-highlights-timeline.xml
+    deps:
+    - data/interim/keyboard-parser/reconciled.jsonl
+    - data/raw/keyboard-parser/index.toml
+    - data/raw/keyboard-parser/recording-log
+    - data/raw/keyboard-parser/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/keyboard-parser/mark-highlights-timeline.xml
+  keyboard-parser_publish_transcript:
+    cmd: cp data/processed/keyboard-parser/transcript.json ../pokeyrule.com/src/data/videos/keyboard-parser.json
+    deps:
+    - data/processed/keyboard-parser/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/keyboard-parser.json
