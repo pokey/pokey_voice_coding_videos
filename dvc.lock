@@ -2695,3 +2695,105 @@ stages:
     - path: data/processed/keyboard-parser/subtitles.srt
       md5: 6c035f73ce003fc0f4d51ec62b4074d0
       size: 24250
+  source-control_reconcile:
+    cmd: voice-vid reconcile data/raw/source-control/index.toml > data/interim/source-control/reconciled.jsonl
+    deps:
+    - path: data/raw/source-control/index.toml
+      md5: 449751092c76ddf5640ad9676bcff001
+      size: 257
+    - path: data/raw/source-control/recording-log
+      md5: 3f9f9c9cb455a6752a943040f79b8df5.dir
+      size: 3183031
+      nfiles: 222
+    - path: data/raw/source-control/timeline.xml
+      md5: 877857353e1343fde10de53c1a4fd346
+      size: 48270
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/source-control/reconciled.jsonl
+      md5: 22bda1cd8e94f9b77c0c8868ee57ff1a
+      size: 23027
+  source-control_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml data/processed/source-control/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/source-control/reconciled.jsonl
+      md5: 22bda1cd8e94f9b77c0c8868ee57ff1a
+      size: 23027
+    - path: data/raw/source-control/index.toml
+      md5: 449751092c76ddf5640ad9676bcff001
+      size: 257
+    - path: data/raw/source-control/recording-log
+      md5: 3f9f9c9cb455a6752a943040f79b8df5.dir
+      size: 3183031
+      nfiles: 222
+    - path: data/raw/source-control/timeline.xml
+      md5: 877857353e1343fde10de53c1a4fd346
+      size: 48270
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/source-control/mark-highlights-timeline.xml
+      md5: 00d341277f29d8ea3197fb9244ba79ec
+      size: 82711
+  source-control_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml > data/processed/source-control/transcript.json
+    deps:
+    - path: data/interim/source-control/reconciled.jsonl
+      md5: 22bda1cd8e94f9b77c0c8868ee57ff1a
+      size: 23027
+    - path: data/raw/source-control/index.toml
+      md5: 449751092c76ddf5640ad9676bcff001
+      size: 257
+    - path: data/raw/source-control/recording-log
+      md5: 3f9f9c9cb455a6752a943040f79b8df5.dir
+      size: 3183031
+      nfiles: 222
+    - path: data/raw/source-control/timeline.xml
+      md5: 877857353e1343fde10de53c1a4fd346
+      size: 48270
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/source-control/transcript.json
+      md5: 4466593ed1d52e0a55624328c4e62191
+      size: 50894
+  source-control_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml > data/processed/source-control/subtitles.srt
+    deps:
+    - path: data/interim/source-control/reconciled.jsonl
+      md5: 22bda1cd8e94f9b77c0c8868ee57ff1a
+      size: 23027
+    - path: data/raw/source-control/index.toml
+      md5: 449751092c76ddf5640ad9676bcff001
+      size: 257
+    - path: data/raw/source-control/recording-log
+      md5: 3f9f9c9cb455a6752a943040f79b8df5.dir
+      size: 3183031
+      nfiles: 222
+    - path: data/raw/source-control/timeline.xml
+      md5: 877857353e1343fde10de53c1a4fd346
+      size: 48270
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/source-control/subtitles.srt
+      md5: 4832ae8b8c2ba992207d76d8b4bed69b
+      size: 4258
+  source-control_publish_transcript:
+    cmd: cp data/processed/source-control/transcript.json ../pokeyrule.com/src/data/videos/source-control.json
+    deps:
+    - path: data/processed/source-control/transcript.json
+      md5: 4466593ed1d52e0a55624328c4e62191
+      size: 50894
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/source-control.json
+      md5: 4466593ed1d52e0a55624328c4e62191
+      size: 50894

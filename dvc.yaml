@@ -1275,3 +1275,51 @@ stages:
     - data/processed/keyboard-parser/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/keyboard-parser.json
+  source-control_reconcile:
+    cmd: voice-vid reconcile data/raw/source-control/index.toml > data/interim/source-control/reconciled.jsonl
+    deps:
+    - data/raw/source-control/index.toml
+    - data/raw/source-control/recording-log
+    - data/raw/source-control/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/source-control/reconciled.jsonl
+  source-control_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml > data/processed/source-control/subtitles.srt
+    deps:
+    - data/interim/source-control/reconciled.jsonl
+    - data/raw/source-control/index.toml
+    - data/raw/source-control/recording-log
+    - data/raw/source-control/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/source-control/subtitles.srt
+  source-control_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml > data/processed/source-control/transcript.json
+    deps:
+    - data/interim/source-control/reconciled.jsonl
+    - data/raw/source-control/index.toml
+    - data/raw/source-control/recording-log
+    - data/raw/source-control/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/source-control/transcript.json
+  source-control_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/source-control/reconciled.jsonl
+      data/raw/source-control/index.toml data/processed/source-control/mark-highlights-timeline.xml
+    deps:
+    - data/interim/source-control/reconciled.jsonl
+    - data/raw/source-control/index.toml
+    - data/raw/source-control/recording-log
+    - data/raw/source-control/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/source-control/mark-highlights-timeline.xml
+  source-control_publish_transcript:
+    cmd: cp data/processed/source-control/transcript.json ../pokeyrule.com/src/data/videos/source-control.json
+    deps:
+    - data/processed/source-control/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/source-control.json
