@@ -2899,3 +2899,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/short-block.json
       md5: ec10bd87e269577db160e70277f8457b
       size: 3482
+  interactive-tutorial_reconcile:
+    cmd: voice-vid reconcile data/raw/interactive-tutorial/index.toml > data/interim/interactive-tutorial/reconciled.jsonl
+    deps:
+    - path: data/raw/interactive-tutorial/index.toml
+      md5: d9c50227089130348fd781fa90a00d24
+      size: 263
+    - path: data/raw/interactive-tutorial/recording-log
+      md5: ae1696595abc544acd57c446b9516e6c.dir
+      size: 29738
+      nfiles: 18
+    - path: data/raw/interactive-tutorial/timeline.xml
+      md5: e872538bfe84b9ac419e9e62440872a1
+      size: 26250
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/interactive-tutorial/reconciled.jsonl
+      md5: 59ff779f121cbe1c13f76a67400e0114
+      size: 2409
+  interactive-tutorial_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml > data/processed/interactive-tutorial/subtitles.srt
+    deps:
+    - path: data/interim/interactive-tutorial/reconciled.jsonl
+      md5: 59ff779f121cbe1c13f76a67400e0114
+      size: 2409
+    - path: data/raw/interactive-tutorial/index.toml
+      md5: d9c50227089130348fd781fa90a00d24
+      size: 263
+    - path: data/raw/interactive-tutorial/recording-log
+      md5: ae1696595abc544acd57c446b9516e6c.dir
+      size: 29738
+      nfiles: 18
+    - path: data/raw/interactive-tutorial/timeline.xml
+      md5: e872538bfe84b9ac419e9e62440872a1
+      size: 26250
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/interactive-tutorial/subtitles.srt
+      md5: 23b72d6aca1f79b2eb3dc42105333389
+      size: 422
+  interactive-tutorial_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml > data/processed/interactive-tutorial/transcript.json
+    deps:
+    - path: data/interim/interactive-tutorial/reconciled.jsonl
+      md5: 59ff779f121cbe1c13f76a67400e0114
+      size: 2409
+    - path: data/raw/interactive-tutorial/index.toml
+      md5: d9c50227089130348fd781fa90a00d24
+      size: 263
+    - path: data/raw/interactive-tutorial/recording-log
+      md5: ae1696595abc544acd57c446b9516e6c.dir
+      size: 29738
+      nfiles: 18
+    - path: data/raw/interactive-tutorial/timeline.xml
+      md5: e872538bfe84b9ac419e9e62440872a1
+      size: 26250
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/interactive-tutorial/transcript.json
+      md5: 7595e11d8aa3825bdc2685f282c26d75
+      size: 5136
+  interactive-tutorial_publish_transcript:
+    cmd: cp data/processed/interactive-tutorial/transcript.json ../pokeyrule.com/src/data/videos/interactive-tutorial.json
+    deps:
+    - path: data/processed/interactive-tutorial/transcript.json
+      md5: 7595e11d8aa3825bdc2685f282c26d75
+      size: 5136
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/interactive-tutorial.json
+      md5: 7595e11d8aa3825bdc2685f282c26d75
+      size: 5136
+  interactive-tutorial_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml data/processed/interactive-tutorial/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/interactive-tutorial/reconciled.jsonl
+      md5: 59ff779f121cbe1c13f76a67400e0114
+      size: 2409
+    - path: data/raw/interactive-tutorial/index.toml
+      md5: d9c50227089130348fd781fa90a00d24
+      size: 263
+    - path: data/raw/interactive-tutorial/recording-log
+      md5: ae1696595abc544acd57c446b9516e6c.dir
+      size: 29738
+      nfiles: 18
+    - path: data/raw/interactive-tutorial/timeline.xml
+      md5: e872538bfe84b9ac419e9e62440872a1
+      size: 26250
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/interactive-tutorial/mark-highlights-timeline.xml
+      md5: bbfbcefa22bd46c24801f2367fb42c5c
+      size: 18314

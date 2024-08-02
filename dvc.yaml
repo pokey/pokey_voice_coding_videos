@@ -1371,3 +1371,51 @@ stages:
     - data/processed/short-block/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/short-block.json
+  interactive-tutorial_reconcile:
+    cmd: voice-vid reconcile data/raw/interactive-tutorial/index.toml > data/interim/interactive-tutorial/reconciled.jsonl
+    deps:
+    - data/raw/interactive-tutorial/index.toml
+    - data/raw/interactive-tutorial/recording-log
+    - data/raw/interactive-tutorial/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/interactive-tutorial/reconciled.jsonl
+  interactive-tutorial_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml > data/processed/interactive-tutorial/subtitles.srt
+    deps:
+    - data/interim/interactive-tutorial/reconciled.jsonl
+    - data/raw/interactive-tutorial/index.toml
+    - data/raw/interactive-tutorial/recording-log
+    - data/raw/interactive-tutorial/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/interactive-tutorial/subtitles.srt
+  interactive-tutorial_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml > data/processed/interactive-tutorial/transcript.json
+    deps:
+    - data/interim/interactive-tutorial/reconciled.jsonl
+    - data/raw/interactive-tutorial/index.toml
+    - data/raw/interactive-tutorial/recording-log
+    - data/raw/interactive-tutorial/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/interactive-tutorial/transcript.json
+  interactive-tutorial_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/interactive-tutorial/reconciled.jsonl
+      data/raw/interactive-tutorial/index.toml data/processed/interactive-tutorial/mark-highlights-timeline.xml
+    deps:
+    - data/interim/interactive-tutorial/reconciled.jsonl
+    - data/raw/interactive-tutorial/index.toml
+    - data/raw/interactive-tutorial/recording-log
+    - data/raw/interactive-tutorial/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/interactive-tutorial/mark-highlights-timeline.xml
+  interactive-tutorial_publish_transcript:
+    cmd: cp data/processed/interactive-tutorial/transcript.json ../pokeyrule.com/src/data/videos/interactive-tutorial.json
+    deps:
+    - data/processed/interactive-tutorial/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/interactive-tutorial.json
