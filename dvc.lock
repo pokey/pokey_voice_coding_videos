@@ -2797,3 +2797,105 @@ stages:
     - path: ../pokeyrule.com/src/data/videos/source-control.json
       md5: 4466593ed1d52e0a55624328c4e62191
       size: 50894
+  short-block_reconcile:
+    cmd: voice-vid reconcile data/raw/short-block/index.toml > data/interim/short-block/reconciled.jsonl
+    deps:
+    - path: data/raw/short-block/index.toml
+      md5: 27506e97312f34c35766c638398da022
+      size: 254
+    - path: data/raw/short-block/recording-log
+      md5: 868183d7c4bc0f6fec4949211debff01.dir
+      size: 36723
+      nfiles: 18
+    - path: data/raw/short-block/timeline.xml
+      md5: a023ac46dab8cb2670da050a2f2b9b17
+      size: 24516
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/interim/short-block/reconciled.jsonl
+      md5: 43f004919ed110b553e17e8be1dabb1c
+      size: 1595
+  short-block_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml data/processed/short-block/mark-highlights-timeline.xml
+    deps:
+    - path: data/interim/short-block/reconciled.jsonl
+      md5: 43f004919ed110b553e17e8be1dabb1c
+      size: 1595
+    - path: data/raw/short-block/index.toml
+      md5: 27506e97312f34c35766c638398da022
+      size: 254
+    - path: data/raw/short-block/recording-log
+      md5: 868183d7c4bc0f6fec4949211debff01.dir
+      size: 36723
+      nfiles: 18
+    - path: data/raw/short-block/timeline.xml
+      md5: a023ac46dab8cb2670da050a2f2b9b17
+      size: 24516
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/short-block/mark-highlights-timeline.xml
+      md5: e7f34e544a6aad04dca9b5ba08779e28
+      size: 11150
+  short-block_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml > data/processed/short-block/subtitles.srt
+    deps:
+    - path: data/interim/short-block/reconciled.jsonl
+      md5: 43f004919ed110b553e17e8be1dabb1c
+      size: 1595
+    - path: data/raw/short-block/index.toml
+      md5: 27506e97312f34c35766c638398da022
+      size: 254
+    - path: data/raw/short-block/recording-log
+      md5: 868183d7c4bc0f6fec4949211debff01.dir
+      size: 36723
+      nfiles: 18
+    - path: data/raw/short-block/timeline.xml
+      md5: a023ac46dab8cb2670da050a2f2b9b17
+      size: 24516
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/short-block/subtitles.srt
+      md5: 7c5cbb132e2b1b02ac440f5053d2cc87
+      size: 269
+  short-block_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml > data/processed/short-block/transcript.json
+    deps:
+    - path: data/interim/short-block/reconciled.jsonl
+      md5: 43f004919ed110b553e17e8be1dabb1c
+      size: 1595
+    - path: data/raw/short-block/index.toml
+      md5: 27506e97312f34c35766c638398da022
+      size: 254
+    - path: data/raw/short-block/recording-log
+      md5: 868183d7c4bc0f6fec4949211debff01.dir
+      size: 36723
+      nfiles: 18
+    - path: data/raw/short-block/timeline.xml
+      md5: a023ac46dab8cb2670da050a2f2b9b17
+      size: 24516
+    - path: poetry.lock
+      md5: 4e1e3a9c08eaf5a03e498884e964a937
+      size: 13153
+    outs:
+    - path: data/processed/short-block/transcript.json
+      md5: ec10bd87e269577db160e70277f8457b
+      size: 3482
+  short-block_publish_transcript:
+    cmd: cp data/processed/short-block/transcript.json ../pokeyrule.com/src/data/videos/short-block.json
+    deps:
+    - path: data/processed/short-block/transcript.json
+      md5: ec10bd87e269577db160e70277f8457b
+      size: 3482
+    outs:
+    - path: ../pokeyrule.com/src/data/videos/short-block.json
+      md5: ec10bd87e269577db160e70277f8457b
+      size: 3482

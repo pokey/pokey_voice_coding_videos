@@ -1323,3 +1323,51 @@ stages:
     - data/processed/source-control/transcript.json
     outs:
     - ../pokeyrule.com/src/data/videos/source-control.json
+  short-block_reconcile:
+    cmd: voice-vid reconcile data/raw/short-block/index.toml > data/interim/short-block/reconciled.jsonl
+    deps:
+    - data/raw/short-block/index.toml
+    - data/raw/short-block/recording-log
+    - data/raw/short-block/timeline.xml
+    - poetry.lock
+    outs:
+    - data/interim/short-block/reconciled.jsonl
+  short-block_subtitles:
+    cmd: voice-vid subtitles --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml > data/processed/short-block/subtitles.srt
+    deps:
+    - data/interim/short-block/reconciled.jsonl
+    - data/raw/short-block/index.toml
+    - data/raw/short-block/recording-log
+    - data/raw/short-block/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/short-block/subtitles.srt
+  short-block_transcript:
+    cmd: voice-vid transcript --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml > data/processed/short-block/transcript.json
+    deps:
+    - data/interim/short-block/reconciled.jsonl
+    - data/raw/short-block/index.toml
+    - data/raw/short-block/recording-log
+    - data/raw/short-block/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/short-block/transcript.json
+  short-block_mark-highlights-track:
+    cmd: voice-vid mark-highlights --reconciled data/interim/short-block/reconciled.jsonl
+      data/raw/short-block/index.toml data/processed/short-block/mark-highlights-timeline.xml
+    deps:
+    - data/interim/short-block/reconciled.jsonl
+    - data/raw/short-block/index.toml
+    - data/raw/short-block/recording-log
+    - data/raw/short-block/timeline.xml
+    - poetry.lock
+    outs:
+    - data/processed/short-block/mark-highlights-timeline.xml
+  short-block_publish_transcript:
+    cmd: cp data/processed/short-block/transcript.json ../pokeyrule.com/src/data/videos/short-block.json
+    deps:
+    - data/processed/short-block/transcript.json
+    outs:
+    - ../pokeyrule.com/src/data/videos/short-block.json
